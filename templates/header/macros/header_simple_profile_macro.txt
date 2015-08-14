@@ -1,0 +1,20 @@
+<% registerMacro('headerSimpleProfile', function (Profile) { %>
+<% if (Profile.get('isLoggedIn') === 'T' &&  Profile.get('isGuest') === 'F') { %>
+	<li class="welcome"><a><%= _('Welcome $(0)').translate(Profile.get('firstname') || Profile.get('companyname'))  %></a></li>
+	<li class="my-account-title">
+		<a href="#" data-touchpoint="customercenter">
+			<%= _('Your Account').translate() %>
+		</a>
+	</li>
+	<li class="divider-vertical"></li>
+	<li class="logout">
+		<a href="#" data-touchpoint="logout">
+			<%= _('Sign Out').translate() %>
+		</a>
+	</li>	
+<% } else { %>
+	<li><a href="#" data-touchpoint="login"><%= _('Login').translate() %></a></li>
+	<li class="divider-vertical"></li>
+	<li><a href="#" data-touchpoint="register"><%= _('Register').translate() %></a></li>
+<% } %>
+<% }) %>

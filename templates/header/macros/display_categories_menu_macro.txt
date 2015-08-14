@@ -1,0 +1,12 @@
+<% registerMacro('displayCategoriesMenu', function (item, is_top) {
+	if (!item.data)
+	{
+		item.data = {};
+	}
+	// we want all navbar links to preserve current url option 'display'
+	//item.data['keep-options'] = 'display';
+	%>
+	<li class="dropdown-submenu">
+			a
+	</li>
+<% }) %>

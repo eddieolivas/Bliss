@@ -1,0 +1,42 @@
+<% registerMacro('navigationTabs', function (item, is_top) {
+	if (!item.data)
+	{
+		item.data = {};
+	}
+	// we want all navbar links to preserve current url option 'display'
+	item.data['keep-options'] = 'display';
+	%>
+<% if (item.categories && item.categories.length) {
+	%>
+	<% if (is_top) { %>
+		<li class="dropdown">
+			<a <%= _.objectToAtrributes(item) %>>
+				<%= item.text %>
+				<b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+				<% _.each(item.categories, function (sub) { %>
+					<%= SC.macros.navigationTabs(sub) %>
+				<% }) %>
+			</ul>
+		</li>
+	<% } else { %>
+		<li class="dropdown-submenu">
+			<a <%= _.objectToAtrributes(item) %>>
+				<%= item.text %>
+			</a>
+			<ul class="dropdown-menu">
+				<% _.each(item.categories, function (sub) { %>
+					<%= SC.macros.navigationTabs(sub) %>
+				<% }) %>
+			</ul>
+		</li>
+	<% } %>
+<% } else { %>
+<li>
+	<a <%= _.objectToAtrributes(item) %>>
+		<%= item.text %>
+	</a>
+</li>
+<% } %>
+<% }) %>

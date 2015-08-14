@@ -1,0 +1,57 @@
+<%
+    var carousel_images = view.config && view.config.carouselImages
+    ,   bottom_banner_images = view.config && view.config.bottomBannerImages;
+%>
+
+<!-- Top header banner -->
+<section class="home-page-banner-top">
+    <%= _('Use promo code $(0) for $(1) off your purchase').translate('<span class="highlight">SCADEMO</span>', '<span class="highlight">30%</span>') %>
+</section>
+
+<!--Main Banner / Corousel / Slider-->
+<section class="home-page-main">
+    <!--Bootstrap default carousel-->
+    <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators"> 
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            <% carousel_images && _(carousel_images).each(function(src, index){ %>  
+                <div class="item <%= index === 0 ? 'active' : '' %>">
+                    <img src=<%= src %> alt >
+                </div>
+            <% }) %>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" data-slide="next">&rsaquo;</a>   
+    </div>
+</section>
+
+<!--Banner / Promo-->
+<section class="home-page-banner-bottom">
+    <div class="row">
+        <% bottom_banner_images && _(bottom_banner_images).each(function(src) { %>
+            <div class="span4">
+                <img src=<%= src %> alt >
+            </div>
+        <% }) %>
+    </div>
+</section>
+
+<!--Merchandising zone-->
+<section class="home-page-merchandising">
+    <div data-id="your-merchandising-zone" data-type="merchandising-zone"></div>
+</section>
+<p>Ron's test 23455666</p>
+<button class="eddie-test">Click This Test Button</button>
+<script>
+jQuery(document).ready( function() {
+   jQuery('.eddie-test').on('click', function() {
+      alert('You clicked the Ron\'s test button!');
+   });
+});
+</script>

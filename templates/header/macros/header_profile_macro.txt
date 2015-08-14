@@ -1,0 +1,144 @@
+<% registerMacro('headerProfile', function (application) { %>
+<% var Profile = application.getUser(); %>
+<% if (Profile.get('isLoggedIn') === 'T' && Profile.get('isGuest') === 'F') { %>
+	<li class="welcome"><a><i class="icon-user icon-white"></i>&nbsp;<%- _('Welcome $(0)').translate(Profile.get('firstname') || Profile.get('companyname')) %></a></li>
+	<li id="my-account-container" class="dropdown my-account-container">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-touchpoint="customercenter" data-navigation="ignore-click">
+			<span class="my-account-title"><%= _('Your Account').translate() %></span>
+			<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<li class="my-account-item-cell hidden-phone">
+				<a href="#" data-touchpoint="customercenter" data-hashtag="#overview">
+					<%= _('Overview').translate() %>
+				</a>
+			</li>
+
+			<!-- Orders -->
+			<li class="my-account-item-cell dropdown-submenu" data-permissions="transactions.tranFind.1,transactions.tranSalesOrd.1">
+				<a tabindex="-1" href="#"><%= _('Orders').translate() %></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="#" data-touchpoint="customercenter" data-hashtag="#ordershistory">
+							<%= _('Order History').translate() %>
+						</a>
+					</li>
+					<li>
+						<a href="#" data-touchpoint="customercenter" data-hashtag="#returns" data-permissions="transactions.tranFind.1,transactions.tranRtnAuth.1">
+							<%= _('Returns').translate() %>
+						</a>
+					</li>
+					<li>
+						<a href="#" data-touchpoint="customercenter" data-hashtag="#receiptshistory">
+							<%= _('Receipts').translate() %>
+						</a>
+					</li>
+					<li>
+						<a href="#" data-touchpoint="customercenter" data-hashtag="#reorderItems">
+							<%= _('Reorder Items').translate() %>
+						</a>
+					</li>
+					<li data-permissions="transactions.tranFind.1,transactions.tranEstimate.1">
+						<a href="#" data-touchpoint="customercenter" data-hashtag="#quotes">
+							<%= _('Quotes').translate() %>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<!-- Product Lists - For single list mode data-hashtag will be added dynamically -->
+			<% if (application.ProductListModule && application.ProductListModule.isProductListEnabled()) { %>
+				<% if (application.ProductListModule.isSingleList()) { %>
+					<li class="my-account-item-cell">
+						<a href="#" data-touchpoint="customercenter" class="header-profile-single-productlist">
+							<%= _('Loading list...').translate() %>
+						</a>
+					</li>
+				<% } else { %>
+					<li class="my-account-item-cell">
+						<a href="#" data-touchpoint="customercenter" data-hashtag="#productlists">
+							<%= _('Product Lists').translate() %>
+						</a>
+					</li>
+				<% } %>
+			<% } %>
+
+			<!-- Billing -->
+			<li class="my-account-item-cell dropdown-submenu">
+				<a tabindex="-1" href="#"><%= _('Billing').translate() %></a>
+				<ul class="dropdown-menu">
+					<li><a tabindex="-1" href="#" data-touchpoint="customercenter" data-hashtag="#balance"><%= _('Account Balance').translate() %></a></li>
+					<li><a tabindex="-1" href="#" data-touchpoint="customercenter" data-hashtag="#invoices" data-permissions="transactions.tranCustInvc.1,transactions.tranSalesOrd.1"><%= _('Invoices').translate() %></a></li>
+					<li><a tabindex="-1" href="#" data-touchpoint="customercenter" data-hashtag="#transactionhistory" data-permissions="transactions.tranCustInvc.1, transactions.tranCustCred.1, transactions.tranCustPymt.1, transactions.tranCustDep.1, transactions.tranDepAppl.1" data-permissions-operator="OR"><%= _('Transaction History').translate() %></a></li>
+					<li><a tabindex="-1" href="#" data-touchpoint="customercenter" data-hashtag="#printstatement" data-permissions="transactions.tranStatement.2"><%= _('Print a Statement').translate() %></a></li>
+				</ul>
+			</li>
+
+			<!-- Settings -->
+			<li class="my-account-item-cell dropdown-submenu">
+				<a tabindex="-1" href="#"><%= _('Settings').translate() %></a>
+				<ul class="dropdown-menu">
+
+					<li>
+						<a href="#" data-touchpoint="customercenter" data-hashtag="#profileinformation">
+							<%= _('Profile Information').translate() %>
+						</a>
+					</li>
+					<li>
+						<a href="#" data-touchpoint="customercenter" data-hashtag="#emailpreferences">
+							<%= _('Email Preferences').translate() %>
+						</a>
+					</li>
+					<li>
+						<a href="#" data-touchpoint="customercenter" data-hashtag="#addressbook">
+							<%= _('Address Book').translate() %>
+						</a>
+					</li>
+					<li>
+						<a href="#" data-touchpoint="customercenter" data-hashtag="#creditcards">
+							<%= _('Credit Cards').translate() %>
+						</a>
+					</li>
+					<li>
+						<a href="#" data-touchpoint="customercenter" data-hashtag="#updateyourpassword">
+							<%= _('Update Your Password').translate() %>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<% if (application.CaseModule && application.CaseModule.isEnabled()) { %>
+			<li class="my-account-item-cell dropdown-submenu" data-permissions="lists.listCase.1">
+				<a tabindex="-1" href="#"><%= _('Cases').translate() %></a>
+				<ul class="dropdown-menu">
+					<li><a tabindex="-1" href="#" data-touchpoint="customercenter" data-hashtag="#cases" ><%= _('All My Cases').translate() %></a></li>
+					<li><a tabindex="-1" href="#" data-touchpoint="customercenter" data-hashtag="#newcase"><%= _('Submit New Case').translate() %></a></li>
+				</ul>
+			</li>
+			<% } %>
+
+			<li class="divider"></li>
+			<li class="my-account-item-cell">
+				<a href="#" data-touchpoint="logout">
+					<%= _('Sign Out').translate() %>
+				</a>
+			</li>
+		</ul>
+	</li>
+<% } else { %>
+	<% if (application.getConfig('performance.waitForUserProfile') || application.getUserPromise().state() === 'resolved') { %>
+		<li><a href="#" data-touchpoint="login" data-hashtag="login-register"><%= _('Login').translate() %></a></li>
+		<li><a href="#" data-touchpoint="register" data-hashtag="login-register"><%= _('Register').translate() %></a></li>
+	<% } else { %>
+		<li>
+			<a class="dropdown-toggle">
+				<i class="icon-user icon-white"></i>
+				<span class="user_ellipsis"></span>
+			</a>
+		</li>
+		<script>
+			_.ellipsis('.user_ellipsis');
+		</script>
+	<% } %>
+<% } %>
+<% }) %>

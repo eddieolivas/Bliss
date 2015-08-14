@@ -1,0 +1,98 @@
+<% registerMacro('header', function (view) { %>
+<%
+	var application = view.application
+	,	cart = application.getCart()
+	,	macros = SC.macros
+	,	profile = macros[application.getConfig('profileMacro')](application)
+	,	has_cart_router = application.modulesMountToAppResult.Cart instanceof application.modules.Cart.Router
+	,	current_touchpoint = application.Configuration.currentTouchpoint
+	,	is_loading = cart.application.cartInstance.isLoading;
+%>
+	<%= macros.headerTopNav(view) %>
+	<div class="container">
+		<!-- MOBILE -->
+		<div class="navbar navbar-inverse mobile-nav">
+			<div class="navbar-inner">
+				<div class="container">
+					<ul class="nav pull-right">
+						<li id="top-phone-number"><a href="tel:866-312-5610">(866) 312-5610</a></li>
+						<%= macros[application.getConfig('profileMacro')](application) %>
+						<li>
+							<a href="#" data-touchpoint="<%= has_cart_router ? current_touchpoint : 'viewcart' %>" data-hashtag="#cart" class="mini-cart-summary">
+								<%= macros.miniCartSummary(cart.getTotalItemCount(), is_loading) %>
+							</a>
+						</li>
+					</ul>
+					<div class="cbar_banner" id="cbar_banner_942829388" rule_id="5377" style="z-index: 1000000000; width: auto; height: auto; float:left; display: block; margin: 0; position: relative; visibility: visible;">
+						<img src="//s3.amazonaws.com/userimages.barilliance.com/b/59822_bhd_firsttimevisitor_homepage_banner_03_021114.jpg" style="border:none; ">
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- /MOBILE -->
+		<div data-type="message-placeholder"></div>
+		<div class="row-fluid site-branding">
+			<div class="span6">
+
+
+                <%= macros.siteLogo(application) %>
+			</div>
+			<div class="span6 header-banner">
+				<div id="banner-header-top" class="content-banner banner-header-top" data-cms-area="header_banner" data-cms-area-filters="global"></div>
+				&nbsp;
+			</div>
+			<div class="col-lg-3 col-sm-12 social_icons">
+				<ul class="flags" style="/*width:225px;*/ color:#ffffff; float:left; padding:0;">
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px;"><a target="_blank" href="http://www.facebook.com/BlissHomeAndDesign"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Facebook_HeaderSiteButton26x26.png" width="26" height="26" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px"><a target="_blank" href="http://instagram.com/blisshomeanddesign"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Instagram_HeaderSiteButton26x26.png" width="26" height="26" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px"><a target="_blank" href="http://pinterest.com/blisshomedesign/"><img style="padding:0 0 0 0; float:left;" src="/site/Bliss_home/new_design/Pinterest_HeaderSiteButton26x26.png" width="26" height="26" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px"><a target="_blank" href="http://twitter.com/BlissHomeDesign"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Twitter_HeaderSiteButton26x26.png" width="26" height="26" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px"><a target="_blank" href="https://plus.google.com/b/108114032974613439233/108114032974613439233/posts"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/GooglePlus_HeaderSiteButton26x26.png" width="26" height="26" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px"><a target="_blank" href="http://www.houzz.com/pro/blisshomeanddesign/bliss-home-and-design"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Houzz_HeaderSiteButton26x26.png" width="26" height="26" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px"><a target="_blank" href="http://blog.blisshomeanddesign.com/"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/BBDBlog_HeaderSiteButton26x26.png" width="26" height="26" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left;"><a target="_blank" href="http://blisshomeanddesign.polyvore.com/"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Polyvore_HeaderSiteButton26x26.png" width="26" height="26" border="0"></a></li>
+				</ul>
+			</div>
+			<div id="site-search-container" class="span3 site-search-container">
+				<%= macros.siteSearch('keywords', view) %>
+			</div>
+		</div>
+		
+		<div class="pull-left mobile-nav-button">
+			<div class="mobile-nav-container">
+				<a href="#" class="btn btn-navbar" data-toggle="collapse" data-target=".main-nav">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="mobile-nav-title">Navigation</span>
+				</a>
+			</div>
+			
+		</div>
+		
+		<nav class="navbar collapse visible-phone main-nav site-header-main-nav">
+			<div class="navbar-inner">
+				<ul class="nav">
+				<% _.each(application.getConfig('navigationTabs', []), function (item) { %>
+					<%= macros.navigationTabs(item, true) %>
+				<% }) %>
+				</ul>
+				<ul class="nav mobile-profile">
+					<%= profile %>
+				</ul>
+			</div>
+		</nav>
+
+		<nav class="navbar hidden-phone main-nav site-header-main-nav">
+			<div class="navbar-inner">
+				<ul class="nav">
+				<% _.each(application.getConfig('navigationTabs', []), function (item) { %>
+					<%= macros.navigationTabs(item, true) %>
+				<% }) %>
+				</ul>
+			</div>
+		</nav>
+		<div id="banner-header-bottom"  class="content-banner banner-header-bottom"></div>
+	</div>
+<% }) %>

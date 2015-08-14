@@ -1,0 +1,85 @@
+<% registerMacro('miniCart', function (cart, application) { %>
+<%
+	var lines = cart.get('lines')
+	,	has_cart_router = application.modulesMountToAppResult.Cart instanceof application.modules.Cart.Router
+	,	current_touchpoint = application.Configuration.currentTouchpoint
+	,	total_items = _.reduce(lines.pluck('quantity'), function (memo, quantity) {
+			return memo + (parseFloat(quantity) || 1);
+		}, 0)
+	,	is_loading = application.cartInstance.isLoading;
+%>
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	<%= SC.macros.miniCartSummary(total_items, is_loading) %>
+	<b class="caret"></b>
+</a>
+<div class="dropdown-menu">
+<% if (lines.length) { %>
+	<ul class="cart-summary-items mini-cart-items">
+		<% var thumbnail = '', item = null; %>
+		<% lines.each(function (line) { %>
+			<%
+				item = line.get('item');
+				thumbnail = item.get('_thumbnail');
+			%>
+			<li class="cart-summary-item-cell mini-cart-item-cell" data-item="<%= item.get('internalid') %>">
+				<a href="#" class="row-fluid" data-touchpoint="home" data-hashtag="#<%= _(item.get('_url') + item.getQueryStringWithQuantity(1)).fixUrl() %>">
+					<div class="span3 thumbnail mini-cart-item-thumbnail">						
+						<img src="<%- application.resizeImage(thumbnail.url, 'tinythumb') %>" alt="<%- thumbnail.altimagetext %>">						
+					</div>
+					<div class="span9 mini-cart-item-details">
+						<div>
+							<strong><%= item.get('_name') %></strong>
+						</div>
+						<!-- Renders the selected options for the item -->
+						<%= item.renderAllOptionSelected() %>
+						<div class="quantity">
+							<%= _('Quantity: $(0)').translate( line.get('quantity') ) %>
+						</div>
+						<div class="price">
+							<%= _('Price: $(0)').translate( line.get('total_formatted') ) %>
+						</div>
+					</div>
+				</a>
+			</li>
+		<% }) %>
+	</ul>
+	<ul class="summary">
+		<li class="mini-cart-summary-container">
+			<p class="mini-cart-summary">
+				<span class="pull-right mini-cart-subtotal">
+					<%= _('Subtotal: <b>$(0)</b>').translate(cart.get('summary') && cart.get('summary').subtotal_formatted) %>
+				</span>
+				<span class="item-count">
+				<% if ( total_items !== 1 ) { %>
+					<%= _('$(0) items').translate( total_items ) %>
+				<% } else { %>
+					<%= _('1 item').translate() %>
+				<% } %>
+				</span>
+			</p>
+			<div class="mini-cart-actions">
+				<a href="#" href="#" data-touchpoint="checkout" data-hashtag="#" class="btn btn-primary btn-checkout">
+					<%= _('Checkout').translate() %>
+				</a>
+				<a href="/cart" data-touchpoint="<%= has_cart_router ? current_touchpoint : 'viewcart' %>" data-hashtag="#cart" class="btn btn-view-cart">
+					<%= _('View Cart').translate() %>
+				</a>
+			</div>
+			<div id="mini-cart-bottom-banner" class="mini-cart-bottom-banner"></div>
+		</li>
+	</ul>
+<% } else { %>
+	<ul class="items mini-cart-empty">
+		<li>
+			<a href="#" data-touchpoint="<%= has_cart_router ? current_touchpoint : 'viewcart' %>" data-hashtag="#cart">
+				<% if(is_loading) { %>
+				<%= _('Your cart is loading').translate() %>
+				<% } else {%>
+				<%= _('Your cart is empty').translate() %>
+				<% } %>
+			</a>
+		</li>
+	</ul>
+<% } %>
+</div>
+<% }) %>

@@ -1,0 +1,17 @@
+<% registerMacro('miniCartSummary', function (total_items, loading) { %>
+<i class="icon-shopping-cart icon-black"></i>
+<span class="item-count<%= loading ? ' loading' : '' %>">
+<% if (loading) { %>
+	<span class="cart_ellipsis"></span>
+	<script>
+		_.ellipsis('.cart_ellipsis');
+	</script>
+<% } else { %>
+	<% if (total_items !== 1) { %>
+		<%= _('<b>$(0)</b> items').translate(total_items) %>
+	<% } else { %>
+		<%= _('<b>1</b> item').translate() %>
+	<% } %>
+<% } %>
+</span>
+<% }) %>
