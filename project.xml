@@ -16,6 +16,13 @@
       </folder>
     </folder>
     <folder name="templates">
+      <folder name="footer">
+        <folder name="macros">
+          <file name="footer_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+        </folder>
+      </folder>
       <folder name="header">
         <folder name="macros">
           <file name="header_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">

@@ -2844,6 +2844,10 @@ div#custBreadCrumb .selected a {
 	margin-bottom: 0;
 }
 
+.cbar_banner {
+	padding: 0 10px;
+}
+
 .navbar-inverse .navbar-inner {
     background: #f7f7f7;
     background-image: none;
@@ -2984,9 +2988,26 @@ div#custBreadCrumb .selected a {
 	background: rgba(255, 255, 255, 0.9);
 }
 
+.mobile-nav .navbar-inner {
+	min-height: 85px;
+}
+
+.mobile-nav ul.nav.pull-right {
+    float: none;
+    margin: auto;
+    width: 290px;
+}
+
+.mobile-nav ul.nav.pull-right:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
 .mobile-nav-container {
     background: #eee;
     padding: 5px;
+    height: 30px;
 }
 
 .mobile-nav-container:after {
@@ -3014,16 +3035,27 @@ div#custBreadCrumb .selected a {
     font-size: 17px;
     text-align: left;
     padding-top: 0;
-    padding-left: 43px;
-    color: #888;
+    padding-left: 58px;
+    color: #908f8f;
     margin-top: -23px;
     text-shadow: none;
 }
+
+.mobile-nav ul.nav li:first-child, .mobile-nav ul.nav li:nth-child(2),  .mobile-nav ul.nav li:nth-child(3) {
+	padding-top: 4px;
+}
+
+.dropdown b.mobile-caret {
+	    display: none;
+}
+
+
 
 @media (max-width: 767px) {
 	
 	#site-logo {
 		text-align: center;
+		margin-top: 30px;
 	}
 	
 	.social_icons {
@@ -3036,6 +3068,23 @@ div#custBreadCrumb .selected a {
 		width: 237px;
 		margin: auto;
 		float: none!important;
+	}
+	
+	.site-search {
+		padding: 1px;
+	}
+	
+	.mobile-nav .nav>li>a {
+		padding: 7px 10px 5px;
+	}
+	
+	.site-header-main-nav .nav>li>a {
+		width: 80%;
+		float: left;
+	}
+	
+	.navbar .nav>li>a>b {
+		display: none;
 	}
 	
 	.site-search {
@@ -3056,17 +3105,15 @@ div#custBreadCrumb .selected a {
     	float: left;
     	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
     	display: block;
-    	margin-bottom: 5px;
-	    padding: 15px 10px;
-	    margin-left: 5px;
-	    margin-right: 5px;
-	    margin-top: 5px;
-	    width: 40px;
+	    padding: 6px 6px;
+	    margin: 2px;
+	    height: 25px;
+	    width: 25px;
 	}
 	
 	.mobile-nav-button .btn-navbar .icon-bar {
 		display: block;
-	    width: 20px;
+	    width: 13px;
 	    height: 2px;
 	    background-color: #f5f5f5;
 	    -webkit-border-radius: 1px;
@@ -3079,6 +3126,31 @@ div#custBreadCrumb .selected a {
 	
 	.mobile-nav-title {
 		display: block;
+	}
+	
+	.site-header-main-nav {
+		max-width: 300px;
+		margin: auto;
+	}
+	
+	.site-header-main-nav .navbar-inner {
+		text-align: left;
+	}
+	
+	ul.dropdown-menu {
+		background: transparent!important;
+	}
+	
+	.site-header-main-nav.in .dropdown-menu {
+		display: none;
+	}
+	
+	.dropdown b.mobile-caret {
+		float: right;
+		display: block;
+		margin-top: 16px;
+		border-top: 11px solid #000;
+		width: 2px;
 	}
 	
 }

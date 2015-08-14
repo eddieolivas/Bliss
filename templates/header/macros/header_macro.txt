@@ -23,7 +23,7 @@
 							</a>
 						</li>
 					</ul>
-					<div class="cbar_banner" id="cbar_banner_942829388" rule_id="5377" style="z-index: 1000000000; width: auto; height: auto; float:left; display: block; margin: 0; position: relative; visibility: visible;">
+					<div class="cbar_banner" id="cbar_banner_942829388" rule_id="5377" style="z-index: 1000000000; width: auto; height: auto; display: block; margin: 0; position: relative; visibility: visible;">
 						<img src="//s3.amazonaws.com/userimages.barilliance.com/b/59822_bhd_firsttimevisitor_homepage_banner_03_021114.jpg" style="border:none; ">
 					</div>
 				</div>

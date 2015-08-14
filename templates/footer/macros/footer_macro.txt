@@ -1,0 +1,54 @@
+<% registerMacro('footer', function (view) {
+	var environment = SC.ENVIRONMENT
+
+	,	show_currency_selector = !view.application.getConfig('notShowCurrencySelector')
+	,	hosts = environment.availableHosts
+	,	languages = environment.availableLanguages
+	,	currencies = environment.availableCurrencies
+
+	,	nav_links = view.application.getConfig('footerNavigation', [])
+	,	current_touchpoint = view.application.getConfig('currentTouchpoint')
+	,	macros = SC.macros;
+%>
+
+<div class="container">
+	<div class="customer-site-settings">
+		<form class="form-inline">
+			<% if (hosts.length) { %>
+				<% if (current_touchpoint === 'home') { %>
+					<%= macros.hostSelector(hosts, environment.currentHostString) %>
+				<% } else { %>
+					<%= macros.hostSelector(hosts, environment.currentLanguage.locale, true) %>
+				<% }%>
+			<% } %>
+			<% if (currencies.length && show_currency_selector) { %>
+				<%= macros.currencySelector(currencies, environment.currentCurrency.code) %>
+			<% } %>
+		</form>
+	</div>
+
+	<% if (nav_links.length) { %>
+		<%= macros.footerNavigation(nav_links) %>
+	<% } %>
+
+	<%= macros.backToTop() %>
+	<div id="banner-footer" class="content-banner banner-footer" data-cms-area="global_banner_footer" data-cms-area-filters="global"></div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready( function() {
+		
+		if ( jQuery(window).width() < 767 ) {
+			jQuery('li.dropdown>b.mobile-caret').on('click', function() {
+				var menuElement = jQuery('ul.dropdown-menu')[0];
+				var dropdown = jQuery(this).parent().find( menuElement );
+				if( dropdown.is(':hidden') ) {
+					dropdown.show();
+				}
+				else {
+					dropdown.hide();
+				}
+			});
+		}
+	});
+</script>
+<% }) %>

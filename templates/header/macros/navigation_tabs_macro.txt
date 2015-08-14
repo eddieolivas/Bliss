@@ -13,8 +13,8 @@
 			<a <%= _.objectToAtrributes(item) %>>
 				<%= item.text %>
 				<b class="caret"></b>
-			</a>
-			<ul class="dropdown-menu">
+			</a><b class="caret mobile-caret"></b>
+			<ul class="dropdown-menu" style="display: none;">
 				<% _.each(item.categories, function (sub) { %>
 					<%= SC.macros.navigationTabs(sub) %>
 				<% }) %>
