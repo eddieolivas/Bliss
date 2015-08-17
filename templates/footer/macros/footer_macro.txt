@@ -147,12 +147,10 @@
 				var menuElement = jQuery('ul.dropdown-menu')[0];
 				var dropdown = jQuery(this).parent().find( menuElement );
 				if( dropdown.is(':hidden') ) {
-					console.log('Sub menu is hidden. Should show now.');
-					dropdown.show();
+					dropdown.slideDown();
 				}
 				else {
-					console.log('Sub menu is showing. Should hide now.');
-					dropdown.hide();
+					dropdown.slideUp();
 				}
 			});
 		}

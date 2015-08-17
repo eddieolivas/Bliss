@@ -3118,6 +3118,25 @@ div#custBreadCrumb .selected a {
 	float: right;
 }
 
+/* HOME PAGE STYLES --------------------------------------------*/
+
+section.left-nav-section {
+    float: left;
+}
+
+section.home-page-main, section.home-page-banner-bottom {
+    float: left;
+    width: 87%;
+}
+
+.home-page-banner-bottom .span4 {
+	width: 319px;
+}
+
+
+
+/* END HOME PAGE STYLES ----------------------------------------*/
+
 @media (max-width: 980px) {
 	.newsletter-subscribe {
 		display: none;

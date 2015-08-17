@@ -2,13 +2,116 @@
     var carousel_images = view.config && view.config.carouselImages
     ,   bottom_banner_images = view.config && view.config.bottomBannerImages;
 %>
-
-<!-- Top header banner -->
-<section class="home-page-banner-top">
-    <%= _('Use promo code $(0) for $(1) off your purchase').translate('<span class="highlight">SCADEMO</span>', '<span class="highlight">30%</span>') %>
+<section class="left-nav-section">
+	<div class="left-nav">
+		<div class="left-nav-heading">BY CATEGORY:</div>
+			<ul>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/FURNITURE/">Furniture</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/LIGHTING/">Lighting</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/ACCESSORIES/">Accessories</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/DECOR/">D&eacute;cor</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/BEDDING/">Bedding</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/SPA/">Spa</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/KITCHEN-AND-DINING/">Kitchen and Dining</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/BABY/">Baby</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="left_nav_divider">
+		<img class="left_nav_divider_img" src="/site/Bliss_home/left-nav-divider.png" height="1" border="0">
+	</div>
+	
+	<div class="left-nav">
+		<div class="left-nav-heading">FEATURED:</div>
+			<ul>
+				<li>
+	                 <a href="http://staging.blisshomeanddesign.com/NEW-ARRIVALS/">New Arrivals</a>
+				</li>
+				<li>
+	                 <a href="http://staging.blisshomeanddesign.com/STYLE-LIBRARY/">Style Library</a>
+				</li>
+	            <li>
+					<a href="http://blog.blisshomeanddesign.com/" target="_blank">Bliss By Design Blog</a>
+				</li>
+				<li>
+					<a href="http://www.blisshomeanddesign.com/get-the-look"_blank">Get the Look</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/ACCESSORIES/Gifts/">Gifting</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/SHOP-BY-BRAND/">Brands</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="left_nav_divider">
+		<img class="left_nav_divider_img" src="/site/Bliss_home/left-nav-divider.png" height="1" border="0">
+	</div>
+	
+	<div class="left-nav">
+		<div class="left-nav-heading">BY ROOM:</div>
+			<ul>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/SHOP-BY-ROOM/Shop-Bedroom/">Bedroom</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/SHOP-BY-ROOM/Shop-Living-Room/">Living Room</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/KITCHEN-AND-DINING/">Kitchen/Dining</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/SHOP-BY-ROOM/Shop-Bathroom/">Bathroom</a>
+				</li>
+	            <li>
+			    	<a href="http://staging.blisshomeanddesign.com/SHOP-BY-ROOM/Outdoor_3/">Outdoors</a>
+	            </li>
+		</div>
+	</div>
+	
+	<div id="left_nav_divider">
+		<img class="left_nav_divider_img" src="/site/Bliss_home/left-nav-divider.png" height="1" border="0">
+	</div>
+	
+	<div class="left-nav">
+		<div class="left-nav-heading">ARTISANS:</div>
+			<ul>
+				<li>
+					<a href="http://www.blisshomeanddesign.com/Artisans/Nate-Ricketts_2.html">Nate Rickets</a>
+				</li>
+							<li>
+					<a href="http://www.blisshomeanddesign.com/Artisans/Natural-Curiosities_3.html">Natural Curiosities</a>
+				</li>
+				<li>
+					<a href="http://www.blisshomeanddesign.com/Artisans/Jamie-Dietrich.html">Jamie Dietrich</a>
+				</li>
+				<li>
+					<a href="http://www.blisshomeanddesign.com/Artisans/">More...</a>
+				</li>
+			</ul>
+		</div>
+	</div>
 </section>
-
-<!--Main Banner / Corousel / Slider-->
+<!--Main Banner / Carousel / Slider-->
 <section class="home-page-main">
     <!--Bootstrap default carousel-->
     <div id="myCarousel" class="carousel slide">
