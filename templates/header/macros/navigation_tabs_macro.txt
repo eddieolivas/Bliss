@@ -14,7 +14,7 @@
 				<%= item.text %>
 				<b class="caret"></b>
 			</a><b class="caret mobile-caret"></b>
-			<ul class="dropdown-menu" style="display: none;">
+			<ul class="dropdown-menu">
 				<% _.each(item.categories, function (sub) { %>
 					<%= SC.macros.navigationTabs(sub) %>
 				<% }) %>

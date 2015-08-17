@@ -26,25 +26,132 @@
 			<% } %>
 		</form>
 	</div>
+	
+	<div class="footer-col mobile-newsletter-subscribe">
+		<div class="emailform-div" style="width:225px; /*margin-left:25px;*/">
 
-	<% if (nav_links.length) { %>
-		<%= macros.footerNavigation(nav_links) %>
-	<% } %>
+			<div style="width:225px; float:left; font-family:Arial; font-size:12px; font-weight:bold; padding:0 0 5px 0; color:#908f8f; text-align:left;">SUBSCRIBE TO OUR NEWSLETTER</div>
+		
+			<input type="text" id="new-email" name="email" style="background-image:url(/site/Bliss_home/new_design/bhd-newsletter-signup-box.png); background-repeat:no-repeat; border:0; height:24px; min-height: 24px; padding-left:20px; width:148px;" maxlength="50" value="    your email address" onclick="javascript:select();" onfocus="checkclear(this)">
+		
+			<input type="button" id="email-button" style="float:left; width:55px; height:24px; min-height: 24px; vertical-align:middle; cursor:pointer; background-color:#ffffff; background-image:url(/site/Bliss_home/new_design/bhd-newsletter-signup-button.png); background-repeat:repeat-none; border:0;"> 
+		
+			<script type="text/javascript">
+				jQuery("#email-button").click(function(){
+					var emailString = jQuery("#new-email").val();
+		
+					if((emailString.indexOf("new-email")!=-1) ||
+					  (jQuery("#new-email").val() == ""))
+						document.location = "/Bliss-Home-And-Design-Features-And-Information/Email-Signup?mail=";
+		
+					else if(jQuery("#new-email").val() != "")
+						document.location = "/Bliss-Home-And-Design-Features-And-Information/Email-Signup?mail="+ $("#new-email").val();
+		
+				});
+			</script>
+		</div>
+	</div>
+	
+	<div class="footer-col connect-with-us-container">
+		<div class="connect-with-us">Connect With Us</div>
+		<div style="height:1px; width:215px; color: #a4a4a4; text-align:center; float: left; padding-left:25px;">
+			<div style="float: left; width: 156px; /*height: 5px;*/ border-bottom: 1px solid #D8D9DA; /*margin-bottom: 2px;*/ text-align:center;"></div>
+		</div>
+		<div style="float: left; padding: 0 0 0 0px; text-align:center; width:209px; margin:10px 0 5px;">
+			<a href="http://blog.blisshomeanddesign.com/">
+				<img style="width:209px;" id="xxx_logo_image" src="/site/Bliss_home/new_design/BBDBlogLogo_FooterSitebutton.png">
+			</a>
+		</div>
+		<div style="height:1px; width:215px; color:#A4A4A4; text-align:center; float: left; padding-left:25px;">
+			<div style="float: left; width: 156px; /*height: 5px;*/ border-bottom: 1px solid #D8D9DA; /*margin-bottom: 2px;*/ text-align:center;"></div>
+		</div>
+		<div style="width:215px; float:left; /*margin-left:-43px;*/ padding:10px 0 0 7px; text-align:center;">
+			<div style="text-align:center; width:170px;">
+				<ul class="flags" style="/*width:225px;*/ color:#ffffff; float:left; padding:0; text-align:center; width:180px;">
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin:0;"><a target="_blank" href="http://www.facebook.com/BlissHomeAndDesign"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Facebook_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="http://instagram.com/blisshomeanddesign"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Instagram_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="http://pinterest.com/blisshomedesign/"><img style="padding:0 0 0 0; float:left;" src="/site/Bliss_home/new_design/Pinterest_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="http://twitter.com/BlissHomeDesign"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Twitter_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="https://plus.google.com/b/108114032974613439233/108114032974613439233/posts"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/GooglePlus_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="http://www.houzz.com/pro/blisshomeanddesign/bliss-home-and-design"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Houzz_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+					<li style="display:inline; color:#ffffff;; margin-left:5px;"><a target="_blank" href="http://blisshomeanddesign.polyvore.com/"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Polyvore_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="footer-col footer-nav col-1">
+		<div style="height:18px; width:155px; color:#A4A4A4; font-family:Times New Roman; font-size:14px; font-weight:bold; text-align:left; float: left; padding-top:2px;">
+			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/ABOUT-US/">OUR STORY</a>
+		</div>
+		<div style="height:18px; width:155px; color:#A4A4A4; font-family:Times New Roman; font-size:14px; font-weight:bold; text-align:left; float:left; padding-top:7px;">
+			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/Designer-Signup">TO THE TRADE</a>
+		</div>
+	</div>
+	
+	<div class="footer-col footer-nav col-2">
+		<div style="height:18px; width:175px; color:#A4A4A4; font-family:Times New Roman; font-size:14px; font-weight:bold; text-align:left; float: left; padding-top:2px;">
+			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/CONTACT-INFORMATION">CONTACT</a>
+		</div>
+		<div style="height:18px; width:175px; color:#A4A4A4; font-family:Times New Roman; font-size:14px; font-weight:bold; text-align:left; float:left; padding-top:7px;">
+			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/Bliss-Home-And-Design-Features-And-Information/Policies-And-Procedures/">SHIPPING/RETURNS</a>
+		</div>
+	</div>
+	
+	<div class="footer-col footer-nav col-3">
+		<div style="height:18px; width:165px; color:#A4A4A4; font-family:Times New Roman; font-size:14px; font-weight:bold; text-align:left; float: left; padding-top:2px;">
+			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/Bliss-Home-And-Design-Features-And-Information/Policies-And-Procedures">PRIVACY POLICY</a>
+		</div>
+		<div style="height:18px; width:165px; color:#A4A4A4; font-family:Times New Roman; font-size:14px; font-weight:bold; text-align:left; float:left; padding-top:7px;">
+			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/PRESS/">IN THE PRESS</a>
+		</div>
+	</div>
+	
+	<div class="footer-col newsletter-subscribe">
+		<div class="emailform-div" style="width:225px; /*margin-left:25px;*/">
 
+			<div style="width:225px; float:left; font-family:Arial; font-size:12px; font-weight:bold; padding:0 0 5px 0; color:#908f8f; text-align:center;">SUBSCRIBE TO OUR NEWSLETTER</div>
+		
+			<input type="text" id="new-email" name="email" style="background-image:url(/site/Bliss_home/new_design/bhd-newsletter-signup-box.png); background-repeat:no-repeat; border:0; height:24px; padding-left:20px; width:148px;" maxlength="50" value="    your email address" onclick="javascript:select();" onfocus="checkclear(this)">
+		
+			<input type="button" id="email-button" style="float:left; width:55px; height:24px; vertical-align:middle; cursor:pointer; background-color:#ffffff; background-image:url(/site/Bliss_home/new_design/bhd-newsletter-signup-button.png); background-repeat:repeat-none; border:0;"> 
+		
+			<script type="text/javascript">
+				jQuery("#email-button").click(function(){
+					var emailString = jQuery("#new-email").val();
+		
+					if((emailString.indexOf("new-email")!=-1) ||
+					  (jQuery("#new-email").val() == ""))
+						document.location = "/Bliss-Home-And-Design-Features-And-Information/Email-Signup?mail=";
+		
+					else if(jQuery("#new-email").val() != "")
+						document.location = "/Bliss-Home-And-Design-Features-And-Information/Email-Signup?mail="+ $("#new-email").val();
+		
+				});
+			</script>
+		</div>
+	</div>
+	
 	<%= macros.backToTop() %>
 	<div id="banner-footer" class="content-banner banner-footer" data-cms-area="global_banner_footer" data-cms-area-filters="global"></div>
+</div>
+<div class="container copyright-container">
+	<div id="footer-copyright">Copyright 2015 Bliss Home and Design, All Rights Reserved</div>
 </div>
 <script type="text/javascript">
 	jQuery(document).ready( function() {
 		
 		if ( jQuery(window).width() < 767 ) {
+			jQuery('ul.dropdown-menu').hide();
 			jQuery('li.dropdown>b.mobile-caret').on('click', function() {
 				var menuElement = jQuery('ul.dropdown-menu')[0];
 				var dropdown = jQuery(this).parent().find( menuElement );
 				if( dropdown.is(':hidden') ) {
+					console.log('Sub menu is hidden. Should show now.');
 					dropdown.show();
 				}
 				else {
+					console.log('Sub menu is showing. Should hide now.');
 					dropdown.hide();
 				}
 			});

@@ -1,0 +1,11 @@
+<% registerMacro('footerNavigation', function (nav_links) { %>
+	<ul class="site-footer-main-nav">
+	<% _.each(nav_links, function (item) { %>
+		<li>
+			<a <%= _.objectToAtrributes(item) %>>
+			<%= item.text %>
+			</a>
+		</li>
+	<% }) %>
+	</ul>
+<% }) %>

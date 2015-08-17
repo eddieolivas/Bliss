@@ -46,12 +46,3 @@
 <section class="home-page-merchandising">
     <div data-id="your-merchandising-zone" data-type="merchandising-zone"></div>
 </section>
-<p>Ron's test 23455666</p>
-<button class="eddie-test">Click This Test Button</button>
-<script>
-jQuery(document).ready( function() {
-   jQuery('.eddie-test').on('click', function() {
-      alert('You clicked the Ron\'s test button!');
-   });
-});
-</script>
