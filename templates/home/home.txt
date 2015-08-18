@@ -111,6 +111,176 @@
 		</div>
 	</div>
 </section>
+
+<section class="home_slider">
+
+	<script type="text/javascript" src="/site/Bliss_home/scripts/cycle/jquery.cycle.all.js"></script>
+	<script type="text/javascript">
+	
+		jQuery(document).ready(function() {
+		    //$('.slideshow').cycle({
+			jQuery('.slideshow')
+			.after('<div id="cycleNav" style="padding: 46px 0 0 0;"><a id="prev" href="#"><img src="/site/Bliss_home/cycle-prev.png" width="9" height="12" border="0"></a><a id="next" href="#"><img src="/site/Bliss_home/cycle-next.png" width="9" height="12" border="0"></a>')
+			.cycle({
+				fx:      'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+				pager: '#cycleNav',
+				next: '#next',
+				prev: '#prev',
+				timeout: 4500 //3000,
+				//timeout: 3000 //3000,
+				//after:   onAfter -THIS WAS USED IN THE LIVE VERSION
+				//pager: '#cycleNav',
+			    //pagerAnchorBuilder: function(idx, slide) { 
+		    	    // return selector string for existing anchor 
+		        //	return '#cycleNav li:eq(' + idx + ') a'; 
+		    	//	} 
+				//pager: '#cycleBannerTabs ul li'
+			});
+		});
+		
+		function cycleLink_1_click(){
+		    jQuery('.slideshow').cycle(0);  
+		    return false; 
+		}
+		function cycleLink_2_click(){
+		    jQuery('.slideshow').cycle(1);  
+		    return false; 
+		}
+		function cycleLink_3_click(){
+		    jQuery('.slideshow').cycle(2);  
+		    return false; 
+		}
+		function cycleLink_4_click(){
+		    jQuery('.slideshow').cycle(3);  
+		    return false; 
+		}
+		function cycleLink_5_click(){
+		    jQuery('.slideshow').cycle(4);  
+		    return false; 
+		}
+		function cycleLink_6_click(){
+		    jQuery('.slideshow').cycle(5);  
+		    return false; 
+		}
+		function cycleLink_7_click(){
+		    jQuery('.slideshow').cycle(6);  
+		    return false; 
+		}
+		
+		function onAfter(curr,next,opts) {	
+			var mySelector = '#banner_text_' + (opts.currSlide + 1) + 'text_item a';
+			
+			switch(opts.currSlide)
+			{
+			case 0:
+			  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_2.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_3.text_item a').css({'color': '#94bfbb'});
+			  jQuery('#banner_text_4.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_5.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_6.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_7.text_item a').css({'color': '#7f8184'});
+			  break;
+			case 1:
+			  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_2.text_item a').css({'color': '#94bfbb'});
+			  jQuery('#banner_text_3.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_4.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_5.text_item a').css({'color': '#7f8184'});
+			  break;
+			case 2:
+			  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_2.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_3.text_item a').css({'color': '#94bfbb'});
+			  jQuery('#banner_text_4.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_5.text_item a').css({'color': '#7f8184'});
+			  break;
+			case 3:
+			  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_2.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_3.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_4.text_item a').css({'color': '#94bfbb'});
+			  jQuery('#banner_text_5.text_item a').css({'color': '#7f8184'});
+			  break;
+			case 4:
+			  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_2.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_3.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_4.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_5.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_6.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_7.text_item a').css({'color': '#94bfbb'});
+			  break;
+		
+			// new
+			case 5:
+			  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_2.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_3.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_4.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_5.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_6.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_7.text_item a').css({'color': '#94bfbb'});
+			  break;
+		
+			default:
+			}
+		}
+		</script>
+		
+		
+		<!-- mobilyslider -->
+		<link href="/site/Bliss_home/scripts/mobilyslider/css/default.css" rel="stylesheet" type="text/css" />
+		<script src="/site/Bliss_home/scripts/mobilyslider/js/mobilyslider.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+		jQuery(document).ready(function() {
+			jQuery('.slider1').mobilyslider({
+				animationSpeed: 500,
+				autoplay: true,
+				autoplaySpeed: 5500,
+				pauseOnHover: true
+			});
+		});
+	</script>
+	
+	<div class="slider slider1">
+		<div class="sliderContent">
+			<div class="item">
+				<a href="/Heavy-Metals/"><img src="/site/Bliss_home/HeavyMetalsHomeBanner.jpg" alt="glassware" style="height:500px; width:900px;"/></a>
+			</div>
+			<div class="item">
+				<a href="/STYLE-LIBRARY/Designer-Series-Gilded-Mirrors/"><img src="/site/Bliss_home/DesignerGildedMirrorHomeBanner.jpg" alt="" style="height:500px; width:900px;"/></a>
+			</div>
+			<div class="item">
+				<a href="/New-Arrivals-Studio-A/"><img src="/site/Bliss_home/NAStudioA8-11-15HomeBanner.jpg" alt="" style="height:500px; width:900px;"/></a>
+			</div>
+			<div class="item">
+				<a href="/STYLE-LIBRARY/Most-Wanted-July/"><img src="/site/Bliss_home/MostWanted8-5-15HomeBanner.jpg" alt="" style="height:500px; width:900px;" /></a>
+			</div>
+			<div class="item">
+				<a href="/Decorative-Accents-under-100/"><img src="/site/Bliss_home/DecorAccents$100HomeBanner.jpg" alt="" style="height:500px; width:900px;" /></a>
+			</div>
+		</div>
+	</div>
+	
+	<div id="home_image_row" style="padding-top: 30px; float: left;">
+		<div id="home_image_narrow_1" style="width:340px; height:280px; float:left;">
+			<a href="http://www.blisshomeanddesign.com/ACCESSORIES/Bowls/">
+				<img id="home_image_narrow_img" style="width:340px; height:280px;" src="http://blissstudio.com/site/Bliss_home/Homepage Banners/featured-seasonal-TL-homepage-banner_062215.jpg">
+			</a>
+		</div>
+	   	<div style="float:left; width:20px; height:280px"></div>
+	   	<div id="home_image_wide_1" style="width:540px; height:280px; float:left;">
+	   		<!-- HOME_IMAGE_WIDE_1_URL -->
+			<a href="http://www.blisshomeanddesign.com/NEW-ARRIVALS/">
+				<!-- HOME_IMAGE_WIDE_1_IMAGE -->
+				<img id="home_image_wide_img" style="width:540px; height:280px; float:left;" src="http://blissstudio.com/site/Bliss_home/Homepage Banners/new-arrivals-TR-homepage-banner_070615.jpg">
+			</a>
+		</div>
+	</div>
+</section>
+
 <!--Main Banner / Carousel / Slider-->
 <section class="home-page-main">
     <!--Bootstrap default carousel-->

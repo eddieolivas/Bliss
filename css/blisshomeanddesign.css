@@ -3120,6 +3120,12 @@ div#custBreadCrumb .selected a {
 
 /* HOME PAGE STYLES --------------------------------------------*/
 
+#content {
+	max-width: 1170px;
+	margin: auto;
+	width: auto;
+}
+
 section.left-nav-section {
     float: left;
 }
@@ -3133,7 +3139,30 @@ section.home-page-main, section.home-page-banner-bottom {
 	width: 319px;
 }
 
+.home_slider {
+	float: left;
+	width: 87%;
+}
 
+.slider.slider1 {
+    height: 0;
+    padding-bottom: 54.2%;
+    position: relative;
+    width: 100%;
+}
+
+.sliderContent, .item, .sliderContent .item img {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.sliderContent .item {
+	position: absolute!important;
+	width: 100%!important;
+	height: 100%!important;
+}
 
 /* END HOME PAGE STYLES ----------------------------------------*/
 
