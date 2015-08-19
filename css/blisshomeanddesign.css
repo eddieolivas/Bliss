@@ -3140,8 +3140,12 @@ section.home-page-main, section.home-page-banner-bottom {
 }
 
 .home_slider {
-	float: left;
+	margin-left: 150px;
 	width: 87%;
+}
+
+.slider {
+	margin: 0;
 }
 
 .slider.slider1 {
@@ -3164,7 +3168,78 @@ section.home-page-main, section.home-page-banner-bottom {
 	height: 100%!important;
 }
 
+#home_image_row {
+	float: left;
+    width: 100%;
+}
+
+#home_image_narrow_1, div#home_image_row4_img2 {
+	width: 38%;
+	height: auto;
+	float: left;
+}
+
+#home_image_narrow_1 img, #home_image_wide_1 img {
+    max-width: 100%;
+    width: 100%;
+}
+
+#home_image_wide_1, div#home_image_row4_img1 {
+	width: 60%;
+	height: auto;
+	float: left;
+}
+
+#home_image_row3_img1, img#home_image_wide_img {
+	width: 100%;
+}
+
+.home_image_row5_img {
+    width: 19.5%;
+    float: left;
+}
+
+#home_image_row6_img1 {
+    width: 74%;
+    height: auto;
+}
+
+#home_image_row6_img2 {
+    width: 24%;
+}
+
 /* END HOME PAGE STYLES ----------------------------------------*/
+@media (max-width: 1200px) {
+	#content {
+		width: 940px;
+	}	
+	
+	.home_slider {
+		width: 83%;
+	}
+	
+	#home_image_narrow_1, div#home_image_row4_img2 {
+		width: 37%;
+	}
+	
+	#home_image_wide_1, div#home_image_row4_img1 {
+		width: 59%;
+	}
+	
+	.home_image_row5_img {
+		width: 19%;
+	}
+}
+
+@media (max-width: 979px) and (min-width: 768px) {
+	#content {
+		width: 724px;
+	}
+	
+	.home_slider {
+		width: 78%;
+	}
+}
 
 @media (max-width: 980px) {
 	.newsletter-subscribe {
@@ -3191,7 +3266,7 @@ section.home-page-main, section.home-page-banner-bottom {
 	}
 	
 	.footer-col {
-	    width: 241px;
+	    width: 231px;
 	    margin: 25px auto;
 	    float: left;
 	}
@@ -3244,6 +3319,11 @@ section.home-page-main, section.home-page-banner-bottom {
 
 
 @media (max-width: 767px) {
+	
+	#content {
+		width: 95%;
+		padding: 10px;
+	}
 	
 	#site-logo {
 		text-align: center;
@@ -3365,6 +3445,45 @@ section.home-page-main, section.home-page-banner-bottom {
 	    background-color: #fff;
 	}
 	
+	section.left-nav-section {
+		display: none;
+	}
+	
+	.home_slider {
+		margin: auto;
+		width: 95%;
+	}
 }
+
+@media (max-width: 570px) {
+		
+		#home_image_narrow_1, div#home_image_row4_img2 {
+			width: 35%;
+		}
+		
+		#home_image_wide_1, div#home_image_row4_img1 {
+			width: 57%;
+		}
+		
+		.home_image_row5_img {
+		    width: 198px;
+		    float: none;
+		    margin: 0 auto 25px auto;
+		}
+		
+		#home_image_row6_img1 {
+			width: 100%;
+		}
+		
+		#home_image_row6_img2 {
+			width: 100%;
+		}
+		
+		.shop-brand {
+			width: 60%;
+			margin: 25px auto 0 auto;
+		}
+	
+	}
 
 /* End Eddie's Additions ------------------------------------------------*/
