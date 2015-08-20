@@ -1,0 +1,21 @@
+<% registerMacro('siteLogo', function (application, remove_home_link) { %>
+<%
+	var logoUrl = application.getConfig('logoUrl')
+	,	siteName = application.getConfig('siteSettings.displayname');
+%>
+<div id="site-logo" class="site-logo content-banner">
+<% if (remove_home_link){ %>
+	<a>
+<% } else { %>
+	<a href="/" data-touchpoint="home" data-hashtag="">
+<% } %>	
+	<% if (logoUrl) { %>
+		<img src="<%- logoUrl %>" alt="<%- siteName %>">
+	<% } else { %>
+		<span>
+			<%= siteName %>
+		</span>
+	<% } %>
+	</a>
+</div>
+<% }) %>

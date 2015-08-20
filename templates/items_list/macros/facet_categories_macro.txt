@@ -1,0 +1,20 @@
+<% registerMacro('facetCategories', function (translator, config, facet) { %>
+<%
+	var selected = translator.getFacetValue(facet.id)
+	,	tree = translator.getMergedCategoryTree(facet.values)
+	,	tab = selected ? tree[selected.split('/')[0]] : {}
+	,	facet_html_id = _.uniqueId('facetList_');
+%>
+<div id="<%= facet_html_id %>" class="well-section facet-well" data-type="rendered-facet" data-facet-id="<%= facet.id %>">
+	<h3 class="heading uncollapsible"></h3>
+	<div class="filters <%= !config.uncollapsible && config.collapsed ? 'collapse' : 'in' %>">
+		<%= SC.macros.facetCategoriesList({
+			list: translator.getMergedCategoryTree(facet.values, tab.categories)
+		,	facet: facet
+		,	translator: translator
+		,	selected: translator.getFacetValue(facet.id)
+		,	url_memo: tab.urlcomponent
+		}) %>
+	</div>
+</div>
+<% }) %>

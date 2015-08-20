@@ -1,0 +1,9 @@
+<% registerMacro('itemListSortSelector', function(config) {  %>
+<div class="item-listing-sorting">
+	<select class="no-margin-bottom" data-type="navigator">
+		<% _.each(config.options, function(option) { %>
+			<option value="<%- config.translator.cloneForOptions({order: option.id, page: 1}).getUrl() %>" class="<%-option.id.replace(':','-') %>" <%= config.translator.getOptionValue('order') === option.id ? 'selected' : '' %> ><%= option.name %></option>
+		<%})%>
+	</select>
+</div>
+<%})%>

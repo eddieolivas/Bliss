@@ -1,0 +1,18 @@
+<% registerMacro('itemCellOptionColor', function (config, option) { %>
+<ul class="item-cell-tiles tiles color-tiles" data-type="option" data-option-id="<%= option.internalid %>">
+<% _.each(option.values, function (item, index) { %>
+	<% if ( item.internalid ) { %>
+		<li title="<%= item.label %>">
+		<% var color = config.colors[item.label] || config.colors.defaultColor; %>
+		<% if ( _.isObject( color ) ) { %>
+			<% if ( color.type == 'image' ) { %>
+				<img src="<%= color.src %>" alt="<%= item.label %>" class="tile" width="<%= color.width || '' %>" height="<%= color.height || '' %>" data-value="<%= item.label %>">
+			<% } %>
+		<% } else { %>
+			<span class="tile" style="background: <%= color %>" data-value="<%= item.label %>"></span>
+		<% } %>
+		</li>
+	<% } %>
+<% }) %>
+</ul>
+<% }) %>

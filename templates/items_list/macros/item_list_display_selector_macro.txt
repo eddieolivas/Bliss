@@ -1,0 +1,9 @@
+<% registerMacro('itemListDisplaySelector', function(config) {  %>
+<div class="item-facets-listing-display <%= config.classes || '' %>">
+	<span class="btn-group">
+		<% _.each(config.options, function(option) { %>
+			<a href="<%- config.translator.cloneForOption("display", option.id).getUrl() %>" class="btn <%= config.translator.getOptionValue("display") === option.id ? 'active' : '' %> <%= option.id == 'grid' ? 'visible-desktop' : ''%>" title="<%= option.name %>"><i class="<%= option.icon  %>"></i></a>
+		<% }) %>
+	</span>
+</div>
+<%})%>

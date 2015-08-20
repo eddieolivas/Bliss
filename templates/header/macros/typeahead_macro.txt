@@ -1,0 +1,9 @@
+<% registerMacro('typeahead', function (item, query, application) { %>
+<div class="typeahead-item clearfix">
+	<div class="typeahead-item-head">
+		<% var thumbnail = item.get('_thumbnail'); %>
+		<img data-loader="false" class="typeahead-image" src="<%- application.resizeImage(thumbnail.url, 'thumbnail') %>" alt="<%- thumbnail.altimagetext %>">
+		<div class="typeahead-title"><%= _.highlightKeyword(item.get('_name'), query) %></div>
+	</div>
+</div>
+<%})%> 

@@ -1,0 +1,98 @@
+<% registerMacro('facetList', function (translator, config, facet) { %>
+<%	
+	var is_active = false
+	,	values = _.reject((_.isArray(facet.values) ? facet.values : [facet.values]), function (filter) {
+			return filter.url === '';
+		});
+
+	if (values.length)
+	{
+		var selected = translator.getFacetValue(facet.id) || []
+		,	facet_html_id = _.uniqueId('facetList_');
+		
+		selected = _.isArray(selected) ? selected : [selected];
+		config.max = config.max || values.length;
+%>
+<div id="<%= facet_html_id %>" class="well-section facet-well" data-type="rendered-facet" data-facet-id="<%= facet.id %>">
+	<% if (!config.hideHeading) { %>
+		<% if (config.uncollapsible) { %>
+			<h3 class="heading uncollapsible">
+				<% if (selected.length) { %>
+					<a class="pull-right" href="<%= translator.cloneWithoutFacetId(facet.id).getUrl() %>">
+						<i class="icon-remove"></i>
+					</a>
+				<% } %>
+				<%= config.name || facet.id %>
+			</h3>
+		<% } else { %>
+			<h3 class="heading" data-toggle="collapse" data-target="#<%= facet_html_id %> .filters" data-type="collapse" title="<%= config.name || facet.id %>">
+				<% if (selected.length) { %>
+					<a class="pull-right" href="<%= translator.cloneWithoutFacetId(facet.id).getUrl() %>">
+						<i class="icon-remove"></i>
+					</a>
+				<% } %>
+				<i class="icon-chevron-down" data-collapsed="true"></i>
+				<i class="icon-chevron-right" data-collapsed="false"></i>
+				<%= config.name || facet.id %>
+			</h3>
+		<% } %>
+	<% } else { %>
+		<h3 class="heading uncollapsible"></h3>
+	<% } %>
+	<div class="filters <%= !config.uncollapsible && config.collapsed ? 'collapse' : 'in' %>">
+		<ul class="nav nav-list">
+		<% _.each(_.first(values, config.max), function (filter, index) { %>
+			<% is_active = _.contains(selected, filter.url); %>
+			<li class="<%= is_active ? 'active' : '' %>">
+				<h4>
+					<a href="<%= translator.cloneForFacetId(facet.id, filter.url).getUrl() %>" title="<%= filter.label %>">
+						<% if (config.behavior === 'multi') { %>
+							<i class="<%= is_active ? 'icon-ok' : 'icon-plus' %>"></i>
+						<% } %>
+						<span>
+							<%= filter.label || filter.url || _('(none)').translate() %>
+						</span>
+						<span class="hidden">
+							(<%= filter.count %>)
+						</span>
+					</a>
+				</h4>
+			</li>
+		<% })%>
+		</ul>
+		<% if (values.length > config.max) { %>
+			<ul class="nav nav-list extra collapse">
+			<% _.each(_.rest(values, config.max), function (filter, index) { %>
+				<% is_active = _.contains(selected, filter.label); %>
+				<li class="<%= is_active ? 'active' : '' %>">
+					<h4>
+						<a href="<%= translator.cloneForFacetId(facet.id, filter.url).getUrl() %>" title="<%= filter.label %>">
+							<% if (config.behavior === 'multi') { %>
+								<i class="<%= is_active ? 'icon-ok' : 'icon-plus' %>"></i>
+							<% } %>
+							<span>
+								<%= filter.label || filter.url || _('(none)').translate() %>
+							</span>
+							<span class="hidden">
+								(<%= filter.count %>)
+							</span>
+						</a>
+					</h4>
+				</li>
+			<% })%>
+			</ul>
+			<div class="right-aligned">
+				<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#<%= facet_html_id %> .extra" data-type="view-all">
+					<span data-collapsed="false">
+						<%= _('See More').translate() %>
+					</span>
+					<span data-collapsed="true">
+						<%= _('See Less').translate() %>
+					</span>
+				</button>
+			</div>
+		<% } %>
+	</div>
+</div>
+<% } %>
+<% }) %>

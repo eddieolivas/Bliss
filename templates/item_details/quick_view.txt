@@ -1,0 +1,88 @@
+<% 
+	var model = view.model
+	,	item_url = model.get('_url') + model.getQueryString();
+%>
+<div class="row-fluid">
+	<div class="span6 text-center">
+		<% var thumbnail = model.get('_images', true)[0] || model.get('_thumbnail'); %>
+		<img data-loader="false" src="<%= view.options.application.resizeImage(thumbnail.url, 'main') %>" alt="<%= thumbnail.altimagetext %>">
+	</div>
+	<div class="span6">
+		<div class="details-header">			
+			<div class="lead lead-small no-margin-bottom">
+				<%= showItemPrice(model.getPrice(), model.getStockInfo().isInStock) %>
+			</div>
+			<span class="sku">
+				<%= _('SKU: #$(0)').translate(model.get('_sku', true)) %>
+			</span>
+		</div>
+
+		<a class="full-details" data-touchpoint="home" data-name="view-full-details" data-hashtag="#<%= item_url %>" href="<%= item_url %>">
+			<%= _('View full details').translate() %>
+		</a>
+
+		<% if (!model.isProperlyConfigured()) { %>
+
+			<div class="alert alert-error">
+				<%= _('<b>Warning</b>: This item is not properly configured, please contact your administrator.').translate() %>
+			</div>
+
+		<% } else {
+			/*
+			Render a single option placeholder:
+			===================================
+			Any HTML element that matches [data-type=option], if it's rendered by ItemDetails.View 
+			will be populated by the render of a single macro for a single option, especified by the attributes:
+				data-cart-option-id: the id of the cart opion
+				data-macro: the macro you want this option to be rendered with, if omited the default for the option will be used
+			
+			<div 
+				class="options-container" 
+				data-type="option" 
+				data-cart-option-id="cart_option_id" 
+				data-macro="macroName">
+			</div>
+			Render all options placeholder:
+			===============================
+			Any HTML element that matches [data-type=all-options], if it's rendered by ItemDetails.View 
+			will be populated with the result of the execution of all the options with the macros, 
+			either the default one or the one configured in the itemOptions array.
+			Use the data-exclude-options to select the options you dont want to be rendered here,
+			this is a coma separated list, for instace: cart_option_id1, cart_option_id2
+			*/
+		%>
+			<div 
+				class="options-container" 
+				data-type="all-options" 
+				data-exclude-options="">
+			</div>
+						
+			<form action="#" class="form-inline add-to-cart-form">
+				<% if (model.get('_itemType') !== 'GiftCert') { %>
+					<label for="quantity">
+						<%= model.get('_minimumQuantity', true) !== 1 ? _('Quantity (Minimum of $(0) required)').translate(model.get('_minimumQuantity', true)) : _('Quantity').translate() %>
+					</label>
+					<div class="control-group">
+						<div class="controls">
+							<input type="number" name="quantity" id="quantity" class="input-mini quantity" value="<%- model.get('quantity') %>" min="1">
+						</div>
+					</div>
+				<% } else { %>
+					<div class="control-group">
+						<input type="hidden" name="quantity" id="quantity" value="1">
+					</div>
+				<% } %>
+				<div class="control-group">
+					<%= itemDetailsStock(model.getStockInfo()) %>
+				</div>
+				<button data-type="add-to-cart" class="btn btn-primary btn-large add-to-cart"<% if (!model.isReadyForCart()) {%> disabled<%}%>>
+					<i class="icon-shopping-cart icon-white"></i>
+					<%=  model.cartItemId ? _('Update').translate() : _('Add to Cart').translate() %>
+				</button>
+				<br/>
+			</form>
+			<div data-type="product-lists-control" style="margin-bottom: 9px !important"></div>
+			<div data-type="alert-placeholder"></div>		
+		<% } %>
+	</div>
+</div>

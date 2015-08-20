@@ -1,0 +1,62 @@
+<% registerMacro('itemCellGrid', function (item, view) { %>
+<%
+	var min_qty = parseInt(item.get('_minimumQuantity'), 10)
+	,	thumbnail = item.get('_thumbnail')
+	,	macros = SC.macros
+	,	stock_info = item.getStockInfo()
+	,	application = view.options.application;
+%>
+<div class="item-cell item-cell-grid" data-type="item" data-item-id="<%= item.get('_id') %>" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
+	<meta itemprop="url" content="<%= item.get('_url') %>">
+	<div class="item-cell-thumbnail thumbnail">
+		<a href="<%= item.get('_url') %>">
+			<img src="<%= application.resizeImage(thumbnail.url, 'thumbnail') %>" alt="<%= thumbnail.altimagetext %>" itemprop="image">
+		</a>
+		<% if (SC.ENVIRONMENT.jsEnvironment === 'browser') { %>
+			<div class="btn-quick-view">
+				<a href="<%= item.get('_url') %>" class="btn btn-primary" data-toggle="show-in-modal">
+					<i class="icon-search icon-white"></i>
+					<%= _('Quick View').translate() %>
+				</a>
+			</div>
+		<% } %>
+	</div>
+	<h2 class="item-cell-name">
+		<a href="<%= item.get('_url') %>">
+			<span itemprop="name">
+				<%= item.get('_name') %>
+			</span>
+		</a>
+	</h2>
+	<div class="item-cell-price">
+		<%= macros.showItemPrice(item.getPrice(), stock_info.isInStock) %>
+	</div>
+	<div class="item-rating item-cell-rating rating-<%= item.get('_rating') %>" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+		<%= macros.starRating({
+			max: application.getConfig('productReviews.maxRate')
+		,	value: item.get('_rating')
+		,	ratingCount: item.get('_ratingsCount')
+		,	showRatingCount: true
+		,	className: 'star pull-left'
+		,	fillRounded: true
+		}) %>
+	</div>
+	<div class="options-container">
+		<%= item && item.renderAllOptionSelector(
+			_.where(item.getPosibleOptions(), {showSelectorInList: true})
+		) %>
+	</div>
+	<div class="item-cell-stock">
+		<%= macros.itemDetailsStock(stock_info) %>
+	</div>
+	<% if (application.getConfig('addToCartFromFacetsView') && item.isReadyForCart()) { %>
+		<form data-toggle="add-to-cart">
+			<input type="hidden" value="<%= item.get('_id') %>" name="item_id">
+			<div class="input-append">
+				<input name="quantity" class="input-mini" type="number" min="1" value="<%- min_qty %>">
+				<input type="submit" class="btn btn-primary" value="Add to Cart">
+			</div>
+		</form>
+	<% } %>
+</div>
+<% }) %>

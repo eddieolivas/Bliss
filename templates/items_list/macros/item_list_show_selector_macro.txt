@@ -1,0 +1,9 @@
+<% registerMacro('itemListShowSelector', function(config) {  %>
+<div class="item-listing-items-limit">
+	<select data-type="navigator">
+		<% _.each(config.options, function(option) { %>
+			<option value="<%- config.translator.cloneForOptions({show: option.items, page: 1}).getUrl() %>" class="<%-option.items %>" <%= parseInt(config.translator.getOptionValue("show"), 10) === option.items ? 'selected' : '' %> ><%= option.name %></option>
+		<%})%>
+	</select>
+</div>
+<%})%>

@@ -59,7 +59,7 @@
 		</div>
 		<div style="float: left; padding: 0 0 0 0px; text-align:center; width:209px; margin:10px 0 5px;">
 			<a href="http://blog.blisshomeanddesign.com/">
-				<img style="width:209px;" id="xxx_logo_image" src="/site/Bliss_home/new_design/BBDBlogLogo_FooterSitebutton.png">
+				<img data-loader="false" style="width:209px;" id="xxx_logo_image" src="/site/Bliss_home/new_design/BBDBlogLogo_FooterSitebutton.png">
 			</a>
 		</div>
 		<div style="height:1px; width:215px; color:#A4A4A4; text-align:center; float: left; padding-left:25px;">
@@ -68,13 +68,13 @@
 		<div style="width:215px; float:left; /*margin-left:-43px;*/ padding:10px 0 0 7px; text-align:center;">
 			<div style="text-align:center; width:170px;">
 				<ul class="flags" style="/*width:225px;*/ color:#ffffff; float:left; padding:0; text-align:center; width:180px;">
-					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin:0;"><a target="_blank" href="http://www.facebook.com/BlissHomeAndDesign"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Facebook_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
-					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="http://instagram.com/blisshomeanddesign"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Instagram_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
-					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="http://pinterest.com/blisshomedesign/"><img style="padding:0 0 0 0; float:left;" src="/site/Bliss_home/new_design/Pinterest_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
-					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="http://twitter.com/BlissHomeDesign"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Twitter_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
-					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="https://plus.google.com/b/108114032974613439233/108114032974613439233/posts"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/GooglePlus_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
-					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="http://www.houzz.com/pro/blisshomeanddesign/bliss-home-and-design"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Houzz_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
-					<li style="display:inline; color:#ffffff;; margin-left:5px;"><a target="_blank" href="http://blisshomeanddesign.polyvore.com/"><img style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Polyvore_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin:0;"><a target="_blank" href="http://www.facebook.com/BlissHomeAndDesign"><img data-loader="false" style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Facebook_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="http://instagram.com/blisshomeanddesign"><img data-loader="false" style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Instagram_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="http://pinterest.com/blisshomedesign/"><img data-loader="false" style="padding:0 0 0 0; float:left;" src="/site/Bliss_home/new_design/Pinterest_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="http://twitter.com/BlissHomeDesign"><img data-loader="false" style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Twitter_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="https://plus.google.com/b/108114032974613439233/108114032974613439233/posts"><img data-loader="false" style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/GooglePlus_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+					<li style="display:inline; color:#ffffff; float:left; padding-right:4px; margin-left:5px;"><a target="_blank" href="http://www.houzz.com/pro/blisshomeanddesign/bliss-home-and-design"><img data-loader="false" style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Houzz_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
+					<li style="display:inline; color:#ffffff;; margin-left:5px;"><a target="_blank" href="http://blisshomeanddesign.polyvore.com/"><img data-loader="false" style="padding:0 0 0 0px; float:left;" src="/site/Bliss_home/new_design/Polyvore_FooterSiteButton18x18.png" width="18" height="18" border="0"></a></li>
 				</ul>
 			</div>
 		</div>
@@ -140,6 +140,8 @@
 </div>
 <script type="text/javascript">
 	jQuery(document).ready( function() {
+	
+		var mobileNavOpen = false;
 		
 		if ( jQuery(window).width() < 767 ) {
 			jQuery('ul.dropdown-menu').hide();
@@ -153,6 +155,18 @@
 					dropdown.slideUp();
 				}
 			});
+			jQuery('.mobile-nav-container').on('click', function() {
+				mobileNavOpen = !mobileNavOpen;
+				if(mobileNavOpen) {
+					jQuery('.site-header-main-nav').css({
+						"border-top": "1px solid #d8d9da",
+    					"border-bottom": "1px solid #d8d9da"
+    				});
+    			}
+    			else {
+    				jQuery('.site-header-main-nav').css("border", "none");
+    			}
+    		});
 		}
 	});
 </script>

@@ -1,0 +1,12 @@
+<% registerMacro('itemListSummary', function( configuration ) { %>
+<%
+	var range_end = configuration.currentPage * configuration.itemsPerPage
+	,	range_start = range_end - configuration.itemsPerPage + 1
+	,	total = configuration.totalItems;
+
+	range_end = Math.min(range_end, total);
+%>
+	<div class="item-listing-summary">
+		<%= _('$(0) - $(1) of $(2) Results').translate(range_start, range_end, total) %>
+	</div>
+<% }) %>

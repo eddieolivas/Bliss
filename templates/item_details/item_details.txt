@@ -1,0 +1,145 @@
+<%
+	var model = view.model;
+%>
+<div data-cms-area="item_details_banner" data-cms-area-filters="page_type"></div>
+<div class="view-header" itemscope itemtype="http://schema.org/WebPage">
+	<%= breadcrumb(model.get('_breadcrumb')) %>
+	<div id="banner-content-top" class="content-banner banner-content-top"></div>
+</div>
+<div class="view-body" itemscope itemtype="http://schema.org/Product">
+	<meta itemprop="url" content="<%= model.get('_url') %>">
+	<div id="banner-details-top" class="content-banner banner-details-top"></div>
+	<div class="row-fluid item-detailed-page">
+		<div class="span7 item-detailed-image-container">
+			<div id="banner-image-top" class="content-banner banner-image-top"></div>
+			<%= SC.macros[view.application.getConfig('macros.itemDetailsImage')](model.get('_images', true), view) %>
+			<div id="banner-image-bottom" class="content-banner banner-image-bottom"></div>
+		</div>
+		<div class="span5">
+			<div class="well item-detailed-info">
+				<div class="well-header page-header">
+					<div id="banner-summary-bottom" class="content-banner banner-summary-bottom"></div>
+					<h1 itemprop="name"><%= model.get('_pageHeader') %></h1>
+					<p class="lead lead-small">
+						<%= showItemPrice(model.getPrice(), model.getStockInfo().isInStock) %>
+					</p>
+					<span class="sku">
+						<%= _('SKU: #$(0)').translate(
+							'<span itemprop="sku">' + model.get('_sku', true) + '</span>'
+						) %>
+					</span>
+					<div class="item-rating clearfix" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+						<%= starRating({
+							max: view.options.application.getConfig('productReviews.maxRate')
+						,	value: model.get('_rating')
+						,	showRatingCount: true
+						,	ratingCount: model.get('_ratingsCount')
+						,	className: 'star pull-left'
+						,	fillRounded: true
+						}) %>
+					</div>
+					<div data-cms-area="item_info" data-cms-area-filters="path"></div>
+				</div>
+				<div class="well-body">
+					<% if (!model.isProperlyConfigured()) { %>
+						<div class="alert alert-error">
+							<%= _('<b>Warning</b>: This item is not properly configured, please contact your administrator.').translate() %>
+						</div>
+					<% } else {
+						/*
+						Render a single option placeholder:
+						===================================
+						Any HTML element that matches [data-type=option], if it's rendered by ItemDetails.View
+						will be populated by the render of a single macro for a single option, especified by the attributes:
+							data-cart-option-id: the id of the cart opion
+							data-macro: the macro you want this option to be rendered with, if omited the default for the option will be used
+
+						<div
+							class="options-container"
+							data-type="option"
+							data-cart-option-id="cart_option_id"
+							data-macro="macroName">
+						</div>
+
+						Render all options placeholder:
+						===============================
+						Any HTML element that matches [data-type=all-options], if it's rendered by ItemDetails.View
+						will be populated with the result of the execution of all the options with the macros,
+						either the default one or the one configured in the itemOptions array.
+						Use the data-exclude-options to select the options you dont want to be rendered here,
+						this is a coma separated list, for instace: cart_option_id1, cart_option_id2
+						*/
+					%>
+						<div
+							id="default-options-container"
+							class="options-container default-options-container"
+							data-type="all-options"
+							data-exclude-options="">
+						</div>
+
+						<form action="#" class="form-inline add-to-cart-form">
+							<% if (model.get('_itemType') !== 'GiftCert'){
+								var minimum_quantity = model.get('_minimumQuantity', true);
+								%>
+								<label for="quantity">
+									<%= minimum_quantity !== 1 ? _('Quantity (Minimum of $(0) required)').translate(minimum_quantity) : _('Quantity').translate() %>
+								</label>
+								<div class="control-group">
+									<div class="controls">
+										<input type="number" name="quantity" id="quantity" class="input-mini quantity" value="<%- model.get('quantity') %>" min="1">
+									</div>
+							<% } else { %>
+								<div class="control-group">
+									<input type="hidden" name="quantity" id="quantity" value="1">
+							<% } %>
+								<%= itemDetailsStock(model.getStockInfo()) %>
+							</div>
+
+							<button data-type="add-to-cart" class="btn btn-primary btn-large add-to-cart-btn"<% if (!model.isReadyForCart()) {%> disabled<%}%>>
+								<i class="icon-shopping-cart icon-white"></i>
+								<%= _('Add to Cart').translate() %>
+							</button>
+						</form>
+					<% } %>
+					<div data-type="product-lists-control" style="margin-bottom: 9px !important; display:inline-block"></div>
+					<div data-type="alert-placeholder"></div>
+				</div>
+				<div class="well-footer">
+					<% if (view.application.getConfig('hover_pin_it_button').enable_pin_it_button) { %>
+					<a class="pin-it-link-socials" data-share-click-pint-it-button="true"></a>
+					<% } %>
+					<div class="social-share-icons" data-toggle="social-share-icons"></div>
+					<div id="banner-summary-bottom" class="content-banner banner-summary-bottom"></div>
+				</div>
+			</div>
+			<% if (view.details && view.details.length) { %>
+				<div id="banner-content-top" class="content-banner banner-content-top"></div>
+				<div class="accordion">
+					<% _.each(view.details, function (detail, index) { %>
+					<div id="accordion-group-<%= index %>" class="accordion-group accordion-group-<%= index %>">
+						<div class="accordion-heading">
+							<h2 class="accordion-toggle <%= !detail.opened ? 'collapsed' : '' %>" data-toggle="collapse" data-target="#collapsed-<%= index %>">
+								<%= detail.name %>
+								<i class="icon-minus-sign pull-right"></i>
+								<i class="icon-plus-sign pull-right"></i>
+							</h2>
+						</div>
+						<div id="collapsed-<%= index %>" class="accordion-body collapse collapsed-<%= index %> <%= detail.opened ? 'in' : '' %>">
+							<div class="accordion-inner" itemprop="<%= detail.itemprop %>">
+								<%= detail.content %>
+							</div>
+						</div>
+					</div>
+					<% }) %>
+				</div>
+				<div id="banner-content-bottom" class="content-banner banner-content-bottom"></div>
+			<% } %>
+			<div data-type="review-list-placeholder" data-itemid="<%= model.get('_id') %>" data-url="<%= model.get('urlcomponent') %>" data-order="useful_count:desc" data-title="<%= _('Ratings &amp; Reviews').translate() %>" data-subtitle="<%= _('Most Helpful Reviews').translate() %>"></div>
+			<div id="banner-details-bottom" class="content-banner banner-details-bottom" data-cms-area="item_info_bottom" data-cms-area-filters="page_type"></div>
+		</div>
+	</div>
+	
+	<div class="row-fluid" data-type="related-items-placeholder"></div>
+	<div class="row-fluid" data-type="correlated-items-placeholder"></div>
+	<div id="banner-details-bottom" class="content-banner banner-details-bottom" data-cms-area="item_details_banner_bottom" data-cms-area-filters="page_type"></div>
+</div>

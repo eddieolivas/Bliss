@@ -1,0 +1,44 @@
+<% registerMacro('facetRange', function (translator, config, facet) { %>
+<%
+	var values = _.map(facet.values, function (item, index) {
+			return parseFloat(item.url);
+		})
+	
+	,	min = _.min(values)
+	,	max = _.max(values);
+%>
+<% if (max > min) { %>
+<%
+	var facet_html_id = _.uniqueId('facetRange_')
+	,	range_value = translator.getFacetValue(facet.id) || {from: min, to: max};
+%>
+<div id="<%= facet_html_id %>" class="well-section facet-well facet-range" data-type="rendered-facet" data-facet-id="<%= facet.id %>">
+	<% if ( config.uncollapsible ) { %>
+		<h3 class="heading uncollapsible">
+			<%= config.name || facet.id %>
+		</h3>
+	<% } else { %>
+		<h3 class="heading" data-toggle="collapse" data-target="#<%= facet_html_id %> .filters">
+			<% if (facet.max != max || facet.min != min) { %>
+				<a class="pull-right" href="<%= translator.cloneWithoutFacetId( facet.id ).getUrl() %>">
+					<i class="icon-remove"></i>
+				</a>
+			<% } %>
+			<i class="icon-chevron-down" data-collapsed="true"></i>
+			<i class="icon-chevron-right" data-collapsed="false"></i>
+			<%= config.name %>
+		</h3>
+	<% } %>
+	<div class="filters <%= !config.uncollapsible && config.collapsed ? 'collapse' : 'in' %>">
+		<span class="pull-right" data-range-indicator="end"><%= _.isFunction(config.parser) ? config.parser(range_value.to, false) : range_value.to %></span>
+		<span data-range-indicator="start"><%= _.isFunction(config.parser) ? config.parser(range_value.from, false) : range_value.from %></span>
+		
+		<div class="progress slider slider-mini" data-facet-id="<%= facet.id %>" data-toggle="slider" data-min="<%= min %>" data-max="<%= max %>" data-low="<%= range_value.from %>" data-high="<%= range_value.to %>">
+			<div class="bar"></div>
+			<button class="btn btn-small slider-control control-left" data-control="low"></button>
+			<button class="btn btn-small slider-control control-right" data-control="high"></button>
+		</div>
+	</div>
+</div>
+<% } %>
+<% }) %>

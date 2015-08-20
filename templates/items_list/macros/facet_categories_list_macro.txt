@@ -1,0 +1,31 @@
+<% registerMacro('facetCategoriesList', function (options) { %>
+<ul class="nav nav-list <%= (options.list_id && options.collapsed) ? 'collapse' : 'in' %>" <% if (options.list_id) {%>id="<%= options.list_id %>"<% } %>>
+	<% _.each(_.values(options.list), function (item) { %>
+		<%
+			var has_sub = item.categories && _.values(item.categories).length
+			,	sub_list_id = _.uniqueId('facetSubList_')
+			,	value = options.url_memo ? options.url_memo + '/' + item.urlcomponent : item.urlcomponent
+			,	is_selected = options.selected === value
+			,	is_active = is_selected || (options.selected && ~options.selected.indexOf(value + '/'));
+		%>
+		<li class="<%= is_active ? 'active' : '' %>">
+			<div class="category-item-label">
+				<a title="<%= item.itemid %>" href="<%= options.selected === value ? '' : options.translator.cloneWithoutFacets().cloneWithoutOption('order').cloneForFacetId(options.facet.id, value).getUrl() %>">
+					<%= item.itemid %><% if (item.count) { %> (<%= item.count %>)<% } %>
+				</a>
+			</div>
+			<% if (has_sub) { %>
+				<%= SC.macros.facetCategoriesList({
+					list: item.categories
+				,	facet: options.facet
+				,	translator: options.translator
+				,	url_memo: value
+				,	list_id: sub_list_id
+				,	collapsed: !options.selected || value !== options.selected.substring(0, value.length)
+				,	selected: options.selected
+				}) %>
+			<% } %>
+		</li>
+	<% }) %>
+</ul>
+<% }) %>

@@ -1,0 +1,24 @@
+<%
+    var carousel_images = view.config && view.config.carouselImages
+    ,   bottom_banner_images = view.config && view.config.bottomBannerImages;
+%>
+
+<!-- Top header banner -->
+<section class="home-page-banner-top">
+    <%= _('Use promo code $(0) for $(1) off your purchase').translate('<span class="highlight">SCADEMO</span>', '<span class="highlight">30%</span>') %>
+</section>
+<!-- <section class="home-page-banner-top" data-cms-area="home_banner_top" data-cms-area-filters="path"></section> -->
+
+<!--Main Banner -->
+<section class="home-page-main" data-cms-area="home_main" data-cms-area-filters="path"></section>
+
+<!--Banner / Promo-->
+<section class="home-page-banner-bottom row">
+    <div class="span4" data-cms-area="home_banner_1" data-cms-area-filters="path"></div>
+    <div class="span4" data-cms-area="home_banner_2" data-cms-area-filters="path"></div>
+    <div class="span4" data-cms-area="home_banner_3" data-cms-area-filters="path"></div>
+            <div class="span12 content-banner banner-section-bottom" data-cms-area="item_list_banner_bottom" data-cms-area-filters="path"></div>
+</section>
+
+<!--Merchandising zone-->
+<section class="home-page-merchandising" data-cms-area="home_bottom" data-cms-area-filters="path"></section>

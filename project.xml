@@ -1,5 +1,5 @@
 <project info="SuiteCloud IDE generated file, do not edit." setAttributesOnUpdate="false">
-  <folder name="Custom ShopFlow">
+  <folder name="ShopFlow">
     <folder name="css">
       <file name="blisshomeanddesign.css" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
     </folder>
@@ -7,12 +7,34 @@
       <folder name="homepage">
         <file name="logo_header.png" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       </folder>
+      <folder name="social_icons">
+        <file name="Facebook_HeaderSiteButton26x26.png" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      </folder>
+      <file name="Byron Day Bed - Small_alt1.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="Byron Day Bed - Small_balt2.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="Byron Day Bed - Small_main.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="favicon.ico" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
     </folder>
     <folder name="js">
+      <folder name="libs">
+        <file name="Libraries-014edbbdbca0.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="combiner.config" hideInBundle="false" isOnline="false" textFileEncoding="_utf8"/>
+        <file name="current.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      </folder>
       <folder name="src">
         <folder name="app">
           <file name="Configuration.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
         </folder>
+      </folder>
+      <file name="Application-014f3c746914.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="combiner.config" hideInBundle="false" isOnline="false" textFileEncoding="_utf8"/>
+      <file name="current.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+    </folder>
+    <folder name="skins">
+      <folder name="standard">
+        <file name="Styles-014edbbddcbf.css" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="combiner.config" hideInBundle="false" isOnline="false" textFileEncoding="_utf8"/>
+        <file name="current-css.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       </folder>
     </folder>
     <folder name="templates">
@@ -25,15 +47,11 @@
             <altTagCaption>macro</altTagCaption>
           </file>
         </folder>
-        <file name="footer_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
-          <altTagCaption>macro</altTagCaption>
-        </file>
-        <file name="footer_navigation.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
-          <altTagCaption>macro</altTagCaption>
-        </file>
       </folder>
       <folder name="header">
         <folder name="macros">
+          <file name="display_categories_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+          <file name="display_categories_menu_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
           <file name="header_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
             <altTagCaption>macro</altTagCaption>
           </file>
@@ -46,6 +64,9 @@
           <file name="header_top_nav_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
             <altTagCaption>macro</altTagCaption>
           </file>
+          <file name="logo_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
           <file name="mini_cart_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
             <altTagCaption>macro</altTagCaption>
           </file>
@@ -55,14 +76,91 @@
           <file name="navigation_tabs_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
             <altTagCaption>macro</altTagCaption>
           </file>
+          <file name="site_search_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="typeahead_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
         </folder>
       </folder>
       <folder name="home">
         <file name="home.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
           <altTagCaption>home_tmpl</altTagCaption>
         </file>
+        <file name="home_cxm.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>home_cxm_tmpl</altTagCaption>
+        </file>
       </folder>
+      <folder name="item_details">
+        <file name="item_details.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>product_details_tmpl</altTagCaption>
+        </file>
+        <file name="quick_view.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>quick_view_tmpl</altTagCaption>
+        </file>
+      </folder>
+      <folder name="items_list">
+        <folder name="macros">
+          <file name="category_cell_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="facet_categories_list_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="facet_categories_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="facet_color_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="facet_list_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="facet_range_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="faceted_navigation_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="facets_display_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="item_cell_grid_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="item_cell_list_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="item_cell_option_color_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="item_cell_table_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="item_list_display_selector_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="item_list_show_selector_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="item_list_sort_selector_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+          <file name="item_list_summary_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+        </folder>
+      </folder>
+      <file name="Templates-014f3ded89ed.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="Templates-014f4667a85f.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="current.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="templates.config" hideInBundle="false" isOnline="false" textFileEncoding="_utf8"/>
     </folder>
+    <file name="a.html" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+    <file name="index-dev.ssp" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+    <file name="index-local.ssp" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
     <file name="index.ssp" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+    <file name="robots.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
   </folder>
 </project>

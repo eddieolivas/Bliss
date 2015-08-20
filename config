@@ -1,0 +1,11 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+	hideDotFiles = dotGitOnly
+[remote "Bliss"]
+	url = https://github.com/eddieospaghettio/Bliss
+	fetch = +refs/heads/*:refs/remotes/Bliss/*

@@ -1,0 +1,14 @@
+<% registerMacro('categoryCell', function (item) { %>
+<div class="category-cell">
+	<div class="category-cell-thumbnail thumbnail">
+		<a href="<%= item.url %>">
+			<img src="<%= item.image %>" alt="<%= item.label %>">
+		</a>
+	</div>
+	<div class="category-cell-name">
+		<a href="<%= item.url %>">
+			<%= item.label %>
+		</a>
+	</div>
+</div>
+<% }) %>

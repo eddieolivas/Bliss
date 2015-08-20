@@ -1,0 +1,60 @@
+<% registerMacro('facetedNavigation', function (view) { %>
+<%
+	var translator = view.translator
+	,	model = view.model
+	,	has_items = model.get('items').length
+		// facets box is removed if dont find items
+	,	has_facets = has_items && model.get('facets').length
+		// Categories are not a real facet, so lets remove those
+	,	applied_facets = translator.cloneWithoutFacetId('category').facets
+	,	category = view.category
+	,	has_categories = category && category.categories;
+%>
+<% if (has_categories) { %>
+<div class="well faceted-navigation">
+	<div class="well-header facet-list-header">
+		<%= _('Shop $(0)').translate(category.itemid) %>
+	</div>
+	<div class="well-body">
+		<div data-type="facet" data-facet-id="category"></div>
+	</div>
+</div>
+<% } %>
+<% if (has_categories && has_facets) { %>
+<hr>
+<% } %>
+<% if (has_facets || applied_facets.length) { %>
+<div id="faceted-navigation" class="well faceted-navigation">
+	<div class="well-header facet-list-header">
+		<div id="banner-left-top" class="content-banner banner-left-top"></div>
+		<% if (applied_facets.length) { %>
+			<a href="<%= translator.cloneWithoutFacets().getUrl() %>" class="btn btn-primary pull-right facet-clear-all">
+				<%= _('Clear All').translate() %>
+			</a>
+		<% } %>
+		<button class="btn btn-inverse back-btn pull-left facet-back-btn" data-toggle="facet-navigation">
+			<%= _('Back').translate() %>
+		</button>
+		<span>
+			<%= _('Narrow by:').translate() %>
+		</span>
+	</div>
+	<div class="well-body">
+		<% if (applied_facets.length) { %>
+			<div class="well-section top-filter-reset">
+				<a href="<%= translator.cloneWithoutFacets().getUrl() %>" class="facet-clear-all">
+					<%= _('Clear all Filters').translate() %>
+				</a>
+			</div>
+		<% } %>
+		<div
+			id="default-facets-container"
+			class="facets-container default-facets-container"
+			data-type="all-facets"
+			data-exclude-facets="category"
+		></div>
+		<div id="banner-left-bottom" class="content-banner banner-left-bottom"></div>
+	</div>
+</div>
+<% } %>
+<% }) %>

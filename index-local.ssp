@@ -1,19 +1,19 @@
-<%
-	response.setCDNCacheable(response.CACHE_DURATION_LONG);
+<% 
+	response.setCDNCacheable(response.CACHE_DURATION_LONG); 
 
 	var Environment = Application.getEnvironment(session, request)
 	,	Language = Environment.currentLanguage && Environment.currentLanguage.locale || ''
 	,	Currency = Environment.currentCurrency && Environment.currentCurrency.code || '';
+
+    var config = SC.projectConfig,
+        localUrl = 'http://'+config.local.host + config.local.folder + config.urlroots.shopflow + '/';
  %>
 <!DOCTYPE html>
 <html <%= Language ? 'lang="' + Language.replace('_', '-')+ '"' : '' %>>
 <head>
-<meta name="robots" content="noindex,nofollow">
-<link rel="shortcut icon" href="<%= session.getAbsoluteUrl("shopping", "img/favicon.ico") %>" />
-
 <script>
-/* declare SC namespace here and the LOAD_FILEs objects */
-var SC = window.SC = {
+/* declare SC namespace here and the LOAD_FILEs objects*/
+var SC = window.SC = { 
 	ENVIRONMENT: {
 		jsEnvironment: (typeof nsglobal === 'undefined') ? 'browser' : 'server'
 	}
@@ -30,19 +30,8 @@ var SC = window.SC = {
 		var session = SC.SESSION || SC.DEFAULT_SESSION || {};
 		return (key) ? session[key] : session;
 	}
-,	blurInitialHTML: false
 };
-if (SC.isPageGenerator())
-{
-	var metas = document.head.getElementsByTagName('meta');
-	for (var i = 0; i < metas.length; i++)
-	{
-		if (metas[i].getAttribute('content') === 'nofollow')
-		{
-			document.head.removeChild(metas[i]);
-		}
-	}
-}
+
 if (!history.pushState && SC.ENVIRONMENT.jsEnvironment === 'browser' && (location.pathname !== "/" || location.search !== "") && location.hash === '')
 {
 	if (location.pathname === "/")
@@ -50,10 +39,11 @@ if (!history.pushState && SC.ENVIRONMENT.jsEnvironment === 'browser' && (locatio
 		var hash = (RegExp('fragment=' + '(.+?)(&|$)').exec(location.search)||[,null])[1];
 		location.replace(location.pathname + location.search + '/#' + unescape(hash));
 	}
-	else
+	else 
 	{
 		location.replace('/#' + location.pathname + location.search);
 	}
+
 	document.write("");
 }
 
@@ -61,24 +51,118 @@ if (!history.pushState && SC.ENVIRONMENT.jsEnvironment === 'browser' && (locatio
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>Shopping</title>
+<link rel="icon" type="image/x-icon" href="<%= localUrl %>images/favicon.ico" />
 <script>
 
 /* if not in SEO we execute the html5 shiv. This code is copy and paste but characters '\' were replaced with '\\' because of the SSP renderer */
-if (!SC.isPageGenerator())
+if (!SC.isPageGenerator()) 
 {
 	/**
 	* @preserve HTML5 Shiv 3.7.1 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
 	*/
 	!function(a,b){function c(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function d(){var a=s.elements;return"string"==typeof a?a.split(" "):a}function e(a){var b=r[a[p]];return b||(b={},q++,a[p]=q,r[q]=b),b}function f(a,c,d){if(c||(c=b),k)return c.createElement(a);d||(d=e(c));var f;return f=d.cache[a]?d.cache[a].cloneNode():o.test(a)?(d.cache[a]=d.createElem(a)).cloneNode():d.createElem(a),!f.canHaveChildren||n.test(a)||f.tagUrn?f:d.frag.appendChild(f)}function g(a,c){if(a||(a=b),k)return a.createDocumentFragment();c=c||e(a);for(var f=c.frag.cloneNode(),g=0,h=d(),i=h.length;i>g;g++)f.createElement(h[g]);return f}function h(a,b){b.cache||(b.cache={},b.createElem=a.createElement,b.createFrag=a.createDocumentFragment,b.frag=b.createFrag()),a.createElement=function(c){return s.shivMethods?f(c,a,b):b.createElem(c)},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+d().join().replace(/[\\w\\-:]+/g,function(a){return b.createElem(a),b.frag.createElement(a),'c("'+a+'")'})+");return n}")(s,b.frag)}function i(a){a||(a=b);var d=e(a);return!s.shivCSS||j||d.hasCSS||(d.hasCSS=!!c(a,"article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),k||h(a,d),a}var j,k,l="3.7.1",m=a.html5||{},n=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,o=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,p="_html5shiv",q=0,r={};!function(){try{var a=b.createElement("a");a.innerHTML="<xyz></xyz>",j="hidden"in a,k=1==a.childNodes.length||function(){b.createElement("a");var a=b.createDocumentFragment();return"undefined"==typeof a.cloneNode||"undefined"==typeof a.createDocumentFragment||"undefined"==typeof a.createElement}()}catch(c){j=!0,k=!0}}();var s={elements:m.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video",version:l,shivCSS:m.shivCSS!==!1,supportsUnknownElements:k,shivMethods:m.shivMethods!==!1,type:"default",shivDocument:i,createElement:f,createDocumentFragment:g};a.html5=s,i(b)}(this,document);
-}
+} 
 
-/* function loadScript - sources  libs/LoadScript.js*/
-(function(){var pendingScripts=[],firstScriptTag=!SC.isPageGenerator()&&document.getElementsByTagName("script")[0];window.loadScript=function loadScript(scripts){var src,script;var typeof_scripts=typeof scripts;scripts=(typeof_scripts==="string"||(typeof_scripts==="object"&&!scripts.length))?[scripts]:scripts;if(!SC.isCrossOrigin()){while(src=scripts.shift()){src=(typeof src==="string")?{url:src}:src;if(SC.isPageGenerator()){script=document.createElement("script");script.src=src.url;script.type="text/javascript";var seo_remove_element=document.createElement("div");seo_remove_element.className="seo-remove";seo_remove_element.appendChild(script);document.write(seo_remove_element.outerHTML)}else{if("async" in firstScriptTag){script=document.createElement("script");script.async=!!src.async;script.src=src.url;script.type="text/javascript";firstScriptTag.parentNode.insertBefore(script,firstScriptTag)}else{if(firstScriptTag.readyState){script=document.createElement("script");script.type="text/javascript";script.async=!!src.async;if(!src.async){pendingScripts.push(script);script.onreadystatechange=function(){var pendingScript;while(pendingScripts[0]&&pendingScripts[0].readyState=="loaded"){pendingScript=pendingScripts.shift();pendingScript.onreadystatechange=null;firstScriptTag.parentNode.insertBefore(pendingScript,firstScriptTag)}}}script.src=src.url;if(src.async){firstScriptTag.parentNode.insertBefore(script,firstScriptTag)}}else{if(src.async){script=document.createElement("script");script.src=src.url;script.type="text/javascript";firstScriptTag.parentNode.insertBefore(script,firstScriptTag)}else{document.write('<script src="'+src.url+'" defer></'+'script>')}}}}}}}})();
+/* Define a function to load scripts at runtime, in the given order. Supports the SEO engne and older browsers. The script can be removed of the generated html by the server seo, please see Starter.js. */ 
+(function(){
+	var pendingScripts = []
+	,	firstScriptTag = !SC.isPageGenerator() && document.getElementsByTagName('script')[0];//document.scripts[0] gives an ugly error in SEO ENGINE and is not used on it.
 
-/* create link rel dns-prefetch and prefetch */
+	window.loadScript = function loadScript(scripts) 
+	{
+		var src
+		,	script;
+
+		var typeof_scripts = typeof scripts;
+		scripts = (typeof_scripts === 'string' || (typeof_scripts === 'object' && !scripts.length)) ? [scripts] : scripts;
+
+		// loop through our script urls
+		if (!SC.isCrossOrigin()) 
+		{
+			while (src = scripts.shift()) 
+			{
+				src = (typeof src === 'string') ? {url: src} : src; 
+
+				// fall back to defer. This is the SEO Engine case too
+				if (SC.isPageGenerator()) 
+				{
+					script = document.createElement('script');
+					script.src = src.url;
+					script.type = 'text/javascript';
+					var seo_remove_element = document.createElement('div');
+					seo_remove_element.className = 'seo-remove';
+					seo_remove_element.appendChild(script);
+					document.write(seo_remove_element.outerHTML);
+				}
+				// CASE 1: test for the ASYNC property on browsers
+				else if ('async' in firstScriptTag) 
+				{
+					script = document.createElement('script');
+					script.async = !!src.async; //Should manage both async and sync
+					script.src = src.url;
+					script.type = 'text/javascript';
+					firstScriptTag.parentNode.insertBefore(script, firstScriptTag);
+				}
+				//CASE 2: Test for the readystate. IE<10
+				else if (firstScriptTag.readyState) 
+				{
+					// create a script and add it to our todo pile
+					script = document.createElement('script');
+					script.type = 'text/javascript';
+					script.async = !!src.async;
+					//IF script is not meant to load 100% async
+					if (!src.async) 
+					{
+						// listen for state changes
+						pendingScripts.push(script);
+						// must set src AFTER adding onreadystatechange listener
+						script.onreadystatechange = function() 
+						{
+							// Watch scripts load in IE
+							// Execute as many scripts in order as we can
+							var pendingScript;
+							while (pendingScripts[0] && pendingScripts[0].readyState == 'loaded') 
+							{
+								pendingScript = pendingScripts.shift();
+								// avoid future loading events from this script (eg, if src changes)
+								pendingScript.onreadystatechange = null;
+								// can't just appendChild, old IE bug if element isn't closed
+								firstScriptTag.parentNode.insertBefore(pendingScript, firstScriptTag);
+							}
+						};
+						// else we’ll miss the loaded event for cached scripts
+					}
+					script.src = src.url;
+					if (src.async) 
+					{
+						//ASYNC IE, append now
+						firstScriptTag.parentNode.insertBefore(script, firstScriptTag);
+					}
+				}
+				else 
+				{
+					//Fallback browser
+					if (src.async) 
+					{
+						script = document.createElement('script');
+						script.src = src.url;
+						script.type = 'text/javascript';
+						firstScriptTag.parentNode.insertBefore(script, firstScriptTag);
+					} 
+					else 
+					{
+						document.write('<script src="' + src.url + '" defer></' + 'script>');
+					}
+				}
+			}
+		}
+	}
+})(); 
+
+/* create link rel dns-prefetch and prefetch so main browsers can prefetch the dns of checkout domain. */ 
 if (!SC.isPageGenerator())
 {
-	<%
+	<% 
 	var checkout_tokens = session.getSiteSettings(['touchpoints']).touchpoints.checkout.split('/')
 	,	prefetch_url = checkout_tokens[0] + '//' + checkout_tokens[2];
 	%>
@@ -91,12 +175,6 @@ if (!SC.isPageGenerator())
 </head>
 
 <body>
-
-<svg style="float: left; height: 0;" xmlns="http://www.w3.org/2000/svg">
-  <filter id="svg-blur" x="-5%" y="-5%" width="110%" height="110%">
-    <feGaussianBlur in="SourceGraphic" stdDeviation="5"/>
-  </filter>
-</svg>
 
 <div id="scripts-placeholder"></div>
 
@@ -112,35 +190,10 @@ if (!SC.isPageGenerator())
 <div id="main" class="main"></div>
 
 <script>
-
-// manage blurred effect on first load
-if (!SC.isPageGenerator() && SC.blurInitialHTML)
+// Minimizes flickery of the 1st page load!
+if (!SC.isCrossOrigin())
 {
-	var main_div = document.getElementById('main')
-	,	user_agent=(window.navigator&&navigator.userAgent)||'';
-
-	main_div.style.display = 'none';
-
-	// avoid blurring on ie since it is not supported
-	if(navigator.appName==='Microsoft Internet Explorer'||(/\bTrident\b/).test(user_agent))
-	{
-		// add a class to hide page generator output without blur effect
-		main_div.className += ' ie';
-	}
-	else
-	{
-		main_div.className += ' blurred';
-		main_div.style.filter = 'url(#svg-blur)';
-	}
-}
-
-/*
- Minimizes flickery of the 1st page load!
- */
-if (!SC.isCrossOrigin() && !SC.blurInitialHTML)
-{
-	// performance: comment to enable quick blurred rendering of the SEO output.
-	document.getElementById("main").innerHTML = '';
+	document.getElementById("main").innerHTML = ''; 
 }
 </script>
 
@@ -154,10 +207,10 @@ if (!SC.isCrossOrigin())
 	}
 	SC.ENVIRONMENT.seoSupport = !!~document.body.className.indexOf("seo-support");
 
-	/* load language and sc.environment.ssp */
+	/* load language and sc.environment.ssp */ 
 	loadScript([
 		'<%= session.getAbsoluteUrl("shopping", "sc.environment.ssp?lang=" + Language + "&cur=" + Currency) %>'
-	,	'<%= session.getAbsoluteUrl("shopping", "languages/" + Language + ".js") %>'
+	,	'<%= localUrl %>languages/<%= Language %>.js'
 	]);
 
 	if (SC.isPageGenerator())
@@ -165,13 +218,12 @@ if (!SC.isCrossOrigin())
 		SC.ENVIRONMENT.PROFILE = {};
 	}
 
-	// Loads the application files, if you need to have a less agresive cacheing you can move them
+	// Loads the application files, if you need to have a less agresive cacheing you can move them 
 	// to the sc.environment.ssp (Moderate cacheing) or to the sc.user.environment.ssp (No cache but less performant)
 	loadScript([
-		'<%= session.getAbsoluteUrl("shopping", 'js/libs/Libraries-014edbbdbca0.js') %>'
-	,	'<%= session.getAbsoluteUrl("shopping", 'templates/Templates-014f4667a85f.js') %>'
-	,	'<%= session.getAbsoluteUrl("shopping", 'js/Application-014f3c746914.js') %>'
-	// ,	'/cms/1/cms.js'
+		'<%= localUrl %>js/libs/Libraries.php'
+	,	'<%= localUrl %>templates/Templates.php'
+	,	'<%= localUrl %>js/Application.php'
 	]);
 
 	if (SC.ENVIRONMENT.jsEnvironment == 'browser')
@@ -182,11 +234,9 @@ if (!SC.isCrossOrigin())
 		});
 	}
 }
+
 </script>
-<link rel="stylesheet" href="<%= session.getAbsoluteUrl('shopping', 'skins/standard/Styles-014edbbddcbf.css') %>">
-<link rel="stylesheet" href="<%=session.getAbsoluteUrl("shopping", "css/blisshomeanddesign.css") %>" />
-<% if (typeof(release_metadata) != 'undefined') { %>
-<!-- <%= JSON.stringify(release_metadata) %> -->
-<% } %>
+
+<link rel="stylesheet" href="<%= localUrl %>skins/standard/Styles.php">
 </body>
 </html>

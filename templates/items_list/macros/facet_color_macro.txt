@@ -1,0 +1,93 @@
+<% registerMacro('facetColor', function(translator, config, facet) { %>
+<%	
+	var is_active = false
+	,	values = _.reject((_.isArray(facet.values) ? facet.values : [facet.values]), function (filter) {
+			return !filter.url;
+		});
+
+	if (values.length)
+	{
+		var selected = translator.getFacetValue(facet.id) || []
+		,	facet_html_id = _.uniqueId('facetColor_')
+		,	color;
+
+		selected = _.isArray(selected) ? selected : [selected]
+		config.max = config.max || values.length;
+%>
+<div id="<%= facet_html_id %>" class="well-section facet-well" data-type="rendered-facet" data-facet-id="<%= facet.id %>">
+	<% if (config.uncollapsible) { %>
+		<h3 class="heading uncollapsible">
+			<% if (selected.length) { %>
+				<a class="pull-right" href="<%= translator.cloneWithoutFacetId( facet.id ).getUrl() %>">
+					<i class="icon-remove"></i>
+				</a>
+			<% } %>
+			<%= config.name %>
+		</h3>
+	<% } else { %>
+		<h3 class="heading" data-toggle="collapse" data-target="#<%= facet_html_id %> .filters" data-type="collapse">
+			<i class="icon-chevron-down" data-collapsed="true"></i>
+			<i class="icon-chevron-right" data-collapsed="false"></i>
+			<% if (selected.length) { %>
+				<a class="pull-right" href="<%= translator.cloneWithoutFacetId( facet.id ).getUrl() %>">
+					<i class="icon-remove"></i>
+				</a>
+			<% } %>
+			<%= config.name %>
+		</h3>
+	<% } %>
+	<div class="filters color-filters <%= !config.uncollapsible && config.collapsed ? 'collapse' : 'in' %>">
+		<ul class="unstyled tiles color-tiles">
+		<% _.each(_.first(values, config.max), function(filter, index) { %>
+			<%
+				is_active = _.contains(selected, filter.url);
+				filter.label = filter.label || filter.url;
+			%>
+			<li class="<%= is_active ? 'active' : '' %>">
+				<a href="<%= translator.cloneForFacetId(facet.id, filter.url).getUrl() %>" title="<%= filter.label %>" data-color="<%= filter.label %>">
+				<% color = config.colors ? config.colors[filter.label] || config.colors.defaultColor : '#fff'; %>
+
+				<% if (_.isObject(color)) { %>
+					<% if ( color.type == 'image' ) { %>
+						<img src="<%= color.src %>" alt="<%= filter.label %>" width="<%= color.width || '' %>" height="<%= color.height || '' %>">
+					<% } %>
+				<% } else { %>
+					<span class="tile" style="background: <%= color %>"></span>
+				<% } %>
+				</a>
+			</li>
+		<% }) %>
+		</ul>
+		<% if (values.length > config.max) { %>
+			<ul class="unstyled tiles color-tiles extra collapse">
+			<% _.each(_.rest(values, config.max), function(filter, index) { %>
+				<%
+					is_active = _.contains(selected, filter.url);
+					filter.label = filter.label || filter.url;
+				%>
+				<li class="<%= is_active ? 'active' : '' %>">
+					<a href="<%= translator.cloneForFacetId(facet.id, filter.url).getUrl() %>" title="<%= filter.label %>" data-color="<%= filter.label %>">
+					<% color = config.colors ? config.colors[filter.label] || config.colors.defaultColor : '#fff'; %>
+
+					<% if (_.isObject(color)) { %>
+						<% if ( color.type == 'image' ) { %>
+							<img src="<%= color.src %>" alt="<%= filter.label %>" width="<%= color.width || '' %>" height="<%= color.height || '' %>">
+						<% } %>
+					<% } else { %>
+						<span class="tile" style="background: <%= color %>"></span>
+					<% } %>
+					</a>
+				</li>
+			<% }) %>
+			</ul>
+			<div class="right-aligned">
+				<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#<%= facet_html_id %> .extra" data-type="view-all">
+					<span data-collapsed="false"><%= _('See More').translate() %></span>
+					<span data-collapsed="true"><%= _('See Less').translate() %></span>
+				</button>
+			</div>
+		<% } %>
+	</div>
+</div>
+<% } %>
+<% }) %>

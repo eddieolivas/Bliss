@@ -2,59 +2,60 @@
     var carousel_images = view.config && view.config.carouselImages
     ,   bottom_banner_images = view.config && view.config.bottomBannerImages;
 %>
+<h1 style="display: none;">Test</h1>
 <section class="left-nav-section">
 	<div class="left-nav">
 		<div class="left-nav-heading">BY CATEGORY:</div>
 			<ul>
 				<li>
-					<a href="http://staging.blisshomeanddesign.com/FURNITURE/">Furniture</a>
+					<a href="/FURNITURE/">Furniture</a>
 				</li>
 				<li>
-					<a href="http://staging.blisshomeanddesign.com/LIGHTING/">Lighting</a>
+					<a href="/LIGHTING/">Lighting</a>
 				</li>
 				<li>
-					<a href="http://staging.blisshomeanddesign.com/ACCESSORIES/">Accessories</a>
+					<a href="/ACCESSORIES/">Accessories</a>
 				</li>
 				<li>
-					<a href="http://staging.blisshomeanddesign.com/DECOR/">D&eacute;cor</a>
+					<a href="/DECOR/">D&eacute;cor</a>
 				</li>
 				<li>
-					<a href="http://staging.blisshomeanddesign.com/BEDDING/">Bedding</a>
+					<a href="/BEDDING/">Bedding</a>
 				</li>
 				<li>
-					<a href="http://staging.blisshomeanddesign.com/SPA/">Spa</a>
+					<a href="/SPA/">Spa</a>
 				</li>
 				<li>
-					<a href="http://staging.blisshomeanddesign.com/KITCHEN-AND-DINING/">Kitchen and Dining</a>
+					<a href="/KITCHEN-AND-DINING/">Kitchen and Dining</a>
 				</li>
 				<li>
-					<a href="http://staging.blisshomeanddesign.com/BABY/">Baby</a>
+					<a href="/BABY/">Baby</a>
 				</li>
 			</ul>
 		</div>
 	</div>
 	
 	<div id="left_nav_divider">
-		<img class="left_nav_divider_img" src="/site/Bliss_home/left-nav-divider.png" height="1" border="0">
+		<img data-loader="false" class="left_nav_divider_img" src="/site/Bliss_home/left-nav-divider.png" height="1" border="0">
 	</div>
 	
 	<div class="left-nav">
 		<div class="left-nav-heading">FEATURED:</div>
 			<ul>
 				<li>
-	                 <a href="http://staging.blisshomeanddesign.com/NEW-ARRIVALS/">New Arrivals</a>
+	                 <a href="/NEW-ARRIVALS/">New Arrivals</a>
 				</li>
 				<li>
-	                 <a href="http://staging.blisshomeanddesign.com/STYLE-LIBRARY/">Style Library</a>
+	                 <a href="/STYLE-LIBRARY/">Style Library</a>
 				</li>
 	            <li>
 					<a href="http://blog.blisshomeanddesign.com/" target="_blank">Bliss By Design Blog</a>
 				</li>
 				<li>
-					<a href="http://www.blisshomeanddesign.com/get-the-look"_blank">Get the Look</a>
+					<a href="/get-the-look"_blank">Get the Look</a>
 				</li>
 				<li>
-					<a href="http://staging.blisshomeanddesign.com/ACCESSORIES/Gifts/">Gifting</a>
+					<a href="/ACCESSORIES/Gifts/">Gifting</a>
 				</li>
 				<li>
 					<a href="http://staging.blisshomeanddesign.com/SHOP-BY-BRAND/">Brands</a>
@@ -64,7 +65,7 @@
 	</div>
 	
 	<div id="left_nav_divider">
-		<img class="left_nav_divider_img" src="/site/Bliss_home/left-nav-divider.png" height="1" border="0">
+		<img data-loader="false" class="left_nav_divider_img" src="/site/Bliss_home/left-nav-divider.png" height="1" border="0">
 	</div>
 	
 	<div class="left-nav">
@@ -89,7 +90,7 @@
 	</div>
 	
 	<div id="left_nav_divider">
-		<img class="left_nav_divider_img" src="/site/Bliss_home/left-nav-divider.png" height="1" border="0">
+		<img data-loader="false" class="left_nav_divider_img" src="/site/Bliss_home/left-nav-divider.png" height="1" border="0">
 	</div>
 	
 	<div class="left-nav">
@@ -266,7 +267,7 @@
 	<div class="home_image_vert_spacer" style="float: left; width: 100%; height: 15px; border-bottom: 1px solid #D8D9DA; margin-bottom: 15px;"></div>
 	<div id="home_image_row1_img1">
 		<a href="/Get-The-Look/">
-			<img id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX1.jpg">
+			<img data-loader="false" id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX1.jpg">
 		</a>
 	</div>
 	<div class="home_image_vert_spacer" style="float: left; width: 100%; height: 15px; border-bottom: 1px solid #D8D9DA; margin-bottom: 15px;"></div>
@@ -274,7 +275,7 @@
 	<div id="home_image_row">
 		<div id="home_image_narrow_1">
 			<a href="/BABY">
-				<img id="home_image_narrow_img" style="width:340px; height:280px;" src="/site/Bliss_home/home_page_images/BOX2.jpg">
+				<img data-loader="false" id="home_image_narrow_img" style="width:340px; height:280px;" src="/site/Bliss_home/home_page_images/BOX2.jpg">
 			</a>
 		</div>
 	   	<div style="float:left; width:20px; height:100%; padding-bottom: 35%;"></div>
@@ -282,7 +283,7 @@
 	   		<!-- HOME_IMAGE_WIDE_1_URL -->
 			<a href="/NEW-ARRIVALS/">
 				<!-- HOME_IMAGE_WIDE_1_IMAGE -->
-				<img id="home_image_wide_img" style="width:540px; height:280px; float:left;" src="/site/Bliss_home/home_page_images/BOX3.jpg">
+				<img data-loader="false" id="home_image_wide_img" style="width:540px; height:280px; float:left;" src="/site/Bliss_home/home_page_images/BOX3.jpg">
 			</a>
 		</div>
 	</div>
@@ -291,7 +292,7 @@
 	
 	<div id="home_image_row3_img1" style="float:left;">
 		<a href="/STYLE-LIBRARY/">
-			<img id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX4.jpg">
+			<img data-loader="false" id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX4.jpg">
 		</a>
 	</div>
 	
@@ -299,13 +300,13 @@
 	
 	<div id="home_image_row4_img1" style="float:left;">
 		<a href="http://blog.blisshomeanddesign.com/">
-			<img id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX5_081715.jpg">
+			<img data-loader="false" id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX5_081715.jpg">
 		</a>
 	</div>
 	<div style="float:left; height:1px; width:15px;"></div>
 	<div id="home_image_row4_img2" style="float:left;">
 		<a href="/STYLE-LIBRARY/Designer-Series-Gilded-Mirrors/">
-			<img id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX6-designer-picks-homepage-banner_081315.jpg">
+			<img data-loader="false" id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX6-designer-picks-homepage-banner_081315.jpg">
 		</a>
 	</div>
 	
@@ -313,31 +314,31 @@
 	
 	<div id="home_image_row5_img1" class="home_image_row5_img">
 		<a href="/STYLE-LIBRARY/Most-Wanted-July/Vida-Terrarium_2.html">
-			<img id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX7.jpg">
+			<img data-loader="false" id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX7.jpg">
 		</a>
 	</div>
 	<div style="float:left; height:1px; width:8px;"></div>
 	<div id="home_image_row5_img2" class="home_image_row5_img">
 		<a href="/STYLE-LIBRARY/Most-Wanted-July/Lapin-Pillow.html">
-			<img id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX8.jpg">
+			<img data-loader="false" id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX8.jpg">
 		</a>
 	</div>
 	<div style="float:left; height:1px; width:8px;"></div>
 	<div id="home_image_row5_img3" class="home_image_row5_img">
 		<a href="/STYLE-LIBRARY/Most-Wanted-July/Plantana-Pet-Bed.html">
-			<img id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX9.jpg">
+			<img data-loader="false" id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX9.jpg">
 		</a>
 	</div>
 	<div style="float:left; height:1px; width:8px;"></div>
 	<div id="home_image_row5_img4" class="home_image_row5_img">
 		<a href="/STYLE-LIBRARY/Most-Wanted-July/">
-			<img id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX10.jpg">
+			<img data-loader="false" id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX10.jpg">
 		</a>
 	</div>
 	<div style="float:left; height:1px; width:8px;"></div>
 	<div id="home_image_row5_img5" class="home_image_row5_img">
 		<a href="/STYLE-LIBRARY/Most-Wanted-July/Small-Orange-Sea-Glass-Beads.html">
-			<img id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX11.jpg">
+			<img data-loader="false" id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX11.jpg">
 		</a>
 	</div>
 	
@@ -345,15 +346,43 @@
 	
 	<div id="home_image_row6_img1" style="float:left;">
 		<a href="/PRESS/">
-			<img id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX12.jpg">
+			<img data-loader="false" id="home_image_wide_img" src="/site/Bliss_home/home_page_images/BOX12.jpg">
 		</a>
 	</div>
 	<div style="float:left; height:1px; width:9px;"></div>
 	<div id="home_image_row6_img2" style="float:left;">
 		<a href="/SHOP-BY-BRAND/">
-			<img id="home_image_wide_img" class="shop-brand" src="/site/Bliss_home/home_page_images/BOX13.jpg">
+			<img data-loader="false" id="home_image_wide_img" class="shop-brand" src="/site/Bliss_home/home_page_images/BOX13.jpg">
 		</a>
 	</div>
 	
 	
 </section>
+
+<section class="mobile-featured">
+	<div class="mobile-featured-nav">
+		<div class="mobile-featured-heading">FEATURED PRODUCTS:</div>
+			<ul>
+				<li>
+	                 <a href="http://staging.blisshomeanddesign.com/NEW-ARRIVALS/">New Arrivals</a>
+				</li>
+				<li>
+	                 <a href="http://staging.blisshomeanddesign.com/STYLE-LIBRARY/">Style Library</a>
+				</li>
+	            <li>
+					<a href="http://blog.blisshomeanddesign.com/" target="_blank">Bliss By Design Blog</a>
+				</li>
+				<li>
+					<a href="http://www.blisshomeanddesign.com/get-the-look"_blank">Get the Look</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/ACCESSORIES/Gifts/">Gifting</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/SHOP-BY-BRAND/">Brands</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+

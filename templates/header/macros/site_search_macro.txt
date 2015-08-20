@@ -1,0 +1,11 @@
+<% registerMacro('siteSearch', function (name, view) { %>
+<% var maxLength = view.application.getConfig('searchPrefs.maxLength') || 0; %>
+<form class="form-search site-search" method="GET" action="/search">
+	<div class="input-append">
+		<input class="input-medium search-query" placeholder="<%- _('Search for products').translate() %>" type="search" name="<%- name %>" autocomplete="off" <%= maxLength > 0 ? 'maxlength="' + maxLength + '"' : '' %>	>
+		<button type="submit" class="btn">
+			<i class="icon-search"></i>
+		</button>
+	</div>
+</form>
+<%})%>

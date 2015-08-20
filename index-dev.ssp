@@ -8,9 +8,8 @@
 <!DOCTYPE html>
 <html <%= Language ? 'lang="' + Language.replace('_', '-')+ '"' : '' %>>
 <head>
-<meta name="robots" content="noindex,nofollow">
+<meta name="robots" content="nofollow">
 <link rel="shortcut icon" href="<%= session.getAbsoluteUrl("shopping", "img/favicon.ico") %>" />
-
 <script>
 /* declare SC namespace here and the LOAD_FILEs objects */
 var SC = window.SC = {
@@ -184,7 +183,6 @@ if (!SC.isCrossOrigin())
 }
 </script>
 <link rel="stylesheet" href="<%= session.getAbsoluteUrl('shopping', 'skins/standard/Styles-014edbbddcbf.css') %>">
-<link rel="stylesheet" href="<%=session.getAbsoluteUrl("shopping", "css/blisshomeanddesign.css") %>" />
 <% if (typeof(release_metadata) != 'undefined') { %>
 <!-- <%= JSON.stringify(release_metadata) %> -->
 <% } %>
