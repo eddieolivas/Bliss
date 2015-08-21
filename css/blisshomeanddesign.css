@@ -3053,10 +3053,6 @@ div#custBreadCrumb .selected a {
 	padding-top: 4px;
 }
 
-.site-header-main-nav {
-	border: none;
-}
-
 .dropdown b.mobile-caret {
 	    display: none;
 }
@@ -3284,9 +3280,10 @@ html .bx-pager-item img {
 }
 
 .accordion-inner {
-	font-familyl: 'Arial';
+	font-family: 'Arial';
 	font-size: 14px;
 	line-height: 22px;
+	text-align: left;
 }
 
 .rating.star.pull-left {
@@ -3296,6 +3293,20 @@ html .bx-pager-item img {
 
 .rating .rating-area {
 	margin: auto;
+}
+
+.item-detailed-info .page-header .lead-price, .lead-price {
+	color: #646464;
+}
+
+.item-detailed-reviews h2, .item-detailed-reviews h3, .item-detailed-reviews h4 {
+	font-family: 'Times New Roman';
+	color: #646464;
+}
+
+.reviews-list p {
+	font-family: 'Arial';
+	color: #646464;
 }
 
 /* END PRODUCT DETAILS PAGE STYLES -----------------------------*/
@@ -3321,6 +3332,128 @@ html .bx-pager-item img {
 .item-detailed-info .item-rating {
 	width: 100px;
 	margin: auto;
+}
+
+.nav-pills>.active>a, .nav-pills>.active>a:hover, .nav-pills>.active>a:focus {
+	background-color: #908f8f;
+}
+
+ul.typeahead.dropdown-menu {
+    background: #FFF!important;
+}
+
+.input-append .active, .input-prepend .active {
+	background-color: #F7F7F7;
+	border: none;
+}
+
+
+/* SOCIAL MEDIA HEADER AND FOOTER STLYING --------------------------------------*/
+
+a.social-icon {
+    height: 26px;
+    width: 26px;
+    margin-right: 1px;
+    display: inline-block;
+    text-align: left;
+    text-indent: -9000px;
+    background: url(/SSP%20Applications/Bliss%20SuiteCommerce/ShopFlow/img/social_icons/social-sprite.jpg) no-repeat;
+}
+
+a#social-fb {
+    background-position: -3px -3px;
+}
+
+a#social-instagram {
+    background-position: -33px -3px;
+}
+
+a#social-pinterest {
+    background-position: -63px -3px;
+}
+
+a#social-twitter {
+    background-position: -93px -3px;
+}
+
+a#googleplus {
+    background-position: -123px -3px;
+}
+
+a#social-houzz {
+    background-position: -153px -3px;
+}
+
+a#social-blog {
+    background-position: -183px -3px;
+}
+
+a#social-polyvore {
+    background-position: -213px -3px;
+}
+
+.footer-flags {
+	width: 185px!important;
+	float: left;
+}
+
+a.ft-social-icon {
+    height: 18px;
+    width: 18px;
+    padding-right: 5px;
+    display: inline-block;
+    text-align: left;
+    text-indent: -9000px;
+    background: url(/SSP%20Applications/Bliss%20SuiteCommerce/ShopFlow/img/social_icons/social-sprite.jpg) no-repeat;
+}
+
+a.ft-social-icon:first-child() {
+	margin-right: 0;
+}
+
+a#ft-social-fb {
+    background-position: -31px -36px;
+}
+
+a#ft-social-instagram {
+    background-position: -55px -36px;
+}
+
+a#ft-social-pinterest {
+    background-position: -82px -36px;
+}
+
+a#ft-social-twitter {
+    background-position: -109px -36px;
+}
+
+a#ft-googleplus {
+    background-position: -136px -36px;
+}
+
+a#ft-social-houzz {
+    background-position: -163px -36px;
+}
+
+a#ft-social-polyvore {
+    background-position: -189px -36px;
+}
+
+/* END SOCIAL MEDIA HEADER AND FOOTER STYLING ----------------------------------*/
+
+h2.item-cell-name a {
+	font-family: 'Times New Roman';
+    color: #646464;
+    font-size: 17px;
+}
+
+.item-detailed-reviews h3 {
+	font-size: 20px;
+	text-transform: none;
+}
+
+ul.selling_points {
+    margin-top: 20px;
 }
 
 @media (max-width: 1200px) {
@@ -3595,6 +3728,10 @@ html .bx-pager-item img {
 	.mobile-featured-nav ul li a {
 	    color: #908f8f;
 	    font-size: 1.3em;
+	}
+	
+	.site-header-main-nav {
+		border: none;
 	}
 }
 

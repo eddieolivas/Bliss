@@ -122,7 +122,7 @@
 					touchpoint: 'home'
 				,	hashtag: '#search'
 				}
-			}*/
+			}
                 ,	{
 				text: _('New Arrivals').translate()
 			,	href: '/new-arrivals'
@@ -270,7 +270,7 @@
 					touchpoint: 'home'
 				,	hashtag: '#sale'
 				}
-			}
+			}*/
 		]
 
 	,	footerNavigation: [{text: 'Link a', href:'#'}, {text: 'Link b', href:'#'}, {text: 'Link c', href:'#'}]
@@ -974,7 +974,7 @@
 
 		// Pinterest
 	,	pinterest: {
-			enable: false
+			enable: true
 		,	popupOptions: {
 				status: 'no'
 			,	resizable: 'yes'
@@ -1019,7 +1019,7 @@
 			,	left: '0'
 			,	top: '0'
 			}
-		,	via: ''
+		,	via: '@BlissHomeDesign'
 		}
 
 	,	googlePlus: {
@@ -1035,15 +1035,15 @@
 		}
 
 	,	addThis: {
-			enable: false
+			enable: true
 		,	pubId: 'ra-50abc2544eed5fa5'
 		,	toolboxClass: 'addthis_default_style addthis_toolbox addthis_button_compact'
 		,	servicesToShow: {
-				// pinterest: 'Pinterest'
-				facebook: 'Facebook'
+				pinterest: 'Pinterest'
+			,	facebook: 'Facebook'
 			,	twitter: 'Twitter'
 			,	google_plusone: ''
-			// ,	print: _('Print').translate()
+			,	print: _('Print').translate()
 			,	email: _('Email').translate()
 			,	expanded: _('More').translate()
 			}
