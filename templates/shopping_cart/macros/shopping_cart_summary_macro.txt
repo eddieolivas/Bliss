@@ -1,0 +1,198 @@
+<% registerMacro('shoppingCartSummary', function (cart, siteSettings, options) { %>
+<%
+	options = _.extend({ showShipto: true, showLabelsAsEstimated: true}, options || {});
+
+	var summary = cart.get('summary')
+	,	item_count = _.reduce(cart.get('lines').pluck('quantity'), function (memo, quantity) { return memo + (parseFloat(quantity) || 1); }, 0)
+
+	,	shipping_address = cart.get('addresses').get(cart.get('shipaddress')) || new Backbone.Model()
+	,	default_county = shipping_address.get('country') || siteSettings.defaultshipcountry
+	,	shipping_zipcode = shipping_address.get('zip')
+
+	,	is_estimate = options.showShipto && shipping_zipcode
+
+	,	promocode = cart.get('promocode')
+	,	is_promocode_valid = promocode && promocode.isvalid
+
+	,	giftcertificates = cart.get('paymentmethods').where({type: 'giftcertificate'}) || []
+	//	Third party checkouts
+	,	checkout = options.checkout || {}
+	,	paypal_express = checkout.paypalexpress;
+
+%>
+<div class="well shopping-cart-summary">
+	<header class="well-header">
+		<h2>
+			<%= _('Order Summary').translate() %>
+		</h2>
+	</header>
+
+	<div class="well-body accordion">
+		<div class="well-section cart-summary-subtotal">
+			<p class="strong">
+				<span class="pull-right summary-subtotal-formatted"><%= summary.subtotal_formatted %></span>
+				<%= _('Subtotal (<span class="summary-item-quantity-subtotal">$(0)</span> $(1))').translate( item_count, item_count === 1 ? _('item').translate() : _('items').translate() ) %>
+			</p>
+			<% if (!is_estimate) { %>
+				<p class="no-margin-bottom small">
+					<%= _('(Total does not include shipping or tax)').translate() %>
+				</p>
+			<% } %>
+		</div>
+
+		<% if (is_promocode_valid || summary.giftcertapplied) { %>
+
+			<% if (is_promocode_valid) { %>
+				<div class="well-section cart-summary-promocode-applied">
+					<p>
+						<strong class="lead-price pull-right"><%= summary.discountrate_formatted %></strong>
+						<%= _('Promo Code Applied').translate() %>
+					</p>
+					<p class="text-success">
+						#<%= promocode.code %> - <%= _('Instant Rebate').translate() %>
+						<a href="#" data-action="remove-promocode">
+							<i class="icon-remove"></i>
+						</a>
+					</p>
+				</div>
+			<% } %>
+
+			<% if (summary.discounttotal) { %>
+				<div class="well-section cart-summary-discount-applied">
+					<p>
+						<span class="pull-right"><%= summary.discounttotal_formatted %></span>
+						<%= _('Discount Total').translate() %>
+					</p>
+				</div>
+			<% } %>
+
+			<% if (summary.giftcertapplied) { %>
+				<div class="well-section cart-summary-giftcertificate-applied">
+					<p>
+						<%= _('Gift Certificates Applied ($(0))').translate(giftcertificates.length) %>
+					</p>
+					<% _.each(giftcertificates, function(giftCertificate) { %>
+						<p>
+							<span class="pull-right"><%= _('-$(0)').translate(giftCertificate.get('giftcertificate').amountapplied_formatted) %></span>
+							<span title="<%= giftCertificate.get('giftcertificate').code %>"><%= SC.macros.formatPaymentMethod(giftCertificate) %></span>
+						</p>
+					<% }); %>
+				</div>
+			<% } %>
+		<% } %>
+
+		<% if (is_estimate) { %>
+			<div class="well-section cart-summary-shipping-cost-applied">
+				<p>
+					<%= _('Ship to:').translate() %>
+					<span class="text-success"><%= shipping_zipcode %></span>
+					<a href="#" data-action="remove-shipping-address">
+						<i class="icon-remove"></i>
+					</a>
+				</p>
+				<p>
+					<span class="pull-right cart-summary-shipping-cost-formatted">
+						<%= summary.shippingcost_formatted %>
+					</span>
+					<%= _('Shipping').translate() %>
+				</p>
+
+				<% if (summary.handlingcost) { %>
+				<p>
+					<span class="pull-right cart-summary-handling-cost-formatted">
+						<%= summary.handlingcost_formatted %>
+					</span>
+					<%= _('Handling').translate() %>
+				</p>
+				<% } %>
+				<p>
+					<span class="pull-right cart-summary-tax-total-formatted">
+						<%= summary.taxtotal_formatted %>
+					</span>
+					<%= _('Tax').translate() %>
+				</p>
+			</div>
+		<% } %>
+
+		<% if (!shipping_zipcode) { %>
+			<div class="collapsible well-section cart-summary-shipping-section">
+				<p class="collapser collapsed" data-toggle="collapse" data-target="#estimate-shipping-form">
+					<%= _('Estimate Tax & Shipping').translate() %> <i data-toggle="tooltip" title="<%= _('<b>Shipping Estimator</b><br>Shipping fees are based on your shipping location. Please enter your information to view estimated shipping costs.').translate() %>" class="icon-question-sign summary-estimate-ts-help"></i>
+					<i class="icon-minus-sign pull-right summary-estimate-ts-details"></i>
+					<i class="icon-plus-sign pull-right summary-estimate-ts-details"></i>
+				</p>
+				<div id="estimate-shipping-form" class="collapse estimate-shipping-form">
+					<form action="#" data-action="estimate-tax-ship">
+						<fieldset>
+							<% if (_.size(siteSettings.countries) > 1) { %>
+								<div class="control-group">
+									<label for="country"><%= _('Select Country').translate() %></label>
+									<select name="country" id="country" class="input-medium country" data-action="estimate-tax-ship-country">
+										<% _.each(siteSettings.countries, function (item, index) { %>
+											<option value="<%= item.code %>" <%= item.code === default_county ? 'selected' : '' %>><%= item.name %></option>
+										<% }) %>
+									</select>
+								</div>
+							<% } else { %>
+								<span><%= _('Ship available only to $(0)').translate(_.toArray(siteSettings.countries)[0].name) %></span>
+								<input name="country" id="country" class="country" value="<%- _.toArray(siteSettings.countries)[0].code %>" type="hidden" />
+							<% } %>
+							<div class="control-group">
+								<label for="zip">
+									<%= default_county === 'US' ? _('Ship to the following zip code').translate() : _('Ship to the following postal code').translate() %>
+								</label>
+								<div class="form-inline">
+									<input type="text" name="zip" id="zip" class="input-small zip" value="<%- shipping_zipcode || '' %>" placeholder="<%= default_county === 'US' ?  _('Zip code').translate() : _('Postal code').translate() %>" required>
+									<button class="btn"><%= _('Estimate').translate() %></button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		<% } %>
+
+		<% if (!is_promocode_valid) { %>
+			<div class="collapsible well-section cart-summary-promocode-section">
+				<p class="collapser collapsed" data-target="#promo-code-container" data-toggle="collapse">
+					<i class="icon-minus-sign summary-promocode-details pull-right"></i>
+					<i class="icon-plus-sign summary-promocode-details pull-right"></i>
+					<%= _('Have a Promo Code?').translate() %> <i data-toggle="tooltip" title="<%= _('<b>Promo Code</b><br>To redeem a promo code, simply enter your information and we will apply the offer to your purchase during checkout.').translate() %>" class="icon-question-sign summary-promocode-help"></i>
+				</p>
+				<div id="promo-code-container" class="collapse promo-code-container">
+					<%= SC.macros.promocodeForm(promocode) %>
+				</div>
+			</div>
+		<% } %>
+	</div>
+
+	<% if (is_estimate) {%>
+		<div class="well-section cart-summary-total">
+			<p class="no-margin-bottom strong">
+				<span class="pull-right"><%= summary.total_formatted %></span>
+				<%= options.showLabelsAsEstimated ? _('Estimated Total').translate() : _('Total').translate() %>
+			</p>
+		</div>
+	<% } %>
+
+	<% if (options.showActions) { %>
+		<div class="well-footer shopping-cart-action-buttons">
+			<a id="btn-proceed-checkout" class="btn btn-large btn-block btn-primary btn-proceed-checkout" href="#" data-touchpoint="checkout" data-hashtag="#">
+				<%= _('Proceed to Checkout').translate() %>
+			</a>
+
+			<% if (paypal_express.available === 'T') { %>
+				<div class="btn-paypal-express">
+					<a href="#" data-touchpoint="checkout" data-hashtag="#" data-parameters="paypalexpress=T">
+						<img src="<%= paypal_express.imageurl %>" alt="PayPal Express" width="145px" height="42px">
+					</a>
+				</div>
+			<% } %>
+
+			<a class="btn btn-large btn-block continue-shopping" href="<%= _(options.continueURL).fixUrl() %>" <%= options.touchpoint ? 'data-touchpoint="home"' : '' %> data-hashtag="#<%= _(options.continueURL).fixUrl() %>">
+				<%= _('Continue Shopping').translate() %>
+			</a>
+		</div>
+	<% } %>
+</div>
+<% }) %>

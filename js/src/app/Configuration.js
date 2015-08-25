@@ -846,12 +846,12 @@
 	,	seo_google_plus_authorship_author = function ()
 		{
 			// Author for individual contents
-			//return 'https://plus.google.com/+YourAuthorName';
+			return 'https://plus.google.com/+Blisshomeanddesign';
 		}
 	,	seo_google_plus_authorship_publisher = function ()
 		{
 			// Publisher for brand contents
-			//return 'https://plus.google.com/+YourPublisherName';
+			return 'https://plus.google.com/+Blisshomeanddesign';
 		}
 	;
 
@@ -976,7 +976,7 @@
 	,	pinterest: {
 			enable: true
 		,	popupOptions: {
-				status: 'no'
+				status: 'yes'
 			,	resizable: 'yes'
 			,	scrollbars: 'yes'
 			,	personalbar: 'no'
@@ -1006,7 +1006,7 @@
 	,	twitter: {
 			enable: true
 		,	popupOptions: {
-				status: 'no'
+				status: 'yes'
 			,	resizable: 'yes'
 			,	scrollbars: 'yes'
 			,	personalbar: 'no'
@@ -1019,7 +1019,7 @@
 			,	left: '0'
 			,	top: '0'
 			}
-		,	via: '@BlissHomeDesign'
+		,	via: 'BlissHomeDesign'
 		}
 
 	,	googlePlus: {
@@ -1035,7 +1035,7 @@
 		}
 
 	,	addThis: {
-			enable: true
+			enable: false
 		,	pubId: 'ra-50abc2544eed5fa5'
 		,	toolboxClass: 'addthis_default_style addthis_toolbox addthis_button_compact'
 		,	servicesToShow: {

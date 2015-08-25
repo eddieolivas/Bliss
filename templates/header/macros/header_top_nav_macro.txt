@@ -2,7 +2,6 @@
 <%
 	var application = view.application
 	,	environment = SC.ENVIRONMENT
-	,	display_currency_selector = !application.getConfig('notShowCurrencySelector')
 	,	macros = SC.macros
 
 	,	hosts = environment.availableHosts
@@ -10,52 +9,43 @@
 
 	,	languages = environment.availableLanguages
 	,	has_multiple_languages = languages.length > 1
-	,	current_touchpoint = application.getConfig('currentTouchpoint')
 
 	,	has_hosts_or_languages = has_multiple_hosts || has_multiple_languages
 
 	,	currencies = environment.availableCurrencies
-	,	has_multiple_currencies = currencies.length > 1
-
-	,	show_languages = has_multiple_hosts
-	,	show_currencies = has_multiple_currencies;
+	,	has_multiple_currencies = currencies.length > 1;
 %>
 <nav class="navbar navbar-inverse navbar-static-top site-header-top-nav">
 	<div class="navbar-inner">
 		<div class="container">
-			<div class="cbar_banner" id="cbar_banner_942829388" rule_id="5377" style="z-index: 900; width: auto; height: auto; float:left; display: block; margin: 0; position: relative; visibility: visible;">
-				<img src="//s3.amazonaws.com/userimages.barilliance.com/b/59822_bhd_firsttimevisitor_homepage_banner_03_021114.jpg" style="border:none; ">
-			</div>
-			<ul class="nav customer-site-settings">
-				<% if (show_languages || show_currencies) { %>p
-					<% if (show_languages) { %>
-						<li id="language-selector-container" class="language-selector-container">
-							<form action="" class="navbar-form">
-								<% if (current_touchpoint === 'home') { %>
-									<%= macros.hostSelector(hosts, environment.currentHostString) %>
-								<% } else { %>
-									<%= macros.hostSelector(hosts, environment.currentLanguage.locale, true) %>
-								<% }%>
-							</form>
-						</li>
-					<% } %>
-					<% if (show_languages && show_currencies && display_currency_selector) { %>
-						<li class="divider-vertical"></li>
-					<% } %>
-					<% if (show_currencies) { %>
-						<li id="currency-selector-container" class="currency-selector-container">
-							<form action="" class="navbar-form">
-								<% if (display_currency_selector) { %>
-									<%= macros.currencySelector(currencies, environment.currentCurrency.code) %>
-								<% } %>
-							</form>
-						</li>
-					<% } %>
+			<% if (has_hosts_or_languages || has_multiple_currencies) { %>
+				<ul class="nav customer-site-settings">
+				<% if (has_hosts_or_languages) { %>
+					<li id="language-selector-container" class="language-selector-container">
+						<form action="" class="navbar-form">
+							<% if (has_multiple_hosts) { %>
+								<%= macros.hostSelector(hosts, environment.currentHostString) %>
+							<% } else if (has_multiple_languages) { %>
+								<%= macros.languageSelector(languages, environment.currentLanguage.locale) %>
+							<% } %>
+						</form>
+					</li>
 				<% } %>
-			</ul>
+				<% if (has_hosts_or_languages && has_multiple_currencies) { %>
+					<li class="divider-vertical"></li>
+				<% } %>
+				<% if (has_multiple_currencies) { %>
+					<li id="currency-selector-container" class="currency-selector-container">
+						<form action="" class="navbar-form">
+							<%= macros.currencySelector(currencies, environment.currentCurrency.code) %>
+						</form>
+					</li>
+				<% } %>
+				</ul>
+			<% } %>
+			<!-- TODO: should the following be inside a macro? -->
 			<ul class="nav pull-right">
-				<li id="top-phone-number"><a href="tel:866-312-5610">(866) 312-5610</a></li>
-				<%= macros[application.getConfig('profileMacro')](application) %>
+				<%= macros[application.getConfig('profileMacro')](application.getUser()) %>
 				<li id="mini-cart-container" class="dropdown mini-cart-container">
 					<%= macros.miniCart(application.getCart(), application) %>
 				</li>

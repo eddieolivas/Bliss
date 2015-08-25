@@ -1,0 +1,42 @@
+<%
+	var line = view.line
+	,	item = line.get('item');
+%>
+<div class="row-fluid">
+	<div class="span4 item-thumbnail-container">
+		<div class="thumbnail">
+			<% var thumbnail = item.get('_thumbnail'); %>
+			<img data-loader="false" src="<%= view.options.application.resizeImage(thumbnail.url, 'main') %>" alt="<%= thumbnail.altimagetext %>">
+		</div>
+	</div>
+	<div class="span8 item-details-container">
+		<h3 class="cart-confirmation-item-name"><%= item.get('_name') %></h3>
+		<p class="lead lead-small">
+			<%= SC.macros.showItemPrice(line.getPrice(), item.getStockInfo().isInStock) %>
+		</p>
+		<!-- Item Options -->
+		<%= item.renderAllOptionSelected() %>
+		<!-- Quantity -->
+		<% if ((item.get('_itemType') !== 'GiftCert') && (line.get('quantity') > 0)) { %>
+			<div class="quantity kore"><%= _('Quantity: $(0)').translate(line.get('quantity')) %></div>
+		<% } %>
+		<div id="cart-confirmation-modal-message" class="promotional-message cart-confirmation-modal-message"></div>
+		<div class="cart-modal-actions">
+			<a href="/cart" class="btn btn-primary view-cart" data-trigger="go-to-cart"><%= _('View Cart &amp; Checkout').translate() %></a>
+			<button class="btn continue-shopping" data-dismiss="modal"><%= _('Continue Shopping').translate() %></button>
+		</div>
+	</div>
+</div>
+<% if (item.get('_relatedItems') && item.get('_relatedItems').length) { %>
+<div class="related-items">
+	<h4><%= _('You may also like').translate() %></h4>
+	<div class="row-fluid">
+		<%
+			var relatedWrap = function relatedWrap (item) {
+				return SC.macros.relatedItem(item, view.options.application);
+			};
+		%>
+		<%= displayInRows(item.get('_relatedItems').first(3), relatedWrap, 3) %>
+	</div>
+</div>
+<% } %>

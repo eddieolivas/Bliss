@@ -1,0 +1,24 @@
+<% registerMacro('socialSharingIcons', function( config ) { %>
+<% if (config.addThis.enable) { %>
+<div href="#" class="add-this-btn" data-toggle="share-in-add-this"></div>
+<% } else { %>
+<div>
+	<% if (config.pinterest.enable) { %>
+	<a href="#" class="social-sharing-btn pinterest-btn" data-toggle="share-in-pinterest"></a>
+	<% } %>
+	
+	<% if (config.twitter.enable) { %>
+	<a href="#" class="social-sharing-btn twitter-btn" data-toggle="share-in-twitter"></a>
+	<% } %>
+	
+	<% if (config.googlePlus.enable) { %>
+	<a href="#" class="social-sharing-btn google-plus-btn" data-toggle="share-in-google-plus"></a>
+	<% } %>
+	
+	<% if (config.facebook.enable) { %>
+		<div href="#" class="social-sharing-btn facebook-like-btn" data-toggle="like-in-facebook"></div>
+	<% } %>
+	<div class="clearfix"></div>
+</div>
+<% } %>
+<% }) %>

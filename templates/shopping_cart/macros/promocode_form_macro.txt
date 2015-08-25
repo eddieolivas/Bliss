@@ -1,0 +1,26 @@
+<% registerMacro('promocodeForm', function( promocode ) { %>
+<% var is_invalid = !!( promocode && promocode.error ); %>
+<form class="form-inline" data-action="apply-promocode">
+	<fieldset>
+		<div class="control-group <%= is_invalid ? 'error' : '' %>">
+			<input
+				type="text"
+				name="promocode"
+				id="promocode"
+				class="input-medium promocode"
+				value="<%- promocode && promocode.code %>"
+				placeholder="<%- _('Promo code').translate() %>"
+				required
+			>
+			<button type="submit" class="btn">
+				<%= _('Apply').translate() %>
+			</button>
+		</div>
+		<div data-type="promocode-error-placeholder">
+		<% if (is_invalid) { %>
+			<%= SC.macros.message(promocode.error, 'error', true) %>
+		<% } %>
+		</div>
+	</fieldset>
+</form>
+<% }) %>

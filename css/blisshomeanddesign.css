@@ -3456,6 +3456,82 @@ ul.selling_points {
     margin-top: 20px;
 }
 
+.pin-it-link {
+	height: 20px;
+}
+
+div#banner-section-top {
+    margin-bottom: 20px;
+}
+
+div#banner-section-top img {
+    width: 100%;
+}
+
+.item.mobile-item {
+	display: none;
+}
+
+.sliderBullets {
+    display: none!important;
+}
+
+.mobile-box {
+	display: none;
+}
+
+.facet-header .title {
+	font-family: 'Times New Roman';
+}
+
+.well-header {
+	font-family: 'Arial';
+}
+
+.well-body {
+    font-family: 'Arial';
+}
+
+.shopping-cart-related-items h3 {
+    font-family: 'Times New Roman';
+    color: #646464;
+}
+
+.item-cell h5 a {
+    color: #646464;
+}
+
+.modal-title, .cart-confirmation-item-name, .shopping-cart-header h1, .well-header, .ProductListDetailsView h3.list-header-title, .product-list-header-no-items, .shopping-cart-recent-items h3 {
+	font-family: 'Times New Roman';
+    color: #A6C6C7;
+}
+
+.item-list-navigable .item {
+    position: relative;
+}
+
+.item-list-navigable .name, .item-list-navigable .price, .item-list-navigable .sku, .item-list-navigable .quantity, .item-list-navigable .cart-option, .well-section p, .amount, span.option-value, .details .name a {
+	color: #646464;
+}
+
+aside.shopping-cart-related-items {
+    margin-top: 35px;
+}
+
+span.product-list-header-no-items {
+    font-size: 14px;
+}
+
+.item-list-navigable .info {
+    font-size: 13px;
+}
+
+.well-section p {
+    font-size: 13px;
+}
+
+/* Start Mobile Media Queries -----------------------------------------------*/
+
 @media (max-width: 1200px) {
 	#content {
 		width: 940px;
@@ -3475,6 +3551,16 @@ ul.selling_points {
 	
 	.home_image_row5_img {
 		width: 19%;
+	}
+}
+
+@media (min-width: 980px) {
+	.item-list-navigable .item {
+	    width: 65%!important;
+	}
+	
+	.item-list-navigable .info {
+	    width: 68%!important;
 	}
 }
 
@@ -3763,7 +3849,69 @@ ul.selling_points {
 			width: 60%!important;
 			margin: 30px auto;
 		}
-	
+		
+		.slider.slider1 {
+			padding-bottom: 73.7%;
+		}
+		
+		.item.desktop-item {
+			display: none!important;
+		}
+		
+		.item.mobile-item {
+			display: block!important;
+		}
+		
+		.desktop-box {
+			display: none;
+		}
+		
+		.mobile-box {
+			display: block;
+			margin-bottom: 15px;
+		}
+		
+		#home_image_narrow_1 img, #home_image_wide_1 img, #home_image_narrow_1, #home_image_wide_1 {
+			width: 100%;
+		}
+		
+		#home_image_row1_img1 {
+			clear: both;
+			padding-top: 25px;
+		}
+		
+		.home_image_vert_spacer {
+			display: none;
+		}
+		
+		div#home_image_row4_img1 {
+			width: 48%;
+		}
+		
+		div#home_image_row4_img2 {
+			width: 48%;
+			margin-left: 4%;
+		}
+		
+		.home_image_row5_img, .home_image_row5_img2, .home_image_row5_img3 {
+			width: 32%;
+			float: left;
+		}
+		
+		#home_image_row5_img2, #home_image_row5_img3 {
+			margin-left: 2%;
+		}
+		
+		#home_image_row5_img4 {
+		    width: 100%;
+		}
+		
+		div#home_image_row5_img5, .mobile-box.shop-brand  {
+		    width: 100%!important;
+		    margin-top: 0;
+		}
 	}
+	
+	/* End Mobile Media Queries -----------------------------------------------*/
 
 /* End Eddie's Additions ------------------------------------------------*/

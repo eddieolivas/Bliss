@@ -1,0 +1,95 @@
+<%
+	var lines = view.model.get('lines')
+	,	application = view.options.application
+	,	continueURL = application.getConfig('siteSettings.sitetype') === 'ADVANCED' ?  _(application.getConfig('defaultSearchUrl')).fixUrl() : ''
+	,	touchpoint = true
+	,	product_count = lines.length
+	,	item_count = _.reduce(lines.models, function(memo, line){ return memo + line.get('quantity'); }, 0)
+	,	crumbTrail = [
+			{href: '/', text: _('Home').translate(), 'data-touchpoint': 'home'}
+		,	{href: '/cart', text: _('Shopping Cart').translate()}
+		];
+
+	if(SC.ENVIRONMENT.siteSettings.iswsdk && SC.ENVIRONMENT.siteSettings.wsdkcancelcarturl){
+		continueURL = SC.ENVIRONMENT.siteSettings.wsdkcancelcarturl;
+		touchpoint = false;
+	}
+
+%>
+
+<% if (lines && lines.length) { %>
+	<div class="view-header">
+		<%= breadcrumb(crumbTrail) %>
+		<header class="shopping-cart-header">
+			<a class="btn btn-large btn-block btn-primary btn-proceed-checkout" href="#" data-touchpoint="checkout" data-hashtag="#">
+				<%= _('Proceed to Checkout').translate() %>
+			</a>
+			<h1 class="no-margin-top">
+				<%= view.page_header %>
+				<small class="product-list-details-count">
+					<%= _('($(0) $(1), $(2) $(3))').translate(
+							product_count
+						,	product_count === 1 ? _('Product').translate() : _('Products').translate()
+						,	item_count
+						,	item_count === 1 ? _('Item').translate() : _('Items').translate()) 
+					%>
+				</small>
+			</h1>
+		</header>
+	</div>
+	<div class="row-fluid view-body">
+		<section class="span8">
+			<div data-confirm-message class="confirm-message"></div>
+			<header class="shopping-cart-heading">
+				<div class="row-fluid">
+					<div class="span3 strong"><%= _('Items').translate() %></div>
+					<div class="span9">
+						<div class="span3 offset6 strong"><%= _('Qty').translate() %></div>
+						<div class="span3 strong"><%= _('Subtotal').translate() %></div>
+					</div>
+				</div>
+			</header>
+			<% lines.each(function (line, index) { %>
+				<%= itemListNavigable({
+					line: line
+				,	view: view
+				,	showActions: true
+				}) %>
+			<% }) %>
+		</section>
+		<section class="span4">
+			<%= shoppingCartSummary(view.model, application.getConfig('siteSettings'), {
+				checkout: application.getConfig('siteSettings.checkout')
+			,	continueURL: continueURL
+			,	touchpoint: touchpoint
+			,	showActions: true
+			}) %>
+		</section>
+	</div>
+	<div class="view-footer">
+		<div class="shopping-cart" data-type="saved-for-later-placeholder"></div>
+		<%
+			var relatedWrap = function relatedWrap (item) {
+				return SC.macros.relatedItem(item, application);
+			};
+		%>
+
+		<div class="row-fluid" data-type="recently-viewed-placeholder" data-macro="recentlyViewed"></div>
+		<div class="row-fluid" data-type="related-items-placeholder"></div>
+		<div class="row-fluid" data-type="correlated-items-placeholder"></div>
+	</div>
+
+<% } else { %>
+	<div class="view-header">
+		<%= breadcrumb(crumbTrail) %>
+	</div>
+	<section class="view-body empty-cart">
+		<h2 class="no-margin-top"><%= _('Your Shopping Cart is empty').translate() %></h2>
+		<p class="no-margin-bottom">
+			<%= _('Continue Shopping on our <a href="/" data-touchpoint="home">$(0)</a>').translate(_('Home Page').translate()) %>
+		</p>
+		<span8 style="margin-left:0px">
+			<div class="row-fluid" data-type="saved-for-later-placeholder"></div>
+		</span8>
+	</section>
+<% } %>

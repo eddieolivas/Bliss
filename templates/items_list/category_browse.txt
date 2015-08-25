@@ -1,0 +1,39 @@
+
+<div class="view-header" itemscope itemtype="http://schema.org/WebPage">
+	<%= breadcrumb(view.getBreadcrumb()) %>
+</div>
+<div class="row-fluid view-body">
+	<nav class="span3">
+		<div id="category-navigation" class="well faceted-navigation">
+			<div class="well-header facet-list-header">
+				<div id="banner-left-top" class="content-banner banner-left-top"></div>
+				<h1 class="facet-list-heading">
+					<%= _('Shop $(0)').translate(view.category.itemid) %>
+				</h1>
+			</div>
+			<div class="well-body">
+				<% _.each(view.facets, function(facet){ %>
+					<%= facetList(view.options.translator.cloneWithoutFacets(), facet.configuration, facet.values) %>
+				<% }) %>
+				<div id="banner-left-bottom" class="content-banner banner-left-bottom"></div>
+			</div>
+		</div>
+	</nav>
+	<section id="category-list-container" class="span9 category-list-container">
+		<div id="banner-section-top" class="content-banner banner-section-top"><img src="<%= view.category.storedisplayimage %>" alt="<%= view.category.itemid %>" /></div>
+		<% _.each(view.facets, function(facet){ %>
+			<% if (view.facets.length > 1) { %>
+			<div class="category-list-header">
+				<span class="category-list-heading">
+					<%= facet.configuration.name %>
+				</span>
+				<a href="/<%= facet.configuration.url %>" class="pull-right">
+					<%= _('Shop All &gt;').translate() %>
+				</a>
+			</div>
+			<% } %>
+			<%= displayInRows(facet.values.values, categoryCell, 4) %>
+		<% }) %>
+		<div id="banner-section-bottom" class="content-banner banner-section-bottom"></div>
+	</section>
+</div>

@@ -1,0 +1,19 @@
+<% registerMacro('shoppingCartOptionColor', function (option, value, model) { %>
+<div>
+	<%= option.label || option.name.replace(':', '') %>: 
+	<% var color = option.colors && (option.colors[value.label] || option.colors.defaultColor); %>
+	<span 
+		<% if (!_.isObject(color)) { %>
+			style="background: <%= color %>"
+		<% } %>
+		class="cart-color-tile">
+			<% if (_.isObject(color) && color.type === 'image') { %>
+				<img 
+					src="<%- color.src %>" 
+					alt="<%- value.label %>"
+					width="<%- color.width || '' %>" 
+					height="<%- color.height || '' %>">
+			<% } %>	
+	</span> <%= value.label %>
+</div>
+<% }) %>
