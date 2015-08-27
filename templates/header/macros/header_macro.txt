@@ -44,7 +44,6 @@
 			</div>
 			<div class="col-lg-3 col-sm-12 social_icons">
 				<div class="flags">
-					Global
 					<a id="social-fb" class="social-icon" href="http://www.facebook.com/BlissHomeAndDesign" target="_blank">Facebook</a>
 					<a id="social-instagram" class="social-icon" href="http://instagram.com/blisshomeanddesign" target="_blank">Instagram</a>
 					<a id="social-pinterest" class="social-icon" target="_blank" href="http://pinterest.com/blisshomedesign/">Pinterest</a>

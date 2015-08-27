@@ -1950,8 +1950,8 @@ a#addToPolyvore img {
 
 
 
-body, p, td, .txt08b, .txt09, .txt09b, .txt10, .txt10b, .txt11, .txt11b, .txt12, .txt12b, .txt14, .txt14b, .txt16, .txt16 {FONT-SIZE: 11px; COLOR:<%=getCurrentAttribute('colortheme','color9')%>;}
-.txt07-white {FONT-SIZE: 7pt; color: #FFFFFF; TEXT-DECORATION: none;}
+body, p, td, .txt08b, .txt09, .txt09b, .txt10, .txt10b, .txt11, .txt11b, .txt12, .txt12b, .txt14, .txt14b, .txt16, .txt16 {FONT-SIZE: 11px; COLOR:#908f8f;}
+.txt07-white {FONT-SIZE: 7pt; color: #646464; TEXT-DECORATION: none;}
 .txt07-grey {FONT-SIZE: 7pt; color: #333333; TEXT-DECORATION: none;}
 .txt07u-grey {FONT-SIZE: 7pt; color: #333333; TEXT-DECORATION: underline;}
 .txt08b {FONT-SIZE: 8px; TEXT-DECORATION: none; FONT-WEIGHT: bold;}
@@ -2060,7 +2060,6 @@ td.medtextbold p#paginate_p {
 
 /* NEW THEME SETTINGS */
 body {
-	text-align: center;
 	width:100%;
 	background-repeat: repeat-x !important;
 }
@@ -2920,7 +2919,7 @@ div#custBreadCrumb .selected a {
 }
 
 .site-header-main-nav .nav>li>a {
-	color: #A4A4A4;
+	color: #908f8f;
 	font-family: Times New Roman;
 	font-size: 14px;
 	letter-spacing: .8px;
@@ -3311,7 +3310,7 @@ html .bx-pager-item img {
 
 /* END PRODUCT DETAILS PAGE STYLES -----------------------------*/
 
-.facet-header .title b {
+.facet-header .title b, .facet-header .title {
 	color: #646464;
 }
 
@@ -3331,7 +3330,7 @@ html .bx-pager-item img {
 
 .item-detailed-info .item-rating {
 	width: 100px;
-	margin: auto;
+	margin: 0;
 }
 
 .nav-pills>.active>a, .nav-pills>.active>a:hover, .nav-pills>.active>a:focus {
@@ -3530,7 +3529,139 @@ span.product-list-header-no-items {
     font-size: 13px;
 }
 
+.btn-primary {
+	text-shadow: none;
+}
+
+.item-list-navigable .actions .btn-group {
+	color: #646464;
+}
+
+.mini-cart-container .summary {
+    border-top: #908f8f 6px solid;
+    padding: 10px;
+}
+
+.mini-cart-item-details strong {
+    color: #646464;
+}
+
+.mini-cart-subtotal b {
+    color: #646464;
+}
+
+p.option-label.strong {
+    color: #646464;
+    font-family: Arial;
+}
+
+.tiles li {
+	font-family: 'Arial';
+}
+
+.tiles li.active .tile {
+	background: #646464;
+}
+
+.new-product-review h1 {
+	font-family: 'Times New Roman';
+	color: #646464;
+}
+
+label.control-label, .help-inline {
+    color: #646464;
+    font-family: Arial;
+}
+
+.span3 h4 {
+    color: #646464;
+    font-family: Times New Roman;
+    font-size: 20PX;
+}
+
+.span3 p {
+    font-family: Arial;
+    font-size: 13px;
+    color: #646464;
+}
+
+.category-cell-name a {
+    color: #646464;
+}
+
+.view-header, .empty-cart h2 {
+    color: #646464;
+    font-family: 'Times New Roman';
+}
+
+.page-not-found-content, .empty-cart p {
+	color: #646464;
+	font-family: 'Arial';
+}
+
+.about-header-img {
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.about-body, .policy-body, .contact-body {
+    width: 85%;
+    margin: auto;
+}
+
+.about-body h1, .policy-body h1, .contact-body h1 {
+    color: #A6C6C7;
+    font-family: 'Times New Roman';
+    font-size: 28px;
+}
+
+.about-body, .about-body p, .policy-body, .policy-body p, .contact-body, .contact-body p {
+    color: #A4A4A4;
+    font-family: 'Arial';
+}
+
+.about-body h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 24px;
+}
+
+.about-body p, .policy-body p, .contact-body p {
+    font-size: 13px;
+    line-height: 21px;
+}
+
+.policy-body h4, .contact-body h4 {
+	font-family: 'Times New Roman';
+	color: #A6C6C7;
+	font-size: 18px;
+	margin-bottom: 0;
+	margin-top: 20px;
+}
+
+.contact-body p {
+	margin-bottom: 25px;
+}
+
+
+
+
 /* Start Mobile Media Queries -----------------------------------------------*/
+
+@media (min-width: 980px) {
+	.item-list-navigable .item {
+	    width: 66%!important;
+	    margin: 0 0 25px 0;
+	}
+	
+	.item-list-navigable .actions {
+		margin-top: 12px;
+	}
+	
+	.item-list-navigable .info {
+	    width: 75%!important;
+	}
+}
 
 @media (max-width: 1200px) {
 	#content {
@@ -3552,15 +3683,9 @@ span.product-list-header-no-items {
 	.home_image_row5_img {
 		width: 19%;
 	}
-}
-
-@media (min-width: 980px) {
-	.item-list-navigable .item {
-	    width: 65%!important;
-	}
 	
 	.item-list-navigable .info {
-	    width: 68%!important;
+	    width: 67%!important;
 	}
 }
 
@@ -3647,6 +3772,10 @@ span.product-list-header-no-items {
 	
 	#footer-copyright {
 		float: none;
+	}
+	
+	.item-list-navigable .actions {
+		margin-top: 27px;
 	}
 }
 
@@ -3818,6 +3947,16 @@ span.product-list-header-no-items {
 	
 	.site-header-main-nav {
 		border: none;
+	}
+	
+	.item-list-navigable .actions {
+	    margin-top: 15px;
+	    width: 50%;
+	    margin-bottom: 25px;
+	}
+	
+	.actions ul.dropdown-menu {
+	    background: #fff!important;
 	}
 }
 

@@ -82,25 +82,25 @@
 	
 	<div class="footer-col footer-nav col-1">
 		<div style="height:18px; width:155px; color:#A4A4A4; font-family:Times New Roman; font-size:14px; font-weight:bold; text-align:left; float: left; padding-top:2px;">
-			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/ABOUT-US/">OUR STORY</a>
+			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/about-us">OUR STORY</a>
 		</div>
 		<div style="height:18px; width:155px; color:#A4A4A4; font-family:Times New Roman; font-size:14px; font-weight:bold; text-align:left; float:left; padding-top:7px;">
-			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/Designer-Signup">TO THE TRADE</a>
+			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/designer-signup">TO THE TRADE</a>
 		</div>
 	</div>
 	
 	<div class="footer-col footer-nav col-2">
 		<div style="height:18px; width:175px; color:#A4A4A4; font-family:Times New Roman; font-size:14px; font-weight:bold; text-align:left; float: left; padding-top:2px;">
-			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/CONTACT-INFORMATION">CONTACT</a>
+			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/contact-information">CONTACT</a>
 		</div>
 		<div style="height:18px; width:175px; color:#A4A4A4; font-family:Times New Roman; font-size:14px; font-weight:bold; text-align:left; float:left; padding-top:7px;">
-			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/Bliss-Home-And-Design-Features-And-Information/Policies-And-Procedures/">SHIPPING/RETURNS</a>
+			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/policies-and-procedures">SHIPPING/RETURNS</a>
 		</div>
 	</div>
 	
 	<div class="footer-col footer-nav col-3">
 		<div style="height:18px; width:165px; color:#A4A4A4; font-family:Times New Roman; font-size:14px; font-weight:bold; text-align:left; float: left; padding-top:2px;">
-			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/Bliss-Home-And-Design-Features-And-Information/Policies-And-Procedures">PRIVACY POLICY</a>
+			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/policies-and-procedures">PRIVACY POLICY</a>
 		</div>
 		<div style="height:18px; width:165px; color:#A4A4A4; font-family:Times New Roman; font-size:14px; font-weight:bold; text-align:left; float:left; padding-top:7px;">
 			<a style="font-size:13px; font-weight:bold; color:#908f8f;" href="/PRESS/">IN THE PRESS</a>
