@@ -79,6 +79,23 @@ else if (url)
 					<%=_('Qty: $(0)').translate(line.get('quantity')) %>
 				<% } %>
 				</div>
+				<% if (options.showActions) { %>
+					<div class="cart-item-actions">
+						<% if (SC.ENVIRONMENT.siteType !== "STANDARD") { %>
+							<a class="btn edit" href="<%- _(item.get('_editUrl')).fixUrl() %>" data-toggle="show-in-modal">
+								<%= _('Edit').translate() %>
+							</a>
+						<% } %>
+						<button class="btn remove" data-action="remove-item" data-internalid="<%- line.get('internalid') %>">
+							<%= _('Remove').translate() %>
+						</button>
+						<% if (SC.ENVIRONMENT.siteType !== "STANDARD" && application.ProductListModule && application.ProductListModule.isProductListEnabled() && application.name.toLowerCase() === 'shopping') { %>
+							<button class="btn saveforlater" data-action="save-for-later-item" data-internalid="<%- line.get('internalid') %>">
+								<%= _('Save for Later').translate() %>
+							</button>
+						<% } %>
+					</div>
+				<% } %>
 			</div>
 
 			<div class="span3 amount">
@@ -91,23 +108,6 @@ else if (url)
 			<div class="text-right cart-item-stock-info">
 				<%= SC.macros.itemDetailsStock(stock_info) %>
 			</div>
-			<% if (options.showActions) { %>
-				<div class="cart-item-actions">
-					<% if (SC.ENVIRONMENT.siteType !== "STANDARD") { %>
-						<a class="btn edit" href="<%- _(item.get('_editUrl')).fixUrl() %>" data-toggle="show-in-modal">
-							<%= _('Edit').translate() %>
-						</a>
-					<% } %>
-					<button class="btn remove" data-action="remove-item" data-internalid="<%- line.get('internalid') %>">
-						<%= _('Remove').translate() %>
-					</button>
-					<% if (SC.ENVIRONMENT.siteType !== "STANDARD" && application.ProductListModule && application.ProductListModule.isProductListEnabled() && application.name.toLowerCase() === 'shopping') { %>
-						<button class="btn saveforlater" data-action="save-for-later-item" data-internalid="<%- line.get('internalid') %>">
-							<%= _('Save for Later').translate() %>
-						</button>
-					<% } %>
-				</div>
-			<% } %>
 		</div>
 	</div>
 </article>

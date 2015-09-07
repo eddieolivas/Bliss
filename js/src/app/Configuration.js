@@ -79,7 +79,7 @@
 		// flag for showing or not, "add to cart" button in facet views
 	,	addToCartFromFacetsView: false
 		// url for the not available image
-	,	imageNotAvailable: _.getAbsoluteUrl('img/no_image_available.jpeg')
+	,	imageNotAvailable: '' /* _.getAbsoluteUrl('img/no_image_available.jpeg') */
 		// default macros
 	,	macros: {
 			facet: 'facetList'
@@ -356,7 +356,7 @@
 		// * titleToken: format for the facet on the document title's when it is selected. Can be a string like "from $(0) to $(1)" for range behaviour or "foo $(0) bar" for others. Also it can be a function that accept the facet object as the one parameter.
 		// * titleSeparator: a string separator between facets in the document's title.
 	,	facets: [
-			/*{
+			{
 				id: 'category'
 			,	name: _('Category').translate()
 			,	priority: 10
@@ -366,7 +366,7 @@
 			,	titleToken: '$(0)'
 			,	titleSeparator: ', '
 			}
-		,	*/
+		,	
 			{
 				id: 'onlinecustomerprice'
 			,	name: _('Price').translate()
@@ -381,6 +381,30 @@
 				{
 					return _.formatCurrency(value);
 				}
+			}
+		,
+			{
+					id: 'custitembeddingcolor'
+				,	name: _('Color').translate()
+				,	url: 'custitembeddingcolor'
+				,	priority: 10
+				,	behavior: 'multi'
+				,	macro: 'facetList'
+				,	uncollapsible: true
+				,	titleToken: '$(0)'
+				,	titleSeparator: ', '
+			}
+		,
+			{
+					id: 'custitembeddingsize'
+				,	name: _('Size').translate()
+				,	url: 'custitembeddingsize'
+				,	priority: 10
+				,	behavior: 'multi'
+				,	macro: 'facetList'
+				,	uncollapsible: true
+				,	titleToken: '$(0)'
+				,	titleSeparator: ', '
 			}
 		]
 		// This options set the title for the facet browse view.
@@ -484,19 +508,21 @@
 	,	itemOptions: [
 		// Here are some examples:
 		// configure a color option to use color macro
-		//	{
-		//	,	cartOptionId: 'custcol_color_option'
-		//	,	label: 'Color'
-		//	,	url: 'color'
-		//	,	colors: {
-		//			'Red': 'red'
-		//		,	'Black': { type: 'image', src: 'img/black.gif', width: 22, height: 22 }
-		//		}
-		//	,	macros: {
-		//			selector: 'itemDetailsOptionColor'
-		//		,	selected: 'shoppingCartOptionColor'
-		//		}
-		//	}
+			{
+				cartOptionId: 'custitembeddingcolor'
+			,	label: 'Color'
+			,	url: 'custitembeddingcolor'
+			,	colors: {
+					'Red': 'red'
+				,	'Black': { type: 'image', src: 'img/black.gif', width: 22, height: 22 }
+				,	'Baltic': '#888888'
+				,	'Aqua': '#000000'
+				}
+			,	macros: {
+					selector: 'itemDetailsOptionColor'
+				,	selected: 'shoppingCartOptionColor'
+				}
+			}
 		//
 		// configure Gift Certificates options to change the value on the url
 		// when the user is filling the values

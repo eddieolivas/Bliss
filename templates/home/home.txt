@@ -386,7 +386,7 @@
 
 <section class="mobile-featured">
 	<div class="mobile-featured-nav">
-		<div class="mobile-featured-heading">FEATURED PRODUCTS:</div>
+		<div class="mobile-featured-heading">FEATURED:</div>
 			<ul>
 				<li>
 	                 <a href="http://staging.blisshomeanddesign.com/NEW-ARRIVALS/">New Arrivals</a>

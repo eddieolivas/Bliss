@@ -1,9 +1,8 @@
-
 <div class="view-header" itemscope itemtype="http://schema.org/WebPage">
 	<%= breadcrumb(view.getBreadcrumb()) %>
 </div>
 <div class="row-fluid view-body">
-	<nav class="span3">
+	<nav class="span2">
 		<div id="category-navigation" class="well faceted-navigation">
 			<div class="well-header facet-list-header">
 				<div id="banner-left-top" class="content-banner banner-left-top"></div>
@@ -19,8 +18,8 @@
 			</div>
 		</div>
 	</nav>
-	<section id="category-list-container" class="span9 category-list-container">
-		<div id="banner-section-top" class="content-banner banner-section-top"><img src="<%= view.category.storedisplayimage %>" alt="<%= view.category.itemid %>" /></div>
+	<section id="category-list-container" class="span10 category-list-container">
+		<div id="banner-section-top" class="content-banner banner-section-top"><img src="<%= view.category.storedisplayimage || '' %>" alt="<%= view.category.itemid %>" /></div>
 		<% _.each(view.facets, function(facet){ %>
 			<% if (view.facets.length > 1) { %>
 			<div class="category-list-header">

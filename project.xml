@@ -4,8 +4,27 @@
       <file name="blisshomeanddesign.css" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
     </folder>
     <folder name="img">
+      <folder name="Category Banners">
+        <file name="uttermost-emrick-writing-desk-M.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      </folder>
       <folder name="homepage">
         <file name="logo_header.png" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-box1.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-box10.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-box11.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-box2.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-box3.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-box4.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-box5.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-box6.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-box7.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-box8.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-box9.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-slider1.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-slider2.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-slider3.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-slider4.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="mobile-slider5.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       </folder>
       <folder name="social_icons">
         <file name="Facebook_HeaderSiteButton26x26.png" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
@@ -28,6 +47,10 @@
       <file name="Charlot Soup Bowl 38oz_main.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="Facebook_FooterSiteButton18x18.png" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="Facebook_HeaderSiteButton26x26.png" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="Frosted Sphere - 3in_main.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="Frosted Sphere - 4in_main.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="Frosted Sphere - 5in_main.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="Frosted Sphere - 6 in_main.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="Frosted Sphere_main.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="Google+_FooterSiteButton18x18.png" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="GooglePlus_FooterSiteButton18x18.png" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
@@ -46,9 +69,11 @@
       <file name="bhd-newsletter-signup-box.png" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="bhd-newsletter-signup-button.png" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="favicon.ico" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="glyphicons-halflings.png" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="logo_header.png" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="social-sprite.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="sprite.png" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="studio-a-wayne-headboard-ivory-M.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
     </folder>
     <folder name="js">
       <folder name="libs">
@@ -71,17 +96,23 @@
       <folder name="src">
         <folder name="app">
           <folder name="modules">
+            <folder name="Content">
+              <file name="Content.DataModels.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+            </folder>
             <folder name="ImageLoader">
               <file name="ImageLoader.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
             </folder>
           </folder>
+          <file name=".DS_Store" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
           <file name="Configuration.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
         </folder>
+        <file name=".DS_Store" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       </folder>
       <file name=".DS_Store" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="Application-014f3c746914.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="Application-014f51b18bda.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="Application-014f51fb11ef.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="Application-014f6b8bc991.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="Configuration.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="Facets.Views.Extended.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="ImageLoader.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
@@ -94,6 +125,8 @@
       <folder name="standard">
         <file name="Styles-014edbbddcbf.css" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
         <file name="Styles-014f4924898e.css" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="Styles-014f858a67c3.css" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+        <file name="Styles-014f858da4ab.css" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
         <file name="combiner.config" hideInBundle="false" isOnline="false" textFileEncoding="_utf8"/>
         <file name="current-css.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       </folder>
@@ -117,6 +150,13 @@
         <file name="footer_navigation.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
           <altTagCaption>macro</altTagCaption>
         </file>
+      </folder>
+      <folder name="globals">
+        <folder name="macros">
+          <file name="social_sharing_icons_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+            <altTagCaption>macro</altTagCaption>
+          </file>
+        </folder>
       </folder>
       <folder name="header">
         <folder name="macros">
@@ -228,6 +268,57 @@
         <file name="category_browse.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
           <altTagCaption>category_browse_tmpl</altTagCaption>
         </file>
+        <file name="category_cell_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="facet_browse.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>facet_browse_tmpl</altTagCaption>
+        </file>
+        <file name="facet_categories_list_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="facet_categories_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="facet_color_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="facet_list_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="facet_range_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="faceted_navigation_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="facets_display_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="item_cell_grid_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="item_cell_list_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="item_cell_option_color_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="item_cell_table_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="item_list_display_selector_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="item_list_show_selector_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="item_list_sort_selector_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
+        <file name="item_list_summary_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
+          <altTagCaption>macro</altTagCaption>
+        </file>
       </folder>
       <folder name="shopping_cart">
         <folder name="macros">
@@ -258,6 +349,7 @@
       <file name="Templates-014f4667a85f.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="Templates-014f51c68062.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="Templates-014f51f7113b.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+      <file name="Templates-014f855a27c3.js" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
       <file name="category_cell_macro.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8">
         <altTagCaption>macro</altTagCaption>
       </file>
@@ -368,9 +460,15 @@
     </folder>
     <file name="a.html" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
     <file name="about-us.html" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+    <file name="contact.html" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+    <file name="designer-signup.html" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+    <file name="designer-thanks.html" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
     <file name="index-dev.ssp" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
     <file name="index-local.ssp" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
     <file name="index.ssp" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+    <file name="policies-and-procedures.html" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
     <file name="robots.txt" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+    <file name="sc.environment.ssp" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
+    <file name="studio-a-wayne-headboard-ivory-M.jpg" hideInBundle="false" isOnline="true" textFileEncoding="_utf8"/>
   </folder>
 </project>

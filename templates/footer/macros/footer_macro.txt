@@ -160,37 +160,5 @@
 <div class="container copyright-container">
 	<div id="footer-copyright">Copyright 2015 Bliss Home and Design, All Rights Reserved</div>
 </div>
-<script type="text/javascript">
-	jQuery(document).ready( function() {
-		var mobileNavOpen = true;
-				
-			if ( jQuery(window).width() < 767 ) {
-				jQuery('ul.dropdown-menu').hide();
-				jQuery('li.dropdown>b.mobile-caret').on('click', function() {
-					var menuElement = jQuery('ul.dropdown-menu')[0];
-					var dropdown = jQuery(this).parent().find( menuElement );
-					if( dropdown.is(':hidden') ) {
-						dropdown.show();
-					}
-					else {
-						dropdown.hide();
-					}
-				});
-			}
-			jQuery('.mobile-nav-container').click(function() {
-					console.log('Mobile nav clicked');
-					
-					if(mobileNavOpen) {
-						mobileNavOpen = !mobileNavOpen;
-						jQuery('.site-header-main-nav').css("border-top", "1px solid #d8d9da");
-						jQuery('.site-header-main-nav').css("border-bottom", "1px solid #d8d9da");
-	    			}
-	    			else {
-	    				mobileNavOpen = !mobileNavOpen;
-	    				jQuery('.site-header-main-nav').css("border-top", "none");
-	    				jQuery('.site-header-main-nav').css("border-bottom", "none");
-	    			}
-	    	});
-	});
-</script>
+
 <% }) %>

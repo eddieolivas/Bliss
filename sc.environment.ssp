@@ -1,0 +1,139 @@
+<%
+	var	Environment
+	,	Language
+	,	Currency
+	,	SiteSettings
+	,	siteId
+	,	Content
+	,	DefaultPage
+	,	Merchandising
+	,	Error
+	, Categories;
+
+	try {
+
+		Environment = Application.getEnvironment(session, request);
+		SiteSettings = Application.getModel('SiteSettings').get();
+		siteId = SiteSettings.siteid;
+		Language = Environment.currentLanguage && Environment.currentLanguage.locale || '';
+		Currency = Environment.currentCurrency && Environment.currentCurrency.code || '';
+		Categories = Application.getModel('Category').get();
+
+		// Content depends on the instalation and inclusion of the
+		// ContentDeliverService provided as a separated boundle
+		// If you need to add more tags to the listURL function please consider
+		// moving this to the sc.user.environment.ssp (the current file is cached)
+		try
+		{
+			var content_tag = 'app:shopping';
+
+			if (Language)
+			{
+				content_tag += ',locale:' + Language.toLowerCase();
+			}
+
+			var content_model = Application.getModel('Content');
+
+			Content = content_model.listURL(siteId, content_tag);
+			DefaultPage = content_model.getDefault();
+		}
+		catch (e)
+		{
+			console.warn('Content Module not present in ShopFlow SSP');
+		}
+
+		if (typeof psg_dm !== 'undefined')
+		{
+			Merchandising = psg_dm.getMerchRule();
+		}
+		else
+		{
+			console.warn('Merchandising Module not present in ShopFlow SSP');
+		}
+
+		response.setCDNCacheable(response.CACHE_DURATION_MEDIUM);
+	}
+	catch (e)
+	{
+		response.setCDNCacheable(response.CACHE_DURATION_UNIQUE);
+		Error = Application.processError(e);
+	}
+
+	response.setContentType('JAVASCRIPT');
+
+%>
+
+<% if (Environment) { %>
+	// Server Environment Info
+	var env = <%= JSON.stringify(Environment) %>;
+	for (var i in env)
+	{
+		SC.ENVIRONMENT[i] = env[i];
+	}
+<% } %>
+
+<% if (SiteSettings) { %>
+	// Site Settings Info
+	SC.ENVIRONMENT.siteSettings = <%= JSON.stringify(SiteSettings) %>;
+<% } %>
+
+SC.DEFAULT_SESSION = {
+	currency: <%= JSON.stringify(_.find(SiteSettings.currencies, function(c) { return c.isdefault === 'T'; })) %>
+,	language: <%= JSON.stringify(_.find(SiteSettings.languages, function(l) { return l.isdefault === 'T'; })) %>
+,	priceLevel: <%= JSON.stringify(SiteSettings.defaultpricelevel) %>
+,	touchpoints: <%= JSON.stringify(SiteSettings.touchpoints) %>
+};
+
+
+SC.ENVIRONMENT.REVIEWS_CONFIG = {
+	enabled: <%= recordTypeExists('customrecord_ns_pr_review') %>
+};
+
+<% if (Content) { %>
+	// The Content
+	SC.ENVIRONMENT.CONTENT = <%= JSON.stringify(Content) %>;
+
+	<% if (DefaultPage) { %>
+		// The Default Page
+		SC.ENVIRONMENT.DEFAULT_PAGE = <%= JSON.stringify(DefaultPage) %>;
+	<% } %>
+<% } %>
+
+<% if (Merchandising) { %>
+	// Merchandising
+	SC.ENVIRONMENT.MERCHANDISING = <%= JSON.stringify(Merchandising, {}) %>;
+<% } %>
+
+<% if (Categories) { %>
+	SC.ENVIRONMENT.CATEGORIES = <%= JSON.stringify(Categories) %>;
+<% } %>
+
+// Touch Support
+// Checks if this is a touch enalbed device
+SC.ENVIRONMENT.isTouchEnabled = 'ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch;
+// Sets the class property of the html element
+// It is not checking if it was already set (be aware if the SEO engine)
+document.documentElement.className = SC.ENVIRONMENT.isTouchEnabled ? 'touch' : 'no-touch';
+
+<% if (Error) { %>
+	SC.ENVIRONMENT.contextError = <%= JSON.stringify(Error) %>;
+
+	if (!SC.ENVIRONMENT.baseUrl)
+	{
+		SC.ENVIRONMENT.baseUrl = '<%=  session.getAbsoluteUrl(request.getURL().indexOf('https:') === 0 ? 'checkout' : 'shopping', '/{{file}}') %>';
+	}
+<% } %>
+
+<% if (typeof(release_metadata) != 'undefined') { %>
+	SC.ENVIRONMENT.RELEASE_METADATA = <%= JSON.stringify(release_metadata) %>;
+<% } %>
+
+// Loads the application files, if you need to have a less agresive cacheing you can move them
+// to the sc.environment.ssp (Moderate cacheing) or to the sc.user.environment.ssp (No cache but less performant). Commented here by default.
+/*
+loadScript([
+	'<%= session.getAbsoluteUrl("shopping", 'js/libs/Libraries-014edbbdbca0.js') %>'
+,	'<%= session.getAbsoluteUrl("shopping", 'templates/Templates-014f855a27c3.js') %>'
+,	'<%= session.getAbsoluteUrl("shopping", 'js/Application-014f6b8bc991.js') %>'
+]);
+*/
