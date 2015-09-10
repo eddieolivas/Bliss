@@ -8,12 +8,21 @@
 		// Categories are not a real facet, so lets remove those
 	,	applied_facets = translator.cloneWithoutFacetId('category').facets
 	,	category = view.category
-	,	has_categories = category && category.categories;
+	,	has_categories = category || category.categories;
 %>
 <% if (has_categories) { %>
+<% 
+	var shop_title = '';
+	if(!category.categories) {
+		shop_title = model.changed.facets[3].values[0].values[0].url;
+	}
+	if(category.categories) {
+		shop_title = category.itemid;
+	} 
+%>
 <div class="well faceted-navigation">
 	<div class="well-header facet-list-header">
-		<%= _('Shop $(0)').translate(category.itemid) %>
+		<%= _('Shop $(0)').translate(shop_title) %>
 	</div>
 	<div class="well-body">
 		<div data-type="facet" data-facet-id="category"></div>

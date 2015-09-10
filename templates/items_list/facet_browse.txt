@@ -44,6 +44,7 @@
 
 	,	collapse_header = view.collapsable_elements['facet-header'].collapsed;
 %>
+
 <div data-cms-area="item_list_banner" data-cms-area-filters="page_type"></div>
 <div class="view-header" itemscope itemtype="http://schema.org/WebPage">
 	<%= breadcrumb(view.getBreadcrumb()) %>
@@ -56,7 +57,11 @@
 	</nav>
 	<section id="item-list-container" class="span10 item-list-container">
 		<meta itemprop="name" content="<%- view.getTitle() %>">
-		<div id="banner-section-top" class="content-banner banner-section-top" data-cms-area="item_list_banner_top" data-cms-area-filters="path"></div>
+		<% if ( window.location.href.indexOf("Get-The-Look-Products") > -1 || window.location.href.indexOf("Style-Library-Products") > -1 ) { %>
+			<div id="banner-section-top" class="content-banner banner-section-top"><img src="<%= view.category.storedisplayimage %>" alt="<%= view.category.itemid %>" /></div>
+		
+		<% } %>
+		<% if ( !(window.location.href.indexOf("Get-The-Look-Products") > -1) && !(window.location.href.indexOf("Style-Library-Products") > -1) ) { %>
 		<header>
 			<div class="facet-header <%= collapse_header ? 'well' : 'facet-header-white-well' %> row-fluid control-group" data-type="accordion">
 				<div class="header-row" data-action="accordion-header" >
@@ -86,7 +91,7 @@
 
 							<% if (items.length && facets.length) { %>
 								<!-- This button is only shown in mobile -->
-								<button class="visible-tablet btn pull-left narrow-by-btn" data-toggle="facet-navigation">
+								<button class="visible-tablet btn pull-left narrow-by-btn" data-toggle="facet-navigation" data-action="back-to-top">
 									<span><%= _('Narrow By').translate() %></span>
 									<i class="icon-chevron-right"></i>
 								</button>
@@ -99,7 +104,7 @@
 			<div class="row-fluid">
 				<% if (items.length && facets.length) { %>
 					<!-- This button is only shown in mobile -->
-					<button class="visible-phone btn narrow-by-btn" data-toggle="facet-navigation">
+					<button class="visible-phone btn narrow-by-btn" data-toggle="facet-navigation" data-action="back-to-top">
 						<span><%= _('Narrow By').translate() %></span>
 						<i class="icon-chevron-right"></i>
 					</button>
@@ -112,6 +117,8 @@
 
 			<%= facetsDisplayResults %>
 		</header>
+		<% } %>
+		
 		<!-- Item List -->
 		<div id="item-list" class="item-list">
 			<%

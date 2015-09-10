@@ -79,7 +79,7 @@
 		// flag for showing or not, "add to cart" button in facet views
 	,	addToCartFromFacetsView: false
 		// url for the not available image
-	,	imageNotAvailable: '' /* _.getAbsoluteUrl('img/no_image_available.jpeg') */
+	,	imageNotAvailable: _.getAbsoluteUrl('img/no_image_available.jpeg')
 		// default macros
 	,	macros: {
 			facet: 'facetList'
@@ -371,7 +371,7 @@
 				id: 'onlinecustomerprice'
 			,	name: _('Price').translate()
 			,	url: 'price'
-			,	priority: 0
+			,	priority: 7
 			,	behavior: 'range'
 			,	macro: 'facetRange'
 			,	uncollapsible: true
@@ -387,7 +387,7 @@
 					id: 'custitembeddingcolor'
 				,	name: _('Color').translate()
 				,	url: 'custitembeddingcolor'
-				,	priority: 10
+				,	priority: 8
 				,	behavior: 'multi'
 				,	macro: 'facetList'
 				,	uncollapsible: true
@@ -399,7 +399,7 @@
 					id: 'custitembeddingsize'
 				,	name: _('Size').translate()
 				,	url: 'custitembeddingsize'
-				,	priority: 10
+				,	priority: 9
 				,	behavior: 'multi'
 				,	macro: 'facetList'
 				,	uncollapsible: true

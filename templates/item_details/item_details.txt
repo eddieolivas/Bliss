@@ -157,11 +157,14 @@
 									<li><%= selling_point5 %></li>
 								<% } %>
 								</ul>
+								<br>
+								<div class="shipping_info"></div>
 							</div>
 						</div>
 					</div>
 					<% }) %>
 				</div>
+				
 				<div id="banner-content-bottom" class="content-banner banner-content-bottom"></div>
 			<% } %>
 			<div data-type="review-list-placeholder" data-itemid="<%= model.get('_id') %>" data-url="<%= model.get('urlcomponent') %>" data-order="useful_count:desc" data-title="<%= _('Ratings &amp; Reviews').translate() %>" data-subtitle="<%= _('Most Helpful Reviews').translate() %>"></div>
@@ -173,3 +176,43 @@
 	<div class="row-fluid" data-type="correlated-items-placeholder"></div>
 	<div id="banner-details-bottom" class="content-banner banner-details-bottom" data-cms-area="item_details_banner_bottom" data-cms-area-filters="page_type"></div>
 </div>
+
+<script type="text/javascript">	
+
+					var stock_status = '<%=model.get('stockstatusmessagehtml')%>';
+					var qty_available = '<%=model.get('quantityavailable') %>';
+					var drop_ship_item = '<%=model.get('isdropshipitem') %>';
+					var special_order_item = '<%=model.get('isspecialorderitem') %>';
+					var shipping_lead_time = '<%=model.get('custitemitemshippingleadtime') %>';
+
+					if (qty_available > 0) {
+						jQuery('.shipping_info').html("<div id=\"stockMessage\">In Stock. Ships in 1-2 days.<\/div>");
+
+					} else if (qty_available == 0) {
+						// Out of Stock
+						var next_available_ship_date = '<%=model.get('custitem3') %>';
+						if (next_available_ship_date.length > 0) {
+							// determine if the next_available_ship_date is > today
+							var date_array = next_available_ship_date.split('/');
+							var available_date = new Date(date_array[2], date_array[0], date_array[1]);
+							var today = new Date();
+							if (available_date > today) {
+								jQuery('.shipping_info').html("<div id=\"stockMessage\">Back Ordered. Expected availablility date: " + date_array[0] + "/" + date_array[1] + "/" + date_array[2] + ". Place your order today to receive this item when it next becomes available<\/div>");
+							} else {
+
+							}
+
+	
+						} else {
+							if (shipping_lead_time.length > 0) {
+								jQuery('.shipping_info').html("<div id=\"stockMessage\">Expected to ship in&nbsp;<%=model.get('custitemitemshippingleadtime')%> from order date.<\/div>");
+
+							} else {
+
+							}
+
+						
+						}
+
+					}
+				</script> 

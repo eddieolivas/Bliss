@@ -45,7 +45,20 @@
 			<% is_active = _.contains(selected, filter.url); %>
 			<li class="<%= is_active ? 'active' : '' %>">
 				<h4>
-					<a href="<%= translator.cloneForFacetId(facet.id, filter.url).getUrl() %>" title="<%= filter.label %>">
+					<% 
+						var facetValue = translator.facets[0].value;
+						var url = '';
+						var sub_cat = facetValue.indexOf("/") > -1 ? true : false;
+					    if( sub_cat ) {
+					    	facetValue = facetValue.substr(0, facetValue.indexOf("/"));
+					    	url = "/" + facetValue + "/" + filter.url;
+					    	
+					    }
+					    else {
+					    	url = translator.cloneForFacetId(facet.id, filter.url).getUrl();
+					    }
+					%>
+					<a href="<%= url %>" title="<%= filter.label %>">
 						<% if (config.behavior === 'multi') { %>
 							<i class="<%= is_active ? 'icon-ok' : 'icon-plus' %>"></i>
 						<% } %>

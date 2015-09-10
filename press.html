@@ -1,0 +1,374 @@
+<script type="text/javascript" src="/site/Bliss_home/scripts/cycle/jquery.cycle.all.js"></script>
+
+<script type="text/javascript">
+
+// redefine Cycle's updateActivePagerLink function 
+//jQuery.fn.cycle.updateActivePagerLink = function(pager, currSlideIndex) { 
+//    jQuery(pager).find('#cycleBannerTabs ul li a').removeClass('activeLI') 
+//        .filter('li a:eq('+currSlideIndex+')').addClass('activeLI'); 
+//}; 
+
+jQuery(document).ready(function() {
+    //jQuery('.slideshow').cycle({
+	jQuery('.slideshow')
+	.after('<div id="cycleNav"><a id="prev" href="#"><img src="/site/Bliss_home/cycle-prev.png" width="9" height="12" border="0"></a><a id="next" href="#"><img src="/site/Bliss_home/cycle-next.png" width="9" height="12" border="0"></a>')
+	.cycle({
+		fx:      'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+		pager: '#cycleNav',
+		next: '#next',
+		prev: '#prev',
+		timeout: 7500 //3000,
+		//timeout: 3000 //3000,
+		//after:   onAfter -THIS WAS USED IN THE LIVE VERSION
+		//pager: '#cycleNav',
+	    //pagerAnchorBuilder: function(idx, slide) { 
+    	    // return selector string for existing anchor 
+        //	return '#cycleNav li:eq(' + idx + ') a'; 
+    	//	} 
+		//pager: '#cycleBannerTabs ul li'
+	});
+});
+
+function cycleLink_1_click(){
+    jQuery('.slideshow').cycle(0);  
+    return false; 
+}
+function cycleLink_2_click(){
+    jQuery('.slideshow').cycle(1);  
+    return false; 
+}
+function cycleLink_3_click(){
+    jQuery('.slideshow').cycle(2);  
+    return false; 
+}
+function cycleLink_4_click(){
+    jQuery('.slideshow').cycle(3);  
+    return false; 
+}
+
+function onAfter(curr,next,opts) {	
+	var mySelector = '#banner_text_' + (opts.currSlide + 1) + 'text_item a';
+
+	switch(opts.currSlide)
+	{
+	case 0:
+	  jQuery('#banner_text_1.text_item a').css({'color': '#94bfbb'});
+	  jQuery('#banner_text_2.text_item a').css({'color': '#7f8184'});
+	  jQuery('#banner_text_3.text_item a').css({'color': '#7f8184'});
+	  jQuery('#banner_text_4.text_item a').css({'color': '#7f8184'});
+	  break;
+	case 1:
+	  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+	  jQuery('#banner_text_2.text_item a').css({'color': '#94bfbb'});
+	  jQuery('#banner_text_3.text_item a').css({'color': '#7f8184'});
+	  jQuery('#banner_text_4.text_item a').css({'color': '#7f8184'});
+	  break;
+	case 2:
+	  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+	  jQuery('#banner_text_2.text_item a').css({'color': '#7f8184'});
+	  jQuery('#banner_text_3.text_item a').css({'color': '#94bfbb'});
+	  jQuery('#banner_text_4.text_item a').css({'color': '#7f8184'});
+	  break;
+	case 3:
+	  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+	  jQuery('#banner_text_2.text_item a').css({'color': '#7f8184'});
+	  jQuery('#banner_text_3.text_item a').css({'color': '#7f8184'});
+	  jQuery('#banner_text_4.text_item a').css({'color': '#94bfbb'});
+	  break;
+	default:
+	}
+}
+</script>
+
+<style type="text/css">
+#cycleNav { float:right; padding:46px 46px 0 0;}
+#cycleNav a { color:#AFAFAF; text-decoration: none; padding: 3px 5px; font-family: Times New Roman; font-size:12px; }
+#cycleNav a.activeSlide { color:#A6C6C7; }
+#cycleNav a:focus { outline: none; }
+#cycleNav a:hover { color:#A6C6C7; }
+#prev { position: relative; left:23; top:2;}
+#next { position: relative; left:78; top:2;}
+
+</style>
+
+<!--product slider definitions -->
+<script type="text/javascript" src="/site/Bliss_home/scripts/jcarousel/lib/jquery.jcarousel.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.blisshomeanddesign.com/site/Bliss_home/scripts/jcarousel/skins/tango/skin.css">
+<section class="left-nav-section">
+	<div class="left-nav">
+		<div class="left-nav-heading">BY CATEGORY:</div>
+			<ul>
+				<li>
+					<a href="/FURNITURE/">Furniture</a>
+				</li>
+				<li>
+					<a href="/LIGHTING/">Lighting</a>
+				</li>
+				<li>
+					<a href="/ACCESSORIES/">Accessories</a>
+				</li>
+				<li>
+					<a href="/DECOR/">D&eacute;cor</a>
+				</li>
+				<li>
+					<a href="/BEDDING/">Bedding</a>
+				</li>
+				<li>
+					<a href="/SPA/">Spa</a>
+				</li>
+				<li>
+					<a href="/KITCHEN-AND-DINING/">Kitchen and Dining</a>
+				</li>
+				<li>
+					<a href="/BABY/">Baby</a>
+				</li>
+			</ul>
+		</div>
+	
+	<div id="left_nav_divider">
+		<img class="left_nav_divider_img" src="/site/Bliss_home/left-nav-divider.png" height="1" border="0">
+	</div>
+	
+	<div class="left-nav">
+		<div class="left-nav-heading">FEATURED:</div>
+			<ul>
+				<li>
+	                 <a href="/NEW-ARRIVALS/">New Arrivals</a>
+				</li>
+				<li>
+	                 <a href="/STYLE-LIBRARY/">Style Library</a>
+				</li>
+	            <li>
+					<a href="http://blog.blisshomeanddesign.com/" target="_blank">Bliss By Design Blog</a>
+				</li>
+				<li>
+					<a href="/get-the-look"_blank">Get the Look</a>
+				</li>
+				<li>
+					<a href="/ACCESSORIES/Gifts/">Gifting</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/SHOP-BY-BRAND/">Brands</a>
+				</li>
+			</ul>
+	</div>
+	
+	<div id="left_nav_divider">
+		<img class="left_nav_divider_img" src="/site/Bliss_home/left-nav-divider.png" height="1" border="0">
+	</div>
+	
+	<div class="left-nav">
+		<div class="left-nav-heading">BY ROOM:</div>
+			<ul>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/SHOP-BY-ROOM/Shop-Bedroom/">Bedroom</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/SHOP-BY-ROOM/Shop-Living-Room/">Living Room</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/KITCHEN-AND-DINING/">Kitchen/Dining</a>
+				</li>
+				<li>
+					<a href="http://staging.blisshomeanddesign.com/SHOP-BY-ROOM/Shop-Bathroom/">Bathroom</a>
+				</li>
+	            <li>
+			    	<a href="http://staging.blisshomeanddesign.com/SHOP-BY-ROOM/Outdoor_3/">Outdoors</a>
+	            </li>
+		</div>
+	
+	<div id="left_nav_divider">
+		<img class="left_nav_divider_img" src="/site/Bliss_home/left-nav-divider.png" height="1" border="0">
+	</div>
+	
+	<div class="left-nav">
+		<div class="left-nav-heading">ARTISANS:</div>
+			<ul>
+				<li>
+					<a href="http://www.blisshomeanddesign.com/Artisans/Nate-Ricketts_2.html">Nate Rickets</a>
+				</li>
+							<li>
+					<a href="http://www.blisshomeanddesign.com/Artisans/Natural-Curiosities_3.html">Natural Curiosities</a>
+				</li>
+				<li>
+					<a href="http://www.blisshomeanddesign.com/Artisans/Jamie-Dietrich.html">Jamie Dietrich</a>
+				</li>
+				<li>
+					<a href="http://www.blisshomeanddesign.com/Artisans/">More...</a>
+				</li>
+			</ul>
+		</div>
+</section>
+<section class="home_slider">
+	<script type="text/javascript" src="/site/Bliss_home/scripts/cycle/jquery.cycle.all.js"></script>
+	<script type="text/javascript">
+	
+		jQuery(document).ready(function() {
+		    //$('.slideshow').cycle({
+			jQuery('.slideshow')
+			.after('<div id="cycleNav" style="padding: 46px 0 0 0;"><a id="prev" href="#"><img src="/site/Bliss_home/cycle-prev.png" width="9" height="12" border="0"></a><a id="next" href="#"><img src="/site/Bliss_home/cycle-next.png" width="9" height="12" border="0"></a>')
+			.cycle({
+				fx:      'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+				pager: '#cycleNav',
+				next: '#next',
+				prev: '#prev',
+				timeout: 4500 //3000,
+				//timeout: 3000 //3000,
+				//after:   onAfter -THIS WAS USED IN THE LIVE VERSION
+				//pager: '#cycleNav',
+			    //pagerAnchorBuilder: function(idx, slide) { 
+		    	    // return selector string for existing anchor 
+		        //	return '#cycleNav li:eq(' + idx + ') a'; 
+		    	//	} 
+				//pager: '#cycleBannerTabs ul li'
+			});
+		});
+		
+		function cycleLink_1_click(){
+		    jQuery('.slideshow').cycle(0);  
+		    return false; 
+		}
+		function cycleLink_2_click(){
+		    jQuery('.slideshow').cycle(1);  
+		    return false; 
+		}
+		function cycleLink_3_click(){
+		    jQuery('.slideshow').cycle(2);  
+		    return false; 
+		}
+		function cycleLink_4_click(){
+		    jQuery('.slideshow').cycle(3);  
+		    return false; 
+		}
+		function cycleLink_5_click(){
+		    jQuery('.slideshow').cycle(4);  
+		    return false; 
+		}
+		function cycleLink_6_click(){
+		    jQuery('.slideshow').cycle(5);  
+		    return false; 
+		}
+		function cycleLink_7_click(){
+		    jQuery('.slideshow').cycle(6);  
+		    return false; 
+		}
+		
+		function onAfter(curr,next,opts) {	
+			var mySelector = '#banner_text_' + (opts.currSlide + 1) + 'text_item a';
+			
+			switch(opts.currSlide)
+			{
+			case 0:
+			  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_2.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_3.text_item a').css({'color': '#94bfbb'});
+			  jQuery('#banner_text_4.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_5.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_6.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_7.text_item a').css({'color': '#7f8184'});
+			  break;
+			case 1:
+			  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_2.text_item a').css({'color': '#94bfbb'});
+			  jQuery('#banner_text_3.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_4.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_5.text_item a').css({'color': '#7f8184'});
+			  break;
+			case 2:
+			  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_2.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_3.text_item a').css({'color': '#94bfbb'});
+			  jQuery('#banner_text_4.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_5.text_item a').css({'color': '#7f8184'});
+			  break;
+			case 3:
+			  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_2.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_3.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_4.text_item a').css({'color': '#94bfbb'});
+			  jQuery('#banner_text_5.text_item a').css({'color': '#7f8184'});
+			  break;
+			case 4:
+			  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_2.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_3.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_4.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_5.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_6.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_7.text_item a').css({'color': '#94bfbb'});
+			  break;
+		
+			// new
+			case 5:
+			  jQuery('#banner_text_1.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_2.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_3.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_4.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_5.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_6.text_item a').css({'color': '#7f8184'});
+			  jQuery('#banner_text_7.text_item a').css({'color': '#94bfbb'});
+			  break;
+		
+			default:
+			}
+		}
+		</script>
+		
+		
+		<!-- mobilyslider -->
+		<link href="/site/Bliss_home/scripts/mobilyslider/css/default.css" rel="stylesheet" type="text/css" />
+		<script src="/site/Bliss_home/scripts/mobilyslider/js/mobilyslider.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+		jQuery(document).ready(function() {
+			jQuery('.slider1').mobilyslider({
+				animationSpeed: 500,
+				autoplay: true,
+				autoplaySpeed: 5500,
+				pauseOnHover: true
+			});
+		});
+	</script>
+	
+	<div class="slider slider1" style="border: none;">
+		<div class="sliderContent">
+			<div class="item desktop-item">
+				<a href="/ACCESSORIES/Outdoor/"><img src="http://blissstudio.com/site/Bliss_home/press/pregnancy-and-newborns-banner.jpg" alt="pregnancy and newborns"/></a>
+			</div>
+			<div class="item desktop-item">
+				<a href="/STYLE-LIBRARY/Designer-Series-Gilded-Mirrors/"><img src="http://blissstudio.com/site/Bliss_home/press/Coast-Magazine-201404-banner.jpg" alt="" "/></a>
+			</div>
+			<div class="item desktop-item">
+				<a href="/New-Arrivals-Studio-A/"><img src="http://blissstudio.com/site/Bliss_home/press/Southern-Living-201310-Banner.jpg" alt=""/></a>
+			</div>
+			<div class="item desktop-item">
+				<a href="/STYLE-LIBRARY/Most-Wanted-July/"><img src="http://blissstudio.com/site/Bliss_home/press/House-Beautiful-201307-Banner.jpg" alt="" /></a>
+			</div>
+			<div class="item mobile-item">
+				<a href="/ACCESSORIES/Outdoor/"><img src="http://blissstudio.com/site/Bliss_home/press/pregnancy-and-newborns-banner.jpg" alt="pregnancy and newborns"/></a>
+			</div>
+			<div class="item mobile-item">
+				<a href="/STYLE-LIBRARY/Designer-Series-Gilded-Mirrors/"><img src="http://blissstudio.com/site/Bliss_home/press/Coast-Magazine-201404-banner.jpg" alt="" "/></a>
+			</div>
+			<div class="item mobile-item">
+				<a href="/New-Arrivals-Studio-A/"><img src="http://blissstudio.com/site/Bliss_home/press/Southern-Living-201310-Banner.jpg" alt=""/></a>
+			</div>
+			<div class="item mobile-item">
+				<a href="/STYLE-LIBRARY/Most-Wanted-July/"><img src="http://blissstudio.com/site/Bliss_home/press/House-Beautiful-201307-Banner.jpg" alt="" /></a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Press Contact Section -->
+	<div>
+		<div style="width:100%; float:left;">
+			<div style="float:left; padding:10px 0 0 0; width:100%;">
+				<div style="color:#A6C6C7; float:left; font-family:Times New Roman; font-size:16px; font-weight:bold; padding:10px 0 0 0;">Press Contact</div>
+			</div>
+			<div style="color:#A8A8A8; float:left; padding:15px 0 0 40px; width:100%;">
+				<div style="color:#A8A8A8; float:left; font-size:14px;">For press inquiries, please email&nbsp;</div>				
+<a style="color:#A8A8A8; float:left; font-size:14px; text-decoration:underline;" href="mailto:marketing@blisshomeanddesign.com">marketing@blisshomeanddesign.com</a>. 
+			</div>
+		</div>
+	</div>
+</section>

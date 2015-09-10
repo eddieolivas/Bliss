@@ -19,7 +19,11 @@
 		</div>
 	</nav>
 	<section id="category-list-container" class="span10 category-list-container">
-		<div id="banner-section-top" class="content-banner banner-section-top"><img src="<%= view.category.storedisplayimage || '' %>" alt="<%= view.category.itemid %>" /></div>
+	<% if ( view.category.storedisplayimage != '' ) { %>
+		<div id="banner-section-top" class="content-banner banner-section-top"><img src="<%= view.category.storedisplayimage %>" alt="<%= view.category.itemid %>" /></div>
+		
+	<% } %>
+	<% console.log(view.category.storedisplayimage) %>
 		<% _.each(view.facets, function(facet){ %>
 			<% if (view.facets.length > 1) { %>
 			<div class="category-list-header">
